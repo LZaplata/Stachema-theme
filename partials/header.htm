@@ -1,0 +1,57 @@
+<header>
+    <div class="top container-fluid position-relative py-2 border-1 border-bottom border-blue-darker border-opacity-07 d-none d-lg-flex">
+        <div class="container-lg d-flex justify-content-between align-items-center">
+            {% if this.theme.youtube %}
+                <div class="d-flex align-items-center">
+                    <img src="{{ 'assets/images/icons/youtube.svg'|theme }}" alt="youtube" class="me-1">
+
+                    <a href="{{ this.theme.youtube }}" target="_blank" class="text-decoration-none-w-hover text-blue-darker opacity-55 fs-13 text-decoration-underline-hover opacity-100-hover text-blue-hover transition">
+                        YouTube kanál Stachema
+                    </a>
+                </div>
+            {% endif %}
+
+            <div>
+                {% component "topmenu" %}
+            </div>
+        </div>
+    </div>
+
+    <div class="middle container-fluid py-3">
+        <div class="container-lg">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="">
+                    <a href="{{ 'homepage'|page }}" class="bg-blue bg-blue-darker-hover transition mi-logo"></a>
+                </div>
+
+                <div class="search d-none d-sm-flex w-100 mx-5">
+                    <form action="{{ 'search'|page }}" method="get" class="position-relative w-100">
+                        <input name="q" type="text" placeholder="Napište, co hledáte…" autocomplete="off" class="form-control w-100">
+
+                        <button type="submit" class="btn btn-blue-dark position-absolute end-0 me-2 d-inline-flex align-items-center px-3">
+                            <img src="{{ 'assets/images/icons/magnifying-glass.svg'|theme }}" alt="magnifying glass">
+                        </button>
+                    </form>
+                </div>
+
+                <div class="d-none d-lg-block">
+                    <a href="{{ 'kontakty'|page }}" class="btn btn-gray d-inline-flex align-items-center text-nowrap">
+                        <img src="{{ 'assets/images/icons/phone.svg'|theme }}" alt="phone" class="me-2">
+
+                        Technická podpora
+                    </a>
+                </div>
+
+                <div class="text-end d-lg-none">
+                    <a href="#offcanvas" data-bs-toggle="offcanvas" class="bg-blue-darker mi-hamburger"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom container-fluid py-3 border-1 border-top border-blue-darker border-opacity-07 d-none d-lg-flex">
+        <div class="container-lg">
+            {% component "mainmenu" %}
+        </div>
+    </div>
+</header>

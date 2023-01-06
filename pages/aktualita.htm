@@ -1,0 +1,9 @@
+title = "Aktualita"
+layout = "default"
+url = "/aktualita/:slug"
+
+[blogPost post]
+slug = "{{ :slug }}"
+categoryPage = "homepage"
+==
+{% component "post" %}

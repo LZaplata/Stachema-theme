@@ -1,0 +1,16 @@
+{% set first_post = __SELF__.posts.first %}
+{% set other_posts = __SELF__.posts.skip(1).all() %}
+
+<div class="posts row row-cols-1 gy-5 gx-4 row-cols-xl-2 gx-xxl-5">
+    <div class="col">
+        {% partial "posts/lg" post=first_post %}
+    </div>
+
+    <div class="col">
+        <div class="row row-cols-1 gy-5 gx-4 row-cols-sm-2 gx-xxl-5">
+            {% for post in other_posts %}
+                {% partial "posts/sm" post=post %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

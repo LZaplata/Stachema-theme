@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto:ital@0;1&display=swap');
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$enable-negative-margins:       true;
+
+$theme-colors: (
+    "black":                    #000000,
+    "white":                    #ffffff,
+    "blue":                     #007db8,
+    "blue-dark":                #15428f,
+    "blue-darker":              #09285d,
+    "gray-light":               #f8fafc,
+    "gray":                     #eef0f4,
+    "gray-dark":                #e0dfe4,
+    "green":                    #1fbf8e,
+    "red":                      #e60948,
+    "violet":                   #a769ce,
+);
+
+$font-sizes: (
+    11:                         .6875rem,
+    12:                         .75rem,
+    13:                         .8125rem,
+    15:                         .9375rem,
+    16:                         1rem,
+    17:                         1.0625rem,
+    20:                         1.25rem,
+    22:                         1.375rem,
+    32:                         2rem,
+    56:                         3.5rem,
+);
+
+$font-weights: (
+    "regular":                  400,
+    "medium":                   500,
+    "semibold":                 600,
+    "bold":                     700,
+);
+
+$letter-spacings: (
+    "n05":                      -.5px,
+    "n04":                      -.4px,
+    "n03":                      -.3px,
+    "n02":                      -.2px,
+    "1":                        1px,
+);
+
+$line-heights: (
+    19:                         1.1875rem,
+    24:                         1.5rem,
+    30:                         1.875rem,
+);
+
+$spacer:                        1rem;
+$spacers: (
+    0:                          0,
+    1:                          $spacer * .25,
+    2:                          $spacer * .5,
+    3:                          $spacer,
+    4:                          $spacer * 1.5,
+    5:                          $spacer * 3,
+    32:                         32px,
+    50:                         40px,
+//    100:                        100px,
+);
+
+$link-decoration:               underline;
+$link-color:                    map-get($theme-colors, "blue");
+$link-hover-color:              map-get($theme-colors, "blue-dark");
+
+$font-family-inter:             "Inter", sans-serif;
+$font-family-roboto:            "Roboto", sans-serif;
+$font-family-base:              $font-family-inter;
+$font-size-base:                map-get($font-sizes, 15);
+$font-weight-base:              map-get($font-weights, "regular");
+$font-weight-bold:              map-get($font-weights, "semibold");
+
+$headings-font-family:          $font-family-inter;
+$headings-color:                map-get($theme-colors, "blue-dark");
+$headings-font-weight:          map-get($font-weights, "semibold");
+
+$h1-font-size:                  map-get($font-sizes, 56);
+$h2-font-size:                  map-get($font-sizes, 32);
+$h3-font-size:                  map-get($font-sizes, 22);
+
+$body-color:                    map-get($theme-colors, "blue-darker");
+
+$btn-font-size:                 map-get($font-sizes, 13);
+$btn-border-radius:             24px;
+$btn-font-weight:               map-get($font-weights, "regular");
+$btn-focus-width:               0;
+$btn-border-width:              1px;
+$btn-padding-x:                 20px;
+$btn-padding-y:                 16px;
+$btn-line-height:               1;
+$btn-font-size-lg:              map-get($font-sizes, 15);
+$btn-border-radius-lg:          28px;
+$btn-padding-x-lg:              16px;
+$btn-padding-y-lg:              28px;
+
+$btn-close-focus-shadow:        none;
+
+$nav-link-color:                map-get($theme-colors, "blue-darker");
+$nav-link-hover-color:          map-get($theme-colors, "blue");
+$nav-link-font-size:            map-get($font-sizes, 15);
+$nav-link-font-weight:          map-get($font-weights, "regular");
+$nav-link-padding-x:            0;
+$nav-link-padding-y:            0;
+
+$offcanvas-bg-color:            map-get($theme-colors, "white");
+$offcanvas-color:               map-get($theme-colors, "blue-darker");
+
+//$form-label-font-size:          map-get($font-sizes, 13);
+//$form-label-color:              map-get($theme-colors, "black-light");
+//$form-label-font-weight:        map-get($font-weights, "medium");
+//$form-feedback-font-size:       map-get($font-sizes, 11);
+//$form-feedback-invalid-color:   map-get($theme-colors, "red");
+//$form-feedback-valid-color:     map-get($theme-colors, "green");
+//$form-feedback-icon-invalid:    url("../images/icons/x-circle.svg");
+//$form-feedback-icon-valid:      url("../images/icons/check-circle.svg");
+//$form-feedback-margin-top:      .5rem;
+//$form-check-input-focus-box-shadow: none;
+
+$input-font-size:                   map-get($font-sizes, 13);
+$input-border-color:                transparent;
+$input-border-radius:               24px;
+$input-padding-x:                   20px;
+$input-padding-y:                   16px;
+$input-focus-border-color:          $input-border-color;
+$input-focus-box-shadow:            none;
+$input-bg:                          map-get($theme-colors, "gray");
+$input-color:                       map-get($theme-colors, "blue-darker");
+$input-placeholder-color:           transparentize($input-color, .65);
+$input-line-height:                 1;
+
+$box-shadow-sm:                     0 2px 8px 0 rgba(5, 23, 55, 0.25);
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "~bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+$utilities:
+(
+    "font-size": (
+        property: font-size,
+        class: fs,
+        values: $font-sizes,
+        rfs: true,
+    ),
+    "font-size-static": (
+        property: font-size,
+        class: fss,
+        values: $font-sizes,
+    ),
+    "font-weight": (
+        property: font-weight,
+        class: fw,
+        values: $font-weights,
+    ),
+    "font-family": (
+        property: font-family,
+        class: ff,
+        values: (
+            "inter": $font-family-inter,
+            "roboto": $font-family-roboto,
+        ),
+    ),
+    "letter-spacing": (
+        property: letter-spacing,
+        class: ls,
+        values: $letter-spacings,
+    ),
+    "line-height": (
+        property: line-height,
+        class: lh,
+        values: $line-heights,
+        rfs: true,
+    ),
+    "line-height-static": (
+        property: line-height,
+        class: lhs,
+        values: $line-heights,
+    ),
+    "background-color-hover": (
+        property: background-color,
+        class: bg,
+        values: map-loop($theme-colors, rgba-css-var, "$key", "bg"),
+        local-vars: (
+            bg-opacity: 1,
+        ),
+        state: hover,
+    ),
+    "color-hover": (
+        property: color,
+        class: text,
+        values: $theme-colors,
+        state: hover,
+    ),
+    "height": (
+        property: height,
+        class: h,
+        values: (
+            25: 25%,
+            50: 50%,
+            75: 75%,
+            100: 100%,
+            auto: auto
+        ),
+        responsive: true,
+    ),
+    "width": (
+        property: width,
+        class: w,
+        values: (
+            25: 25%,
+            50: 50%,
+            75: 75%,
+            100: 100%,
+            auto: auto
+        ),
+        responsive: true,
+    ),
+    "object-fit": (
+        property: object-fit,
+        class: of,
+        values: (
+            cover: cover,
+            contain: contain,
+            none: none,
+        ),
+        responsive: true,
+    ),
+    "transition": (
+        property: transition,
+        class: transition,
+        values: (
+            null: all var(--bs-transition-duration) var(--bs-transition-function)
+        ),
+        local-vars: (
+            transition-property: all,
+            transition-duration: .2s,
+            transition-function: ease-in-out
+        ),
+    ),
+    "opacity": (
+        property: opacity,
+        values: (
+            0: 0,
+            10: .1,
+            25: .25,
+            50: .5,
+            55: .55,
+            75: .75,
+            100: 1,
+        ),
+    ),
+    "opacity-hover": (
+        property: opacity,
+        values: (
+            0: 0,
+            25: .25,
+            50: .5,
+            65: .65,
+            75: .75,
+            100: 1,
+        ),
+        state: hover,
+    ),
+    "border-opacity": (
+        css-var: true,
+        class: border-opacity,
+        values: (
+            "07": .07,
+            10: .1,
+            25: .25,
+            50: .5,
+            75: .75,
+            100: 1
+        )
+    ),
+    "bg-opacity": (
+        css-var: true,
+        class: bg-opacity,
+        values: (
+            10: .1,
+            25: .25,
+            50: .5,
+            55: .55,
+            75: .75,
+            100: 1,
+        )
+    ),
+);
+
+// 5. Include remainder of required parts
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/helpers";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/offcanvas";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/transitions";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "~bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here
+:root {
+    @each $size, $value in $font-sizes {
+        --#{$prefix}font-size-#{$size}: #{$value};
+    }
+
+    @each $weight, $value in $font-weights {
+        --#{$prefix}font-weight-#{$weight}: #{$value};
+    }
+
+    @each $color, $value in $theme-colors {
+        --#{$prefix}#{$color}: #{$value};
+    }
+};

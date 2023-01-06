@@ -1,0 +1,45 @@
+<div class="offcanvas offcanvas-end" id="offcanvas">
+    <div class="h-100 d-flex flex-column">
+        <div class="container-fluid py-3 shadow-sm">
+            <div class="container-lg">
+                <div class="row row-cols-2 align-items-center">
+                    <div class="col d-flex">
+                        <a href="{{ 'homepage'|page }}" class="bg-blue mi-logo"></a>
+                    </div>
+
+                    <div class="col d-flex justify-content-end">
+                        <a href="#offcanvas-search" data-bs-toggle="offcanvas" class="bg-blue-darker mi-magnifying-glass"></a>
+
+                        <a href="#offcanvas" data-bs-dismiss="offcanvas" class="bg-blue-darker mi-close ms-3"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid h-100 d-flex align-items-center">
+            <div class="container-lg">
+                {% component "offcanvasmenu" %}
+            </div>
+        </div>
+
+        <div class="container-fluid mt-auto">
+            <div class="container-lg">
+                <a href="{{ 'kontakty'|page }}" class="btn btn-gray d-inline-flex align-items-center text-nowrap w-100 justify-content-center">
+                    <img src="{{ 'assets/images/icons/phone.svg'|theme }}" alt="phone" class="me-2">
+
+                    Technická podpora
+                </a>
+            </div>
+        </div>
+
+        <div class="container-fluid py-32">
+            <div class="container-lg">
+                {% if this.theme.youtube %}
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a href="{{ this.theme.youtube }}" target="_blank" class="mi-youtube mi-32 bg-blue-darker opacity-55"></a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

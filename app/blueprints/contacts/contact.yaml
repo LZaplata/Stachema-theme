@@ -1,0 +1,36 @@
+uuid: b7a564c9-9c52-4520-8fbf-64f64caaedaf
+handle: Contacts\Contact
+type: structure
+name: Kontakty
+drafts: false
+showImport: false
+showExport: false
+
+structure:
+    maxDepth: 1
+
+navigation:
+    icon: icon-phone
+    parent: Contacts\Category
+    order: 20
+    label: Kontakty
+
+fields:
+    job:
+        label: Pozice
+        type: text
+        span: left
+    phone:
+        label: Telefon
+        type: text
+        span: left
+    email:
+        label: E-mail
+        type: text
+        span: right
+        validation: email
+    category:
+        label: Kategorie
+        type: entries
+        source: Contacts\Category
+        span: left

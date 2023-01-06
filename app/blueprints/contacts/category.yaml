@@ -1,0 +1,67 @@
+uuid: de857778-7191-4bd0-84da-f11868b93fc1
+handle: Contacts\Category
+type: structure
+name: Kategorie
+drafts: false
+showImport: false
+showExport: false
+
+structure:
+    maxDepth: 1
+
+primaryNavigation:
+    label: Kontakty
+    icon: icon-address-book-o
+    order: 150
+
+navigation:
+    icon: icon-sitemap
+    parent: Contacts\Category
+    order: 10
+    label: Kategorie
+
+fields:
+    name:
+        label: Název
+        type: text
+        span: left
+    street:
+        label: Ulice
+        type: text
+        span: left
+    street_no:
+        label: Číslo poštovné
+        type: text
+        span: right
+    zip:
+        label: PSČ
+        type: text
+        span: left
+    city:
+        label: Město
+        type: text
+        span: right
+    map_link:
+        label: Odkaz na mapu
+        type: text
+        span: left
+        column: false
+    phone:
+        label: Telefon
+        type: text
+        span: left
+    fax:
+        label: Fax
+        type: text
+        span: right
+    email:
+        label: E-mail
+        type: text
+        span: left
+        validation: email
+    homepage:
+        label: Zobrazit na homepage
+        type: switch
+        span: left
+        default: false
+        column: false

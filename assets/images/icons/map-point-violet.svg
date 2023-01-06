@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="20"
+   height="27"
+   viewBox="0 0 20 27"
+   version="1.1"
+   id="svg1852"
+   sodipodi:docname="map-point-violet.svg"
+   inkscape:version="1.2 (dc2aeda, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1856" />
+  <sodipodi:namedview
+     id="namedview1854"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="28.777778"
+     inkscape:cx="10.007722"
+     inkscape:cy="13.5"
+     inkscape:window-width="1680"
+     inkscape:window-height="997"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1850" />
+  <g
+     fill="none"
+     fill-rule="evenodd"
+     id="g1850">
+    <path
+       fill="#00A2EE"
+       d="M14.096 0H5.873L0 5.873v8.223L9.985 26.9l9.867-12.804V5.873z"
+       id="path1846"
+       style="fill:#a769ce;fill-opacity:1" />
+    <path
+       fill="#FFF"
+       d="M11.94 4.99H7.912L5.226 7.827v3.88l2.686 2.834h4.028l2.686-2.835v-3.88z"
+       id="path1848" />
+  </g>
+</svg>

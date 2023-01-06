@@ -1,0 +1,180 @@
+url = "/"
+layout = "default"
+title = "Úvod"
+
+[collection slides]
+handle = "Slider\Slide"
+
+[categories categorieshp]
+page = "produkty"
+
+[collection contacts_categories]
+handle = "Contacts\Category"
+
+[collection merchandise_places]
+handle = "Merchandise\Place"
+
+[collection videos]
+handle = "Videos\Video"
+
+[blogPosts postshp]
+pageNumber = "{{ :page }}"
+categoryFilter = "aktuality"
+postsPerPage = 5
+noPostsMessage = "Nenalezeny žádné příspěvky"
+sortOrder = "published_at desc"
+categoryPage = "homepage"
+postPage = "aktualita"
+==
+{% if slides.getIterator().count %}
+    <div class="swiper slider-swiper">
+        <div class="swiper-wrapper">
+            {% for slide in slides %}
+                <div class="swiper-slide">
+                    <picture>
+                        <source media="(min-width:768px)" srcset="{{ slide.image_lg.thumb(1920, 550, {"mode": "crop"}) }}">
+
+                        <img src="{{ slide.image_sm.thumb(640, 640, {"mode": "crop"}) }}" alt="{{ slide.image_sm.description }}" class="img-fluid">
+                    </picture>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="swiper-button-next rounded-circle transition">
+            <span></span>
+        </div>
+
+        <div class="swiper-button-prev rounded-circle transition">
+            <span></span>
+        </div>
+    </div>
+{% endif %}
+
+<div class="container-fluid py-5 bg-gray-light" id="categories">
+    <div class="container-lg py-xl-4">
+        <h2 class="text-center mb-4 mb-xl-5">
+            Sortiment
+        </h2>
+
+        {% component "categorieshp" %}
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container-lg py-xl-4">
+        <h2 class="text-center mb-4 mb-xl-5">
+            Kontakty
+        </h2>
+
+        <div class="row row-cols-1 g-4 row-cols-sm-2 row-cols-md-3 g-lg-5 row-cols-xl-4">
+            {% for category in contacts_categories.where("homepage", true).get() %}
+                <div class="col">
+                    <div class="p-4 rounded-3 {{ loop.first ? 'bg-gray' }}">
+                        <h3 class="fs-15 ls-n03 mb-2">
+                           {{ category.name }}
+                        </h3>
+
+                        <p class="fs-13 ls-n02 opacity-55 mb-2">
+                            {{ category.street }} {{ category.street_no }} <br>
+                            {{ category.zip }} {{ category.city }}
+                        </p>
+
+                        {% if category.map_link %}
+                            <p class="fs-13 ls-n02 mb-0">
+                                <a href="{{ category.map_link }}" target="_blank" class="text-decoration-underline-w-hover">
+                                    Ukázat na mapě
+                                </a>
+                            </p>
+                        {% endif %}
+
+                        {% if category.phone %}
+                            <p class="fs-13 ls-n02 mt-3 mb-0 d-flex align-items-center">
+                                <span class="mi-phone mi-16 bg-blue-darker"></span>
+
+                                <a href="tel:{{ category.phone }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+                                    {{ category.phone }}
+                                </a>
+                            </p>
+                        {% endif %}
+
+                        {% if category.email %}
+                            <p class="fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
+                                <span class="mi-paper-plane mi-16 bg-blue-darker"></span>
+
+                                <a href="tel:{{ category.email }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+                                    {{ category.email }}
+                                </a>
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% partial "map" %}
+
+<div class="container-fluid py-5">
+    <div class="container-lg pt-xl-4">
+        <h2 class="mb-4 mb-xl-5">
+            Videa
+        </h2>
+    </div>
+
+    <div class="swiper videos-swiper pb-xl-4">
+        <div class="swiper-wrapper">
+            {% for video in videos.take(8).get() %}
+                <div class="swiper-slide">
+                    <a href="{{ 'video'|page({slug: video.slug}) }}" class="text-decoration-none">
+                        {% if video.image %}
+                            <p class="img mb-0 position-relative">
+                                <img src="{{ video.image.thumb(600, 400, {"mode": "crop"}) }}" alt="{{ video.image.description }}" class="img-fluid w-100">
+
+                                <span class="overlay position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-center transition">
+                                    <img src="{{ 'assets/images/icons/play-circle.svg'|theme }}" alt="play">
+                                </span>
+                            </p>
+                        {% endif %}
+
+                        <h3 class="title mb-0 fs-15 ls-n03 transition mt-3">
+                            {{ video.title }}
+                        </h3>
+
+                        {% if video.excerpt %}
+                            <p class="mb-0 fs-13 ls-n02 text-blue-darker opacity-55 mt-2">
+                                {{ video.excerpt }}
+                            </p>
+                        {% endif %}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="container-lg">
+            <div class="swiper-scrollbar position-relative start-0 end-0 w-100 bottom-0 mt-4 mt-xl-5"></div>
+
+            <div class="mt-4 mt-xl-5 text-center">
+                <a href="{{ 'videa'|page }}" class="btn btn-outline-blue-dark d-inline-flex align-items-center">
+                    Další videa <span class="mi-arrow-right mi-16 bg-blue-dark ms-2 transition"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5 bg-gray-light">
+    <div class="container-lg py-xl-4">
+        <h2 class="mb-4 mb-xl-5">
+            Aktuality
+        </h2>
+
+        {% component "postshp" %}
+
+        <div class="mt-4 mt-xl-5 text-center">
+            <a href="{{ 'aktuality'|page }}" class="btn btn-outline-blue-dark d-inline-flex align-items-center">
+                Další aktuality <span class="mi-arrow-right mi-16 bg-blue-dark ms-2 transition"></span>
+            </a>
+        </div>
+    </div>
+</div>

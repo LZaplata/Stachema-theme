@@ -1,0 +1,33 @@
+<div class="post position-relative">
+    <p class="img mb-0 position-relative rounded-3 overflow-hidden">
+        {% set image = post.featured_images.first %}
+
+        <img src="{{ image.thumb(600, 400, {"mode": "crop"}) }}" alt="{{ image.description }}" class="img-fluid w-100">
+
+        <span class="overlay position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-center transition">
+            <img src="{{ 'assets/images/icons/arrow-circle-up-right.svg'|theme }}" alt="play">
+        </span>
+    </p>
+
+    <p class="date fs-13 opacity-55 mb-0 mt-4 d-flex align-items-center">
+        <img src="{{ 'assets/images/icons/calendar-blank.svg'|theme }}" alt="calendar" class="me-2">
+
+        {{ post.published_at|date("j. n. Y") }}
+    </p>
+
+    <h3 class="title mb-0 mt-3 transition">
+        {{ post.title }}
+    </h3>
+
+    <div class="excerpt mt-3 fs-15 ls-n02 opacity-55 transition">
+        {{ post.excerpt|raw }}
+    </div>
+
+    <a href="{{ post.url }}" class="more stretched-link fw-semibold fs-14 ls-n03 text-blue-dark text-decoration-none d-flex mt-3 align-items-center">
+        Číst více
+
+        <span class="d-inline-flex align-items-center justify-content-center ms-2 rounded-circle">
+            <span class="mi-caret-right mi-8 bg-blue-dark"></span>
+        </span>
+    </a>
+</div>

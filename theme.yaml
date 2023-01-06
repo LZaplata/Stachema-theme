@@ -1,0 +1,20 @@
+name: Stachema
+description: 'Theme for Stachema company from Kolín.'
+author: 'Lukáš Záplata'
+homepage: ''
+authorCode: LZaplata
+code: stachema
+parent: ''
+database: '0'
+require:
+    - initbiz.seostorm
+    - rainlab.pages
+    - lzaplata.extensions
+form:
+    tabs:
+        fields:
+            youtube:
+                label: Youtube
+                span: left
+                type: text
+                tab: Sociální sítě

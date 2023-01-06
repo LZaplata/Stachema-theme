@@ -1,0 +1,358 @@
+@import "custom"
+
+@mixin mask-image($image, $width: 24, $height: 24)
+    mask-image: url("../images/#{$image}.svg")
+    -webkit-mask-image: url("../images/#{$image}.svg")
+    mask-size: cover
+    -webkit-mask-size: cover
+    width: #{$width}px
+    height: #{$height}px
+    display: inline-block
+
+.mi
+    &-youtube
+        @include mask-image("icons/youtube")
+
+    &-youtube-circle
+        @include mask-image("icons/youtube-circle")
+
+    //&-instagram
+    //    @include mask-image("icons/instagram")
+
+    &-logo
+        @include mask-image("logo", 143, 88)
+
+    &-logo-footer
+        @include mask-image("logo", 80, 49)
+
+    &-hamburger
+        @include mask-image("icons/hamburger")
+
+    &-close
+        @include mask-image("icons/close")
+
+    &-signature
+        @include mask-image("signature", 85, 25)
+
+    &-magnifying-glass
+        @include mask-image("icons/magnifying-glass-2")
+
+    &-caret-left-thin
+        @include mask-image("icons/caret-left-thin")
+
+    &-phone
+        @include mask-image("icons/phone")
+
+    &-paper-plane
+        @include mask-image("icons/paper-plane")
+
+    &-arrow-right
+        @include mask-image("icons/arrow-right")
+
+    &-caret-right
+        @include mask-image("icons/caret-right")
+
+    &-arrow-square-out
+        @include mask-image("icons/arrow-square-out")
+
+    &-32
+        width: 32px
+        height: 32px
+
+    &-16
+        width: 16px
+        height: 16px
+
+    &-10
+        width: 10px
+        height: 10px
+
+    &-8
+        width: 8px
+        height: 8px
+
+.btn
+    &.btn-lg
+        --bs-btn-font-weight: var(--bs-font-weight-medium)
+
+    &.btn-gray
+        --bs-btn-color: var(--bs-blue-dark)
+        --bs-btn-bg: var(--bs-gray)
+        --bs-btn-border-color: var(--bs-gray)
+        --bs-btn-hover-bg: var(--bs-gray-dark)
+        --bs-btn-hover-border-color: var(--bs-gray-dark)
+        --bs-btn-active-bg: var(--bs-gray-dark)
+        --bs-btn-active-border-color: var(--bs-gray-dark)
+
+    &.btn-blue-dark
+        --bs-btn-bg: var(--bs-blue-dark)
+        --bs-btn-border-color: var(--bs-blue-dark)
+        --bs-btn-hover-bg: var(--bs-blue)
+        --bs-btn-hover-border-color: var(--bs-blue)
+        --bs-btn-active-bg: var(--bs-blue)
+        --bs-btn-active-border-color: var(--bs-blue)
+
+    &.btn-outline-blue-dark
+        --bs-btn-border-color: rgba(var(--bs-blue-dark-rgb), .35)
+
+        &:hover
+            & > span
+                background-color: var(--bs-white) !important
+
+.text-decoration-none-w-hover
+    text-decoration: underline
+    transition: $transition-base
+    text-decoration-color: transparent !important
+    text-underline-offset: 2px
+
+    &:hover
+        text-decoration-color: inherit !important
+
+.text-decoration-underline-w-hover
+    text-decoration: underline
+    transition: $transition-base
+    text-decoration-color: inherit !important
+    text-underline-offset: 2px
+
+    &:hover
+        text-decoration-color: transparent !important
+
+h2, .h2
+    letter-spacing: -.4px
+
+header
+    .top
+        .nav
+            li
+                a
+                    position: relative
+
+                    &:after
+                        content: ""
+                        position: absolute
+                        bottom: -12px
+                        left: 0
+                        right: 0
+                        height: 1px
+                        background: transparent
+                        transition: $transition-base
+
+                    &:hover
+                        &:after
+                            background: var(--bs-blue)
+
+                    &.active
+                        &:after
+                            background: var(--bs-blue-darker)
+
+    .middle
+        .mi-logo
+            @include media-breakpoint-down(md)
+                width: 90px
+                height: 55px
+
+        .search
+            button
+                top: map-get($spacers, 2)
+                bottom: map-get($spacers, 2)
+
+    .bottom
+        .nav
+            li
+                &.eshop
+                    a
+                        padding-left: 28px
+
+                        &:before
+                            content: ""
+                            background: url("../images/icons/shopping-cart.svg")
+                            width: 20px
+                            height: 20px
+                            position: absolute
+                            display: inline-block
+                            left: 0
+                            top: 50%
+                            transform: translateY(-50%)
+
+.offcanvas
+    .mi-logo
+        width: 60px
+        height: 36px
+
+    .nav
+        li
+            &.eshop
+                a
+                    padding-left: 28px
+
+                    &:before
+                        content: ""
+                        background: url("../images/icons/shopping-cart.svg")
+                        width: 20px
+                        height: 20px
+                        position: absolute
+                        display: inline-block
+                        left: 0
+                        top: 50%
+                        transform: translateY(-50%)
+
+.slider-swiper
+    .swiper-button-prev, .swiper-button-next
+        width: 35px
+        height: 35px
+        background: rgba(var(--bs-white-rgb), .2) !important
+        left: 25px
+
+        &:hover
+            background: rgba(var(--bs-white-rgb), 1) !important
+
+            span
+                background-color: var(--bs-blue-dark)
+
+        &:after
+            content: none
+
+        &.swiper-button-disabled
+            opacity: 1
+
+        span
+            @include mask-image("icons/caret-left", 16, 16)
+            background-color: var(--bs-white)
+            transition: $transition-base
+
+    .swiper-button-next
+        left: auto !important
+        right: 25px
+
+        span
+            @include mask-image("icons/caret-right", 16, 16)
+
+    @include media-breakpoint-up(md)
+        .swiper-button-prev, .swiper-button-next
+            width: 56px
+            height: 56px
+            left: 50px
+
+        .swiper-button-next
+            right: 50px
+
+    @include media-breakpoint-down(md)
+        .swiper-button-prev, .swiper-button-next
+            top: auto
+            bottom: 25px
+
+#categories
+    .categories
+        .category
+            a
+                .img
+                    .gradient
+                        background-image: linear-gradient(to bottom, transparent 0%, var(--bs-black) 100%)
+
+                h3
+                    @extend .text-decoration-none-w-hover
+
+                &:hover
+                    margin-top: -10px
+                    box-shadow: 0 .5rem 1.5rem rgba(var(--bs-black-rgb), .4) !important
+
+                    h3
+                        text-decoration-color: inherit !important
+
+#map-wrapper
+    #map
+        height: 600px
+
+        *, ::before, ::after
+            box-sizing: unset !important
+
+        .cluster
+            div
+                background-color: var(--bs-blue-dark)
+                border: solid 4px rgba(var(--bs-white-rgb), 0.35)
+
+                span
+                    font-weight: map-get($font-weights, "medium")
+                    font-size: map-get($font-sizes, 12)
+                    font-family: $font-family-inter
+                    color: var(--bs-white)
+
+                img
+                    display: none !important
+
+        .card
+            padding: map-get($spacers, 4)
+
+        .hud
+            .zoom, .compass
+                z-index: 200
+
+                @include media-breakpoint-only(xs)
+                    display: none
+
+    #map-input-wrapper
+        z-index: 100
+
+.videos-swiper
+    .swiper-slide
+        a
+            .img
+                .overlay
+                    background: rgba(var(--bs-black-rgb), .55)
+                    opacity: 0
+
+            .title
+                @extend .text-decoration-none-w-hover
+
+            &:hover
+                .img
+                    .overlay
+                        background: rgba(var(--bs-black-rgb), .55)
+                        opacity: 1
+
+                .title
+                    color: var(--bs-blue)
+                    text-decoration-color: inherit !important
+
+.posts
+    .post
+        .img
+            .overlay
+                background: rgba(var(--bs-black-rgb), .55)
+                opacity: 0
+
+        .title
+            @extend .text-decoration-none-w-hover
+
+        .more
+            & > span
+                background-color: rgba(var(--bs-blue-dark-rgb), .1) !important
+                width: 14px
+                height: 14px
+
+        &:hover
+            .img
+                .overlay
+                    background: rgba(var(--bs-black-rgb), .55)
+                    opacity: 1
+
+            .title
+                color: var(--bs-blue)
+                text-decoration-color: inherit !important
+
+            .excerpt
+                opacity: 1 !important
+
+footer
+    #footer
+        .heading
+            position: relative
+
+            &:after
+                content: ""
+                width: 20px
+                height: 2px
+                background: var(--bs-white)
+                position: absolute
+                bottom: -1px
+                left: 0

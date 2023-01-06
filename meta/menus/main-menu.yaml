@@ -1,0 +1,102 @@
+items:
+    -
+        title: E-SHOP
+        nesting: null
+        type: url
+        url: 'https://www.sincolor.cz/'
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: eshop
+            isExternal: '1'
+    -
+        title: Produkty
+        type: cms-page
+        code: ''
+        reference: produkty
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Laboratoře
+        nesting: null
+        type: url
+        url: /aaaa
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Prodejí místa'
+        nesting: null
+        type: url
+        url: /fff
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Aktuality
+        nesting: null
+        type: url
+        url: /ddd
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Zajímavosti
+        nesting: null
+        type: url
+        url: /sss
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Ke stažení'
+        nesting: null
+        type: url
+        url: /eee
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Kontakty
+        nesting: null
+        type: url
+        url: /tt
+        code: ''
+        reference: null
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: 'Main menu'

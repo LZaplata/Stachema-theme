@@ -1,0 +1,172 @@
+<div class="position-relative" id="map-wrapper">
+    <div id="map"></div>
+
+    <div class="position-absolute start-50 translate-middle-x top-0 p-32 w-100 w-sm-75 w-md-50 px-md-0 w-xl-25 " id="map-input-wrapper">
+        <input type="text" class="form-control w-100 bg-white shadow-lg" placeholder="Napište město, nebo PSČ" id="map-input">
+    </div>
+</div>
+
+{% put scripts %}
+    <script type="text/javascript" src="https://api.mapy.cz/loader.js"></script>
+    <script type="text/javascript">Loader.load(null, {suggest: true});</script>
+
+    <script>
+        initMap();
+
+        function initMap(lng = 15.3386383, lat = 49.7437572, zoom = 8) {
+            var center = SMap.Coords.fromWGS84(lng, lat);
+            var map = new SMap(JAK.gel("map"), center, zoom);
+
+            map.addDefaultLayer(SMap.DEF_BASE).enable();
+            map.addDefaultControls();
+
+            var layer = new SMap.Layer.Marker();
+            var clusterer = new SMap.Marker.Clusterer(map);
+
+            layer.setClusterer(clusterer);
+
+            var markers = [];
+
+            {% for place in merchandise_places %}
+                var x = "{{ place.lng }}";
+                var y = "{{ place.lat }}";
+                var coords = SMap.Coords.fromWGS84(x, y);
+                var marker = new SMap.Marker(coords, false, {
+                    "url": "{{ ['assets/images/icons/map-point-', place.drug_store ? 'violet' : (place.building_store ? 'red' : (place.company_store ? 'blue' : 'blue-darker')), '.svg']|join|theme }}",
+                });
+
+                var card = new SMap.Card();
+                var header = `
+                    <p class="ff-inter fs-15 fw-semibold text-blue mb-0">
+                        {{ place.title }}
+                    </p>
+                `;
+                var body = `
+                    <p class="ff-inter fs-13 fw-regular ls-n02 text-blue-darker opacity-55 mb-0 mt-2">
+                        {{ place.street }} <br>
+                        {{ place.zip }} {{ place.city }}
+                    </p>
+                `;
+
+                {% if place.link %}
+                    var body = body + `
+                        <p class="ff-inter fs-13 fw-regular ls-n02 mb-0 mt-2">
+                            <a href="" target="_blank" class="text-blue text-blue-dark-hover transition text-decoration-underline-w-hover">
+                                {{ place.link }}
+                            </a>
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.phone %}
+                    var body = body + `
+                        <p class="ff-inter fs-13 ls-n02 mt-3 mb-0 d-flex align-items-center">
+                            <span class="mi-phone mi-16 bg-blue-darker"></span>
+
+                            <a href="tel:{{ place.phone }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+                                {{ place.phone }}
+                            </a>
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.email %}
+                    var body = body + `
+                        <p class="ff-inter fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
+                            <span class="mi-paper-plane mi-16 bg-blue-darker"></span>
+
+                            <a href="tel:{{ place.email }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+                                {{ place.email }}
+                            </a>
+                        </p>
+                    `;
+                {% endif %}
+
+                var body = body + `
+                    <div class="d-flex gap-1 mt-3">
+                `;
+
+                {% if place.company_store %}
+                    var body = body + `
+                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-blue">
+                            <img src="{{ 'assets/images/icons/company-store.svg'|theme }}" class="me-2">
+
+                            Firemní prodejna
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.gentleman_store %}
+                    var body = body + `
+                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-black">
+                            <img src="{{ 'assets/images/icons/gentleman-store.svg'|theme }}" class="me-2">
+
+                            Prodejna Gentleman
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.tinting_center %}
+                    var body = body + `
+                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-green">
+                            <img src="{{ 'assets/images/icons/tinting-center.svg'|theme }}" class="me-2">
+
+                            Tónovací centrum
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.drug_store %}
+                    var body = body + `
+                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-violet">
+                            <img src="{{ 'assets/images/icons/drug-store.svg'|theme }}" class="me-2">
+
+                            Barvy-laky-drogerie
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.building_store %}
+                    var body = body + `
+                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-red">
+                            <img src="{{ 'assets/images/icons/building-store.svg'|theme }}" class="me-2">
+
+                            Stavebniny
+                        </p>
+                    `;
+                {% endif %}
+
+                var body = body + `
+                    </div>
+                `;
+
+                card.getHeader().innerHTML = header;
+                card.getBody().innerHTML = body;
+
+                marker.decorate(SMap.Marker.Feature.Card, card);
+                markers.push(marker);
+            {% endfor %}
+
+            layer.addMarker(markers);
+            map.addLayer(layer).enable();
+
+            var mouseControl = null;
+            var controls = map.getControls();
+
+            for (var i = 0; i < controls.length; i++) {
+                if (controls[i] instanceof SMap.Control.Mouse) {
+                    mouseControl = controls[i];
+                }
+            }
+
+            mouseControl.configure(SMap.MOUSE_PAN | SMap.MOUSE_ZOOM);
+
+            var input = document.getElementById("map-input");
+            var suggest = new SMap.Suggest(input);
+
+            suggest.addListener("suggest", function (suggestData) {
+                initMap(suggestData.data.longitude, suggestData.data.latitude, 11);
+            });
+        }
+    </script>
+{% endput %}

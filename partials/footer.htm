@@ -1,0 +1,53 @@
+<footer>
+    <div class="container-fluid bg-blue-darker text-white py-5" id="footer">
+        <div class="container-lg py-xl-2">
+            <div class="row row-cols-1 g-5 row-cols-sm-2 row-cols-lg-4">
+                <div class="col d-flex flex-row gap-3 order-1 justify-content-between align-items-center flex-sm-column align-items-sm-start order-lg-0">
+                    <p class="mb-0">
+                        <a href="{{ 'homepage'|page }}" class="mi mi-logo-footer bg-white opacity-65-hover transition"></a>
+                    </p>
+
+                    <p class="mb-0 mt-sm-auto">
+                        {% if this.theme.youtube %}
+                            <a href="{{ this.theme.youtube }}" target="_blank" class="mi-youtube-circle mi-32 bg-white opacity-65-hover transition"></a>
+                        {% endif %}
+                    </p>
+                </div>
+
+                <div class="col order-0">
+                    <p class="heading fs-13 fw-bold ls-1 pb-4 mb-4 text-uppercase">
+                        menu
+                    </p>
+
+                    {% component "footermenu" %}
+                </div>
+
+                <div class="col order-0">
+                    <p class="heading fs-13 fw-bold ls-1 pb-4 mb-4 text-uppercase">
+                        užitečné odkazy
+                    </p>
+                </div>
+
+                <div class="col order-0">
+                    <p class="heading fs-13 fw-bold ls-1 pb-4 mb-4 text-uppercase">
+                        ostatní
+                    </p>
+
+                    {% component "branchesmenu" %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-blue-darker text-white py-3 border-1 border-top border-black" id="copyright">
+        <div class="container-lg d-flex align-items-center justify-content-between">
+            <p class="mb-0 fs-12 text-white opacity-55">
+                &copy; {{ "now"|date("Y") }}, STACHEMA CZ s.r.o.
+            </p>
+
+            <p class="mb-0 d-inline-flex align-items-end">
+                <a href="https://www.hucr.cz" target="_blank" class="mi-signature bg-white opacity-55 opacity-100-hover transition"></a>
+            </p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,8 @@
+{
+    "name": "lzaplata/stachema-theme",
+    "type": "october-theme",
+    "description": "Theme for Stachema company from Kol\u00edn.",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
