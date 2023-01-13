@@ -1,7 +1,7 @@
 {% set products = __SELF__.products %}
 
 {% if products.count %}
-    <div class="products row row-cols-1 gx-4 gy-5 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+    <div class="products row row-cols-1 g-4 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
         {% set z_index = products.count %}
 
         {% for product in products %}
