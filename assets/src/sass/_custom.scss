@@ -138,6 +138,20 @@ $input-line-height:                 1;
 
 $box-shadow-sm:                     0 2px 8px 0 rgba(5, 23, 55, 0.25);
 
+$breadcrumb-font-size:              map-get($font-sizes, 13);
+$breadcrumb-margin-bottom:          0;
+$breadcrumb-padding-y:              map-get($spacers, 3);
+$breadcrumb-item-padding-x:         0;
+$breadcrumb-divider:                "";
+
+$pagination-color:                  map-get($theme-colors, "blue-dark");
+$pagination-hover-color:            map-get($theme-colors, "blue");
+$pagination-active-color:           map-get($theme-colors, "blue");
+$pagination-active-bg:              transparent;
+$pagination-padding-x:              0;
+$pagination-padding-y:              0;
+$pagination-border-color:           transparent;
+
 // 3. Include remainder of required Bootstrap stylesheets
 @import "~bootstrap/scss/variables";
 
@@ -314,6 +328,8 @@ $utilities:
 @import "~bootstrap/scss/close";
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "~bootstrap/scss/utilities/api";

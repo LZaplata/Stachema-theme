@@ -15,7 +15,7 @@ items:
     -
         title: Produkty
         type: cms-page
-        code: ''
+        code: produkty
         reference: produkty
         viewBag:
             isHidden: '0'

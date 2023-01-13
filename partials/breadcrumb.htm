@@ -1,0 +1,31 @@
+<div class="container-fluid border-1 border-top border-blue-darker border-opacity-07">
+    <div class="container-lg">
+        <nav>
+            <ol class="breadcrumb ps-0">
+                <li class="breadcrumb-item d-inline-flex align-items-center ls-n02 fw-medium">
+                    <img src="{{ 'assets/images/icons/house.svg'|theme }}" alt="house">
+
+                    <a href="{{ 'homepage'|page }}" class="ms-2 text-blue-dark text-blue-hover transition text-decoration-underline-w-hover">
+                        Stachema
+                    </a>
+                </li>
+
+                {% for item in items %}
+                    <li class="breadcrumb-item d-inline-flex align-items-center ls-n02 fw-medium {{ item.active ? 'active' }}">
+                        <span class="mi mi-caret-right mi-10 bg-blue-darker opacity-55 mx-1"></span>
+
+                        {% if item.active %}
+                            <span class="text-blue-darker opacity-55">
+                                {{ item.title }}
+                            </span>
+                        {% else %}
+                            <a href="{{ item.url }}" class="text-blue-dark text-blue-hover transition text-decoration-underline-w-hover">
+                                {{ item.title }}
+                            </a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+        </nav>
+    </div>
+</div>

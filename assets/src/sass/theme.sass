@@ -63,6 +63,10 @@
         width: 16px
         height: 16px
 
+    &-12
+        width: 12px
+        height: 12px
+
     &-10
         width: 10px
         height: 10px
@@ -79,8 +83,10 @@
         --bs-btn-color: var(--bs-blue-dark)
         --bs-btn-bg: var(--bs-gray)
         --bs-btn-border-color: var(--bs-gray)
+        --bs-btn-hover-color: var(--bs-blue-dark)
         --bs-btn-hover-bg: var(--bs-gray-dark)
         --bs-btn-hover-border-color: var(--bs-gray-dark)
+        --bs-btn-active-color: var(--bs-blue-dark)
         --bs-btn-active-bg: var(--bs-gray-dark)
         --bs-btn-active-border-color: var(--bs-gray-dark)
 
@@ -116,6 +122,9 @@
 
     &:hover
         text-decoration-color: transparent !important
+
+h1, .h1
+    letter-spacing: -.5px
 
 h2, .h2
     letter-spacing: -.4px
@@ -356,3 +365,57 @@ footer
                 position: absolute
                 bottom: -1px
                 left: 0
+
+#subcategories
+    .categories
+        .category
+            a
+                .title
+                    @extend .text-decoration-none-w-hover
+
+                &:hover
+                    border-color: var(--bs-blue-dark) !important
+
+                    .title
+                        text-decoration-color: inherit !important
+
+#products
+    .text
+        p
+            &:last-child
+                margin-bottom: 0
+
+.products
+    .product
+        .hover-out
+            z-index: 0
+
+        a
+            .hover-in
+                z-index: 10
+                opacity: 0
+                box-shadow: 0 20px 50px 2px rgba(3, 21, 51, 0.18) !important
+
+                .bg-white
+                    padding-left: map-get($spacers, 0)
+                    padding-right: map-get($spacers, 0)
+                    padding-top: map-get($spacers, 2)
+                    padding-bottom: map-get($spacers, 2)
+
+                    .title
+                        @extend .text-decoration-none-w-hover
+
+w        & > div
+            &:hover
+                .hover-in
+                    opacity: 1
+
+                    .bg-white
+                        padding-left: map-get($spacers, 3)
+                        padding-right: map-get($spacers, 3)
+                        padding-top: map-get($spacers, 2)
+                        padding-bottom: map-get($spacers, 2)
+
+                        .title
+                            color: var(--bs-blue) !important
+                            text-decoration-color: inherit !important

@@ -1,41 +1,63 @@
-url = "/produkty/:page?"
+url = "/produkty/kategorie/:slug/:page?"
 layout = "default"
-title = "Produkty"
+title = "Kategorie"
 
 [categories subcategories]
 page = "kategorie"
 
 [products]
 page = "produkt"
+categoryPage = "kategorie"
 
-[section content]
-handle = "Products\Content"
+[category]
+==
+<?php
+function onInit() {
+    $this["activeMenuItem"] = "produkty";
+}
+?>
 ==
 {% set items = {
     "produkty": {
-        "title": "Produkty",
+        "title" : "Produkty",
+        "url"   : "produkty"|page,
+    },
+} %}
+
+{% for parent in category.parents %}
+    {% set items = items|merge({
+        (parent.slug): {
+            "title" : parent.title,
+            "url"   : "kategorie"|page({slug: parent.slug}),
+        },
+    }) %}
+{% endfor %}
+
+{% set items = items|merge({
+    (category.slug): {
+        "title" : category.title,
         "active": true,
     }
-} %}
+}) %}
 
 {% partial "breadcrumb" items=items %}
 
-<div class="container-fluid pb-5" id="products">
+<div class="container-fluid pb-5" id="category">
     <div class="container-lg py-xl-3">
         <div class="row g-xl-5">
             <div class="col-12 col-md">
                 <h1 class="mb-3 mb-xl-4">
-                    {{ content.title }}
+                    {{ category.title }}
                 </h1>
 
                 <div class="text col-12 opacity-55 ls-n02 ">
-                    {{ content.text|raw }}
+                    {{ category.text|raw }}
                 </div>
             </div>
 
-            {% if content.image %}
+            {% if category.image %}
                 <div class="col-12 mt-4 col-md-4 mt-md-0 mt-xl-5">
-                    <img src="{{ content.image.thumb(406, 306, {"mode": "crop"}) }}" alt="{{ content.image.description }}" class="img-fluid w-100 rounded-3">
+                    <img src="{{ category.image.thumb(406, 306, {"mode": "crop"}) }}" alt="{{ category.image.description }}" class="img-fluid w-100 rounded-3">
                 </div>
             {% endif %}
         </div>
