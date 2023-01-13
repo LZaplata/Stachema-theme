@@ -394,13 +394,14 @@ footer
 
             .bg-white
                 max-height: 0
-                transition-duration: .5s !important
 
             &:hover
                 box-shadow: 0 20px 50px 2px rgba(3, 21, 51, 0.18)
 
                 .title-excerpt
-                    background-color: transparent
+                    background-color: var(--bs-white)
+                    padding-left: map-get($spacers, 3)
+                    padding-right: map-get($spacers, 3)
 
                     .title
                         color: var(--bs-blue) !important
