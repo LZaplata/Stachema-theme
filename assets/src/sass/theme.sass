@@ -40,6 +40,9 @@
     &-caret-left-thin
         @include mask-image("icons/caret-left-thin")
 
+    &-caret-left
+        @include mask-image("icons/caret-left")
+
     &-phone
         @include mask-image("icons/phone")
 
@@ -382,7 +385,7 @@ footer
 .products
     .product
         @media (any-hover: hover)
-            height: 285px
+            height: 305px
 
         a
             .title-excerpt
@@ -394,6 +397,9 @@ footer
 
             .bg-white
                 max-height: 0
+
+                @media (any-hover: none)
+                    display: none !important
 
             &:hover
                 box-shadow: 0 20px 50px 2px rgba(3, 21, 51, 0.18)
@@ -409,3 +415,11 @@ footer
 
                 .bg-white
                     max-height: 500px
+
+.pagination
+    .page-item
+        .page-link
+            @extend .text-decoration-none-w-hover
+
+            &.active
+                text-decoration-color: inherit !important

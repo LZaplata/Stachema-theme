@@ -146,11 +146,14 @@ $breadcrumb-divider:                "";
 
 $pagination-color:                  map-get($theme-colors, "blue-dark");
 $pagination-hover-color:            map-get($theme-colors, "blue");
+$pagination-hover-bg:               transparent;
 $pagination-active-color:           map-get($theme-colors, "blue");
 $pagination-active-bg:              transparent;
 $pagination-padding-x:              0;
 $pagination-padding-y:              0;
 $pagination-border-color:           transparent;
+$pagination-focus-box-shadow:       none;
+$pagination-hover-border-color:     transparent;
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "~bootstrap/scss/variables";

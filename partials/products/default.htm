@@ -59,16 +59,16 @@
                                 {% set key_properties = preg_match("@(.+):(.+)@", product.key_properties) %}
 
                                 <span class="me-2">
-                                            {{ key_properties.1 }}:
-                                        </span>
+                                    {{ key_properties.1 }}:
+                                </span>
 
                                 <span class="fw-semibold text-end">
-                                            {{ key_properties.2 }}
-                                        </span>
+                                    {{ key_properties.2 }}
+                                </span>
                             </p>
                         {% endif %}
 
-                        <p class="mt-3">
+                        <p class="mt-3 mb-4">
                             <button class="btn btn-gray w-100 d-inline-flex align-items-center justify-content-center">
                                 Další
 
@@ -85,28 +85,35 @@
 {% endif %}
 
 {% if products.lastPage > 1 %}
-    <ul class="pagination mt-5 justify-content-center">
+    <ul class="pagination mt-5 justify-content-center gap-2">
         {% if products.currentPage > 1 %}
-            <li class="page-item prev">
-                <a href="{{ this.page.baseFileName|page({page: (products.currentPage-1)}) }}" class="page-link">
-                    &larr; Prev
-                </a>
+            <li class="page-item prev d-inline-flex align-items-center">
+                <a href="{{ this.page.baseFileName|page({page: (products.currentPage-1)}) }}" class="page-page-link mi-caret-left mi-16 bg-blue-dark bg-blue-hover transition"></a>
             </li>
         {% endif %}
 
-        {% for page in 1..products.lastPage %}
+        {% if posts.currentPage <= 3 %}
+            {% set start_page = 1 %}
+            {% set end_page = products.lastPage > 5 ? 5 : products.lastPage %}
+        {% elseif products.currentPage > 3 and products.currentPage + 4 < products.lastPage %}
+            {% set start_page = products.currentPage - 2 %}
+            {% set end_page = products.lastPage > products.currentPage + 2 ? products.currentPage + 2 : products.lastPage %}
+        {% elseif products.currentPage + 4 >= products.lastPage %}
+            {% set start_page = products.lastPage - 4 %}
+            {% set end_page = products.lastPage %}
+        {% endif %}
+
+        {% for page in start_page..end_page %}
             <li class="page-item">
-                <a href="{{ this.page.baseFileName|page({page: page}) }}" class="page-link text-decoration-underline-w-hover {{ products.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({page: page}) }}" class="page-link {{ products.currentPage == page ? 'active' : null }}">
                     {{ page }}
                 </a>
             </li>
         {% endfor %}
 
         {% if products.lastPage > products.currentPage %}
-            <li class="page-item next">
-                <a href="{{ this.page.baseFileName|page({page: (products.currentPage+1)}) }}" class="page-link">
-                    Next &rarr;
-                </a>
+            <li class="page-item next d-inline-flex align-items-center">
+                <a href="{{ this.page.baseFileName|page({page: (products.currentPage+1)}) }}" class="page-link mi-caret-right mi-16 bg-blue-dark bg-blue-hover transition"></a>
             </li>
         {% endif %}
     </ul>
