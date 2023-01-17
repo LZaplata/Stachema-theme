@@ -14,6 +14,16 @@ require:
 form:
     tabs:
         fields:
+            phone:
+                label: Telefon
+                span: left
+                type: text
+                tab: Kontakt
+            email:
+                label: E-mail
+                span: right
+                type: text
+                tab: Kontakt
             youtube:
                 label: Youtube
                 span: left

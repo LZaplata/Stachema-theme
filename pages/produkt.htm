@@ -1,4 +1,30 @@
-title = "Produkt"
-layout = "default"
 url = "/produkty/produkt/:slug"
+layout = "default"
+title = "Produkt"
+
+[product]
 ==
+<?php
+function onInit() {
+    $this["activeMenuItem"] = "produkty";
+}
+?>
+==
+{% set items = {
+    "produkty": {
+        "title" : "Produkty",
+        "url"   : "produkty"|page,
+    },
+} %}
+
+{% partial "breadcrumb" items=items %}
+
+<div class="container-fluid pb-5" id="product">
+    <div class="container-lg py-xl-4">
+        {% component "product" %}
+
+        <div class="mt-5 pt-xl-4">
+            {% partial "advice" %}
+        </div>
+    </div>
+</div>

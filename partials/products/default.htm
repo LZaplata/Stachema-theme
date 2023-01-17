@@ -7,10 +7,12 @@
         {% for product in products %}
             <div class="product col" style="z-index: {{ z_index }};">
                 <a href="{{ product.url }}" class="text-decoration-none d-flex flex-column rounded-3 overflow-hidden">
-                    {% set image = ["products/", product.stachema_id, ".jpg"]|join %}
+                    {% set image = ["products/", product.stachema_id, ".png"]|join %}
 
                     {% if file_exists(image) %}
-                        <img src="{{ image|media|resize(600, 400, {"mode": "crop"}) }}" alt="{{ product.title }}" class="img-fluid w-100 rounded-3">
+                        <p class="img bg-gray rounded-3 mb-0">
+                            <img src="{{ image|media|resize(600, 400, {"mode": "crop"}) }}" alt="{{ product.title }}" class="img-fluid w-100">
+                        </p>
                     {% endif %}
 
                     <div class="title-excerpt mt-n2 pt-2 position-relative">
@@ -85,7 +87,7 @@
 {% endif %}
 
 {% if products.lastPage > 1 %}
-    <ul class="pagination mt-5 justify-content-center gap-2">
+    <ul class="pagination mt-5 justify-content-center gap-2 mb-0">
         {% if products.currentPage > 1 %}
             <li class="page-item prev d-inline-flex align-items-center">
                 <a href="{{ this.page.baseFileName|page({page: (products.currentPage-1)}) }}" class="page-page-link mi-caret-left mi-16 bg-blue-dark bg-blue-hover transition"></a>
