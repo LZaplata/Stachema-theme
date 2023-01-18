@@ -2,7 +2,7 @@
 
 <div class="product">
     <div class="row row-cols-1 mt-2 row-cols-md-2 mt-xl-0 g-xl-5 g-xxl-80">
-        <div class="col mt-xl-0">
+        <div class="col col-xl-7 mt-xl-0">
             {% set image = ["products/", product.stachema_id, ".png"]|join %}
 
             {% if file_exists(image) %}
@@ -12,7 +12,7 @@
             {% endif %}
         </div>
 
-        <div class="col mt-4 mt-md-0">
+        <div class="col mt-4 mt-md-0 col-xl-5">
             <h1 class="mb-3">
                 {{ product.title }}
             </h1>
@@ -91,7 +91,7 @@
 
     <div class="mt-32 pt-4 border-1 border-top border-blue-darker border-opacity-07 mt-xl-5 pt-xl-32">
         <div class="row row-cols-1 row-cols-md-2 g-xl-5 g-xxl-80">
-            <div class="col">
+            <div class="col col-xl-7">
                 <h2 class="ls-n02 fs-18 mb-2">
                     Popis
                 </h2>
@@ -103,10 +103,22 @@
                 {% endif %}
             </div>
 
-            <div class="col mt-4 mt-md-0 mt-xl-5 mt-xxl-80">
-                <h2 class="ls-n02 fs-18 mb-2">
+            <div class="col mt-4 mt-md-0 col-xl-5 mt-xl-5 mt-xxl-80">
+                <h2 class="ls-n02 fs-18 mb-3">
                     Dokumenty ke stažení
                 </h2>
+
+                <div class="d-flex flex-column gap-2">
+                    {% for file in product.files %}
+                        <p class="mb-0 d-flex align-items-center ls-n02">
+                            <img src="{{ 'assets/images/icons/file-pdf.svg'|theme }}" alt="pdf" class="me-1">
+
+                            <a href="{{ file.file|media }}" target="_blank" class="text-blue-dark text-blue-hover transition text-decoration-underline-w-hover">
+                                {{ file.title }}
+                            </a>
+                        </p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

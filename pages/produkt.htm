@@ -10,12 +10,25 @@ function onInit() {
 }
 ?>
 ==
+{% set product = product.product %}
+
+{{ dump(product) }}
+
 {% set items = {
     "produkty": {
         "title" : "Produkty",
         "url"   : "produkty"|page,
     },
 } %}
+
+
+
+{% set items = items|merge({
+    "produkt": {
+        "title" : product.title,
+        "active": true,
+    },
+}) %}
 
 {% partial "breadcrumb" items=items %}
 
