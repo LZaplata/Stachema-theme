@@ -12,8 +12,6 @@ function onInit() {
 ==
 {% set product = product.product %}
 
-{{ dump(product) }}
-
 {% set items = {
     "produkty": {
         "title" : "Produkty",
@@ -21,7 +19,14 @@ function onInit() {
     },
 } %}
 
-
+{% for title, slug in product.categories.lists("slug", "title") %}
+    {% set items = items|merge({
+        (slug): {
+            "title" : title,
+            "url"   : "kategorie"|page({slug: slug}),
+        },
+    }) %}
+{% endfor %}
 
 {% set items = items|merge({
     "produkt": {
