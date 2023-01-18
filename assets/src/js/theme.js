@@ -54,6 +54,35 @@ var videosSwiper = new Swiper(".videos-swiper", {
     },
 });
 
+var productsSwiper = new Swiper(".products-swiper", {
+    scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: false,
+    },
+    slidesPerView: 1,
+    spaceBetween: 24,
+    slidesOffsetBefore: 12,
+    slidesOffsetAfter: 12,
+    breakpoints: {
+        576: {
+            slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 3,
+        },
+        992: {
+            slidesPerView: 4,
+            slidesOffsetBefore: $(".mi-logo").offset().left - 12,
+            slidesOffsetAfter: $(".mi-logo").offset().left - 12,
+        },
+        1200: {
+            slidesPerView: 5,
+            slidesOffsetBefore: $(".mi-logo").offset().left - 12,
+            slidesOffsetAfter: $(".mi-logo").offset().left - 12,
+        },
+    },
+});
+
 $(document).ready(function () {
     // $("#offcanvas .nav li a").click(function (event) {
     //     $("#offcanvas").removeClass("show");

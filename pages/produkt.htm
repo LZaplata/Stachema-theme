@@ -38,11 +38,11 @@ function onInit() {
 {% partial "breadcrumb" items=items %}
 
 <div class="container-fluid pb-5" id="product">
-    <div class="container-lg py-xl-4">
+    <div class="pt-xl-4">
         {% component "product" %}
+    </div>
 
-        <div class="mt-5 pt-xl-4">
-            {% partial "advice" %}
-        </div>
+    <div class="container-lg mt-5 py-xl-4">
+        {% partial "advice" %}
     </div>
 </div>

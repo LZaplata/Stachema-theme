@@ -1,125 +1,170 @@
 {% set product = __SELF__.product %}
+{% set alternative_products = __SELF__.alternativeProducts %}
 
 <div class="product">
-    <div class="row row-cols-1 mt-2 row-cols-md-2 mt-xl-0 g-xl-5 g-xxl-80">
-        <div class="col col-xl-7 mt-xl-0">
-            {% set image = ["products/", product.stachema_id, ".png"]|join %}
+    <div class="container-lg">
+        <div class="row row-cols-1 mt-2 row-cols-md-2 mt-xl-0 g-xl-5 g-xxl-80">
+            <div class="col col-xl-7 mt-xl-0">
+                {% set image = ["products/", product.stachema_id, ".png"]|join %}
 
-            {% if file_exists(image) %}
-                <p class="img mb-0 border-1 border border-gray rounded-3">
-                    <img src="{{ image|media|resize(600, 400, {"mode": "crop"}) }}" alt="{{ product.title }}" class="img-fluid w-100">
-                </p>
-            {% endif %}
-        </div>
-
-        <div class="col mt-4 mt-md-0 col-xl-5">
-            <h1 class="mb-3">
-                {{ product.title }}
-            </h1>
-
-            {% if product.excerpt %}
-                <div class="excerpt opacity-55 ls-n02">
-                    {{ product.excerpt }}
-                </div>
-            {% endif %}
-
-            <div class="rounded-3 bg-blue-darker bg-opacity-05 p-4 mt-4">
-                <h2 class="ls-n02 fs-18 mb-3">
-                    Parametry
-                </h2>
-
-                <div class="d-flex flex-column gap-2 ls-n02">
-                    {% if product.shades %}
-                        <p class="mb-0 d-flex w-100 justify-content-between">
-                            {% set shades = preg_match("@(.+):(.+)@", product.shades) %}
-
-                            <span class="me-2">
-                                {{ shades.1 }}:
-                            </span>
-
-                            <span class="fw-semibold text-end">
-                                {{ shades.2 }}
-                            </span>
-                        </p>
-                    {% endif %}
-
-                    {% if product.consumption %}
-                        <p class="mb-0 d-flex w-100 justify-content-between">
-                            {% set consumption = preg_match("@(.+):(.+)@", product.consumption) %}
-
-                            <span class="me-2">
-                                {{ consumption.1 }}:
-                            </span>
-
-                            <span class="fw-semibold text-end">
-                                {{ consumption.2 }}
-                            </span>
-                        </p>
-                    {% endif %}
-
-                    {% if product.packages %}
-                        <p class="mb-0 d-flex w-100 justify-content-between">
-                            {% set packages = preg_match("@(.+):(.+)@", product.packages) %}
-
-                            <span class="me-2">
-                                {{ packages.1 }}:
-                            </span>
-
-                            <span class="fw-semibold text-end">
-                                {{ packages.2 }}
-                            </span>
-                        </p>
-                    {% endif %}
-
-                    {% if product.key_properties %}
-                        <p class="mb-0 d-flex w-100 justify-content-between">
-                            {% set key_properties = preg_match("@(.+):(.+)@", product.key_properties) %}
-
-                            <span class="me-2">
-                                {{ key_properties.1 }}:
-                            </span>
-
-                            <span class="fw-semibold text-end">
-                                {{ key_properties.2 }}
-                            </span>
-                        </p>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="mt-32 pt-4 border-1 border-top border-blue-darker border-opacity-07 mt-xl-5 pt-xl-32">
-        <div class="row row-cols-1 row-cols-md-2 g-xl-5 g-xxl-80">
-            <div class="col col-xl-7">
-                <h2 class="ls-n02 fs-18 mb-2">
-                    Popis
-                </h2>
-
-                {% if product.text %}
-                    <div class="opacity-55 ls-n02">
-                        {{ product.text|raw }}
-                    </div>
+                {% if file_exists(image) %}
+                    <p class="img mb-0 border-1 border border-gray rounded-3">
+                        <img src="{{ image|media|resize(600, 400, {"mode": "crop"}) }}" alt="{{ product.title }}" class="img-fluid w-100">
+                    </p>
                 {% endif %}
             </div>
 
-            <div class="col mt-4 mt-md-0 col-xl-5 mt-xl-5 mt-xxl-80">
-                <h2 class="ls-n02 fs-18 mb-3">
-                    Dokumenty ke stažení
-                </h2>
+            <div class="col mt-4 mt-md-0 col-xl-5">
+                <h1 class="mb-3">
+                    {{ product.title }}
+                </h1>
 
-                <div class="d-flex flex-column gap-2">
-                    {% for file in product.files %}
-                        <p class="mb-0 d-flex align-items-center ls-n02">
-                            <img src="{{ 'assets/images/icons/file-pdf.svg'|theme }}" alt="pdf" class="me-1">
+                {% if product.excerpt %}
+                    <div class="excerpt opacity-55 ls-n02">
+                        {{ product.excerpt }}
+                    </div>
+                {% endif %}
 
-                            <a href="{{ file.file|media }}" target="_blank" class="text-blue-dark text-blue-hover transition text-decoration-underline-w-hover">
-                                {{ file.title }}
-                            </a>
-                        </p>
-                    {% endfor %}
+                <div class="rounded-3 bg-blue-darker bg-opacity-05 p-4 mt-4">
+                    <h2 class="ls-n02 fs-18 mb-3">
+                        Parametry
+                    </h2>
+
+                    <div class="d-flex flex-column gap-2 ls-n02">
+                        {% if product.shades %}
+                            <p class="mb-0 d-flex w-100 justify-content-between">
+                                {% set shades = preg_match("@(.+):(.+)@", product.shades) %}
+
+                                <span class="me-2">
+                                    {{ shades.1 }}:
+                                </span>
+
+                                <span class="fw-semibold text-end">
+                                    {{ shades.2 }}
+                                </span>
+                            </p>
+                        {% endif %}
+
+                        {% if product.consumption %}
+                            <p class="mb-0 d-flex w-100 justify-content-between">
+                                {% set consumption = preg_match("@(.+):(.+)@", product.consumption) %}
+
+                                <span class="me-2">
+                                    {{ consumption.1 }}:
+                                </span>
+
+                                <span class="fw-semibold text-end">
+                                    {{ consumption.2 }}
+                                </span>
+                            </p>
+                        {% endif %}
+
+                        {% if product.packages %}
+                            <p class="mb-0 d-flex w-100 justify-content-between">
+                                {% set packages = preg_match("@(.+):(.+)@", product.packages) %}
+
+                                <span class="me-2">
+                                    {{ packages.1 }}:
+                                </span>
+
+                                <span class="fw-semibold text-end">
+                                    {{ packages.2 }}
+                                </span>
+                            </p>
+                        {% endif %}
+
+                        {% if product.key_properties %}
+                            <p class="mb-0 d-flex w-100 justify-content-between">
+                                {% set key_properties = preg_match("@(.+):(.+)@", product.key_properties) %}
+
+                                <span class="me-2">
+                                    {{ key_properties.1 }}:
+                                </span>
+
+                                <span class="fw-semibold text-end">
+                                    {{ key_properties.2 }}
+                                </span>
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-32 pt-4 border-1 border-top border-blue-darker border-opacity-07 mt-xl-5 pt-xl-32">
+            <div class="row row-cols-1 row-cols-md-2 g-xl-5 g-xxl-80">
+                <div class="col col-xl-7">
+                    <h2 class="ls-n02 fs-18 mb-2">
+                        Popis
+                    </h2>
+
+                    {% if product.text %}
+                        <div class="opacity-55 ls-n02">
+                            {{ product.text|raw }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="col mt-4 mt-md-0 col-xl-5 mt-xl-5 mt-xxl-80">
+                    <h2 class="ls-n02 fs-18 mb-3">
+                        Dokumenty ke stažení
+                    </h2>
+
+                    <div class="d-flex flex-column gap-2">
+                        {% for file in product.files %}
+                            <p class="mb-0 d-flex align-items-center ls-n02">
+                                <img src="{{ 'assets/images/icons/file-pdf.svg'|theme }}" alt="pdf" class="me-1">
+
+                                <a href="{{ file.file|media }}" target="_blank" class="text-blue-dark text-blue-hover transition text-decoration-underline-w-hover">
+                                    {{ file.title }}
+                                </a>
+                            </p>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    {% if alternative_products.count %}
+        <div class="container-lg mt-5 pt-xl-4">
+            <h2 class="ls-n02 fs-18 mb-32">
+                Alternativní produkty
+            </h2>
+        </div>
+
+        <div class="swiper products-swiper">
+            <div class="swiper-wrapper">
+                {% for alternative_product in alternative_products %}
+                    <div class="swiper-slide">
+                        <a href="{{ alternative_product.url }}" class="text-decoration-none d-flex flex-column rounded-3 overflow-hidden">
+                            {% set image = ["products/", alternative_product.stachema_id, ".png"]|join %}
+
+                            {% if file_exists(image) %}
+                                <p class="img bg-gray rounded-3 mb-0">
+                                    <img src="{{ image|media|resize(600, 400, {"mode": "crop"}) }}" alt="{{ alternative_product.title }}" class="img-fluid w-100">
+                                </p>
+                            {% endif %}
+
+                            <div class="title-excerpt mt-n2 pt-2 position-relative">
+                                <h2 class="title mb-0 fs-17 ls-n02 text-blue-darker fw-medium mt-3 mb-0">
+                                    {{ alternative_product.title }}
+                                </h2>
+
+                                {% if alternative_product.excerpt %}
+                                    <p class="excerpt mb-0 mt-1 fs-13 opacity-65 text-blue-darker">
+                                        {{ alternative_product.excerpt }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="container-lg">
+                <div class="swiper-scrollbar position-relative start-0 end-0 w-100 bottom-0 mt-4 mt-xl-5"></div>
+            </div>
+        </div>
+    {% endif %}
 </div>

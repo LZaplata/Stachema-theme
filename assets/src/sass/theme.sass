@@ -429,3 +429,14 @@ footer
 
             &.active
                 text-decoration-color: inherit !important
+
+.products-swiper
+    .swiper-slide
+        a
+            .title
+                @extend .text-decoration-none-w-hover
+
+            &:hover
+                .title
+                    color: var(--bs-blue) !important
+                    text-decoration-color: inherit !important
