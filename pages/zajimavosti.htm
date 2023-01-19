@@ -1,0 +1,37 @@
+url = "/zajimavosti/:page?"
+layout = "default"
+title = "Zajímavosti"
+
+[blogPosts news]
+pageNumber = "{{ :page }}"
+categoryFilter = "zajimavosti"
+postsPerPage = 12
+noPostsMessage = "Nenalezeny žádné příspěvky"
+sortOrder = "published_at desc"
+categoryPage = "zajimavosti"
+postPage = "zajimavost"
+==
+<?php
+function onInit() {
+    $this["activeMenuItem"] = "zajimavosti";
+}
+?>
+==
+{% set items = {
+    "produkty": {
+        "title": "Zajímavosti",
+        "active": true,
+    }
+} %}
+
+{% partial "breadcrumb" items=items %}
+
+<div class="container-fluid pb-5" id="news">
+    <div class="container-lg py-xl-4">
+        <h1 class="mb-4 mb-xl-5">
+            {{ this.page.title }}
+        </h1>
+
+        {% component "news" %}
+    </div>
+</div>

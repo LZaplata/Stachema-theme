@@ -27,9 +27,13 @@ items:
             isExternal: '0'
     -
         title: Laboratoře
+        nesting: null
         type: cms-page
+        url: null
         code: ''
         reference: laboratore
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -52,7 +56,7 @@ items:
         nesting: null
         type: cms-page
         url: null
-        code: ''
+        code: aktuality
         reference: aktuality
         cmsPage: null
         replace: null
@@ -62,13 +66,9 @@ items:
             isExternal: '0'
     -
         title: Zajímavosti
-        nesting: null
-        type: url
-        url: /sss
-        code: ''
-        reference: null
-        cmsPage: null
-        replace: null
+        type: cms-page
+        code: zajimavosti
+        reference: zajimavosti
         viewBag:
             isHidden: '0'
             cssClass: ''

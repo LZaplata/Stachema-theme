@@ -1,0 +1,32 @@
+url = "/zajimavost/:slug"
+layout = "default"
+title = "Zajímavost"
+
+[blogPost post]
+slug = "{{ :slug }}"
+categoryPage = "zajimavosti"
+==
+<?php
+function onInit() {
+    $this["activeMenuItem"] = "zajimavosti";
+}
+?>
+==
+{% set items = {
+    "zajimavosti": {
+        "title" : "Zajímavosti",
+        "url"   : "zajimavosti"|page,
+    },
+    "zajimavost": {
+        "title" : post.title,
+        "active": true,
+    }
+} %}
+
+{% partial "breadcrumb" items=items %}
+
+<div class="container-fluid pb-5" id="post">
+    <div class="container-lg py-xl-4">
+        {% component "post" %}
+    </div>
+</div>
