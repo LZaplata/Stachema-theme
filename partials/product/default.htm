@@ -30,44 +30,44 @@
                         Parametry
                     </h2>
 
-                    <div class="d-flex flex-column gap-2 ls-n02">
+                    <div class="d-flex flex-column gap-3 ls-n02">
                         {% if product.shades %}
-                            <p class="mb-0 d-flex w-100 justify-content-between">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
                                 {% set shades = preg_match("@(.+):(.+)@", product.shades) %}
 
-                                <span class="me-2">
+                                <span class="opacity-55">
                                     {{ shades.1 }}:
                                 </span>
 
-                                <span class="fw-semibold text-end">
+                                <span class="fw-semibold mt-1">
                                     {{ shades.2 }}
                                 </span>
                             </p>
                         {% endif %}
 
                         {% if product.consumption %}
-                            <p class="mb-0 d-flex w-100 justify-content-between">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
                                 {% set consumption = preg_match("@(.+):(.+)@", product.consumption) %}
 
-                                <span class="me-2">
+                                <span class="opacity-55">
                                     {{ consumption.1 }}:
                                 </span>
 
-                                <span class="fw-semibold text-end">
+                                <span class="fw-semibold mt-1">
                                     {{ consumption.2 }}
                                 </span>
                             </p>
                         {% endif %}
 
                         {% if product.packages %}
-                            <p class="mb-0 d-flex w-100 justify-content-between">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
                                 {% set packages = preg_match("@(.+):(.+)@", product.packages) %}
 
-                                <span class="me-2">
+                                <span class="opacity-55">
                                     {{ packages.1 }}:
                                 </span>
 
-                                <span class="fw-semibold text-end">
+                                <span class="fw-semibold mt-1">
                                     {{ packages.2 }}
                                 </span>
                             </p>

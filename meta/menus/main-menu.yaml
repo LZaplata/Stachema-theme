@@ -14,22 +14,22 @@ items:
             isExternal: '1'
     -
         title: Produkty
+        nesting: null
         type: cms-page
+        url: null
         code: produkty
         reference: produkty
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: Laboratoře
-        nesting: null
-        type: url
-        url: /aaaa
+        type: cms-page
         code: ''
-        reference: null
-        cmsPage: null
-        replace: null
+        reference: laboratore
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -50,10 +50,10 @@ items:
     -
         title: Aktuality
         nesting: null
-        type: url
-        url: /ddd
+        type: cms-page
+        url: null
         code: ''
-        reference: null
+        reference: aktuality
         cmsPage: null
         replace: null
         viewBag:

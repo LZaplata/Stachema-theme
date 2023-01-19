@@ -1,9 +1,32 @@
-title = "Aktualita"
-layout = "default"
 url = "/aktualita/:slug"
+layout = "default"
+title = "Aktualita"
 
 [blogPost post]
 slug = "{{ :slug }}"
-categoryPage = "homepage"
+categoryPage = "aktuality"
 ==
-{% component "post" %}
+<?php
+function onInit() {
+    $this["activeMenuItem"] = "aktuality";
+}
+?>
+==
+{% set items = {
+    "produkty": {
+        "title" : "Aktuality",
+        "url"   : "aktuality"|page,
+    },
+    "produkt": {
+        "title" : post.title,
+        "active": true,
+    }
+} %}
+
+{% partial "breadcrumb" items=items %}
+
+<div class="container-fluid pb-5" id="post">
+    <div class="container-lg py-xl-4">
+        {% component "post" %}
+    </div>
+</div>

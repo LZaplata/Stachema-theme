@@ -138,6 +138,12 @@ h1, .h1
 h2, .h2
     letter-spacing: -.4px
 
+h3, .h3
+    letter-spacing: -.2px
+
+h4, .h4
+    letter-spacing: -.1px
+
 header
     .top
         .nav
@@ -361,6 +367,46 @@ header
             .excerpt
                 opacity: 1 !important
 
+
+.post-content
+    @include media-breakpoint-up(xl)
+        @include make-col(10)
+        @include make-col-offset(1)
+
+    h2, .h2, h3, .h3, h4, .h4
+        margin-bottom: map-get($spacers, 4)
+
+    p
+        letter-spacing: -.2px
+        line-height: map-get($line-heights, 24)
+        color: rgba(var(--bs-blue-darker-rgb), .55)
+
+        &:last-child
+            margin-bottom: 0
+
+    ul, ol
+        padding-left: 15px
+
+        li
+            color: rgba(var(--bs-blue-darker-rgb), .76)
+            line-height: map-get($line-heights, 24)
+
+    *
+        & + h2, .h2
+            margin-top: map-get($spacers, 5)
+
+        & + h3, .h3
+            margin-top: map-get($spacers, 5)
+
+        & + h4, .h4
+            margin-top: map-get($spacers, 5)
+
+    a
+        @extend .text-decoration-underline-w-hover
+
+    strong
+        color: rgba(var(--bs-blue-darker-rgb), 1)
+
 footer
     #footer
         .heading
@@ -391,7 +437,8 @@ footer
 .products
     .product
         @media (any-hover: hover)
-            height: 305px
+            @include media-breakpoint-up(xl)
+                height: 310px
 
         a
             .title-excerpt

@@ -1,0 +1,18 @@
+{% set post = __SELF__.post %}
+{% set first_image = post.featured_images.first %}
+
+<h1 class="mb-4 mb-xl-5 col-xl-10 offset-xl-1">
+    {{ post.title }}
+</h1>
+
+{% if first_image %}
+    <p class="img mb4 mb-xl-5">
+        <img src="{{ first_image.thumb(1278, 640, {"mode": "crop"}) }}" alt="{{ first_image.description }}" class="img-fluid w-100 rounded-4">
+    </p>
+{% endif %}
+
+{% if post.content %}
+    <div class="post-content">
+        {{ post.content|raw }}
+    </div>
+{% endif %}
