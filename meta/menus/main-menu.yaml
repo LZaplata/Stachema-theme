@@ -39,14 +39,10 @@ items:
             cssClass: ''
             isExternal: '0'
     -
-        title: 'Prodejí místa'
-        nesting: null
-        type: url
-        url: /fff
+        title: Videa
+        type: cms-page
         code: ''
-        reference: null
-        cmsPage: null
-        replace: null
+        reference: videa
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -92,9 +88,26 @@ items:
             isExternal: '0'
     -
         title: Kontakty
+        nesting: null
         type: cms-page
+        url: null
         code: ''
         reference: kontakty
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'O nás'
+        nesting: null
+        type: cms-page
+        url: null
+        code: ''
+        reference: o-nas
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''

@@ -1,36 +1,39 @@
 items:
     -
-        title: 'O nás'
-        type: url
-        url: 'https://www.f.cz'
-        code: ''
-        viewBag:
-            isHidden: '0'
-            cssClass: ''
-            isExternal: '0'
-    -
         title: 'Přísady do betonu'
+        nesting: null
         type: url
         url: 'https://prisadydobetonu.stachema.cz/'
         code: ''
+        reference: null
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '1'
     -
         title: Lignofix
+        nesting: null
         type: url
         url: 'https://www.lignofix.cz/'
         code: ''
+        reference: null
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '1'
     -
         title: Laguna
+        nesting: null
         type: url
         url: 'https://www.mojelaguna.cz/'
         code: ''
+        reference: null
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
