@@ -1,0 +1,65 @@
+url = "/kontakty/region-sever"
+layout = "default"
+title = "Kontakty - region sever"
+
+[collection categories]
+handle = "Contacts\Category"
+
+[collection contacts]
+handle = "Contacts\Contact"
+
+[section content]
+handle = "Contacts\Content"
+==
+{% set items = {
+    "kontakty": {
+        "title" : "Kontakty",
+        "url"  : "kontakty"|page,
+    },
+    "region": {
+        "title" : "Region server",
+        "active": true,
+    }
+} %}
+
+{% partial "breadcrumb" items=items %}
+
+<div class="container-fluid pb-5" id="contacts">
+    <div class="container-lg py-xl-4">
+        <h1 class="mb-4 mb-xl-5">
+            Kontakty - region sever
+        </h1>
+
+        {% if content.north %}
+            <div class="post-content fluid">
+                {{ content.north|raw }}
+            </div>
+        {% endif %}
+
+        {% for category in categories.where("slug", "region-sever").first.children %}
+            <div class="category {{ category.name ? 'with-name' }} mt-32 pt-32 border-top border-1 border-blue-darker border-opacity-07 mt-xl-5 pt-xl-5">
+                <h2 class="h3 mb-32">
+                    {{ category.title }}
+                </h2>
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 gx-lg-5 row-cols-xl-4">
+                    {% if category.name %}
+                        <div class="col">
+                            <div class="p-4 rounded-3 bg-gray">
+                                {% partial "contact" contact=category %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% for contact in contacts.whereRelation("category", "slug", category.slug).get %}
+                        <div class="contact col">
+                            <div class="p-4">
+                                {% partial "contact" contact=contact %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

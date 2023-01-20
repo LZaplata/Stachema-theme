@@ -1,0 +1,95 @@
+<h3 class="fs-15 ls-n03 mb-2">
+    {{ contact.name ?: contact.title }}
+</h3>
+
+{% if contact.job %}
+    <p class="fs-13 ls-n02 opacity-55 mb-2">
+        {{ contact.job }}
+    </p>
+{% endif %}
+
+{% if contact.street and contact.city %}
+    <p class="fs-13 ls-n02 opacity-55 mb-2">
+        {{ contact.street }} {{ contact.street_no }} <br>
+        {{ contact.zip }} {{ contact.city }}
+
+        {% if contact.po_box %}
+            <br>
+            P. O. BOX {{ contact.po_box }}
+        {% endif %}
+    </p>
+{% endif %}
+
+{% if contact.opening_hours %}
+    <p class="fs-13 ls-n02 opacity-55 mb-2 d-flex flex-column gap-0">
+        {% for opening_hour in contact.opening_hours %}
+            <span>
+                <span class="me-1">
+                    {{ opening_hour.day }}:
+                </span>
+
+                <span>
+                    {{ opening_hour.time }}
+                </span>
+            </span>
+        {% endfor %}
+    </p>
+{% endif %}
+
+{% if contact.map_link %}
+    <p class="fs-13 ls-n02 mb-0">
+        <a href="{{ contact.map_link }}" target="_blank" class="text-decoration-underline-w-hover">
+            Ukázat na mapě
+        </a>
+    </p>
+{% endif %}
+
+{% if contact.phone %}
+    <p class="fs-13 ls-n02 mt-3 mb-0 d-flex align-items-center">
+        <span class="mi-phone mi-16 bg-blue-darker"></span>
+
+        <a href="tel:{{ contact.phone }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+            {{ contact.phone }}
+        </a>
+    </p>
+{% endif %}
+
+{% if contact.phone2 %}
+    <p class="fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
+        <span class="mi-phone mi-16 bg-blue-darker"></span>
+
+        <a href="tel:{{ contact.phone2 }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+            {{ contact.phone2 }}
+        </a>
+    </p>
+{% endif %}
+
+{% if contact.fax %}
+    <p class="fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
+        <span class="mi-fax mi-16 bg-blue-darker"></span>
+
+        <a href="tel:{{ contact.fax }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+            {{ contact.fax }}
+        </a>
+    </p>
+{% endif %}
+
+{% if contact.email %}
+    <p class="fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
+        <span class="mi-paper-plane mi-16 bg-blue-darker"></span>
+
+        <a href="tel:{{ contact.email }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+            {{ contact.email }}
+        </a>
+    </p>
+{% endif %}
+
+{% if contact.web %}
+    <p class="fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
+        <span class="mi-link mi-16 bg-blue-darker"></span>
+
+        <a href="{{ contact.web }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+            {{ contact.web }}
+        </a>
+    </p>
+{% endif %}

@@ -64,6 +64,16 @@
     &-envelope-open
         @include mask-image("icons/envelope-open")
 
+    &-fax
+        @include mask-image("icons/printer")
+
+    &-link
+        @include mask-image("icons/link")
+
+    &-40
+        width: 40px
+        height: 40px
+
     &-32
         width: 32px
         height: 32px
@@ -369,9 +379,10 @@ header
 
 
 .post-content
-    @include media-breakpoint-up(xl)
-        @include make-col(10)
-        @include make-col-offset(1)
+    &:not(.fluid)
+        @include media-breakpoint-up(xl)
+            @include make-col(10)
+            @include make-col-offset(1)
 
     h2, .h2, h3, .h3, h4, .h4
         margin-bottom: map-get($spacers, 4)
@@ -494,3 +505,83 @@ footer
                 .title
                     color: var(--bs-blue) !important
                     text-decoration-color: inherit !important
+
+#contacts
+    .regions
+        .region
+            a
+                &:hover
+                    border-color: var(--bs-blue-dark) !important
+
+    .category
+        .contact
+            &:last-child
+                & > div
+                    padding-bottom: 0 !important
+
+            @include media-breakpoint-only(sm)
+                &:nth-last-child(-n+2)
+                    & > div
+                        padding-bottom: 0 !important
+
+            @include media-breakpoint-between(md, xl)
+                &:nth-last-child(-n+3)
+                    & > div
+                        padding-bottom: 0 !important
+
+            @include media-breakpoint-up(xl)
+                &:nth-last-child(-n+4)
+                    & > div
+                        padding-bottom: 0 !important
+
+        &:not(.with-name)
+            .contact
+                &:first-child
+                    & > div
+                        padding-top: 0 !important
+
+                @include media-breakpoint-only(xs)
+                    & > div
+                        padding-left: 0 !important
+                        padding-right: 0 !important
+
+                @include media-breakpoint-only(sm)
+                    &:nth-child(2n+1)
+                        & > div
+                            padding-left: 0 !important
+
+                    &:nth-child(-n+2)
+                        & > div
+                            padding-top: 0 !important
+
+                @include media-breakpoint-between(md, xl)
+                    &:nth-child(3n+1)
+                        & > div
+                            padding-left: 0 !important
+
+                    &:nth-child(-n+3)
+                        & > div
+                            padding-top: 0 !important
+
+                @include media-breakpoint-up(xl)
+                    &:nth-child(4n+1)
+                        & > div
+                            padding-left: 0 !important
+
+                    &:nth-child(-n+4)
+                        & > div
+                            padding-top: 0 !important
+
+        &.with-name
+            .col
+                @include media-breakpoint-only(xs)
+                    &:nth-child(2)
+                        margin-top: map-get($spacers, 4) !important
+
+                @include media-breakpoint-only(sm)
+                    &:nth-child(3n), &:nth-child(4n)
+                        margin-top: map-get($spacers, 4) !important
+
+                @include media-breakpoint-between(md, xl)
+                    &:nth-child(4n), &:nth-child(5n), &:nth-child(6n)
+                        margin-top: map-get($spacers, 4) !important

@@ -66,9 +66,13 @@ items:
             isExternal: '0'
     -
         title: Zajímavosti
+        nesting: null
         type: cms-page
+        url: null
         code: zajimavosti
         reference: zajimavosti
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -88,13 +92,9 @@ items:
             isExternal: '0'
     -
         title: Kontakty
-        nesting: null
-        type: url
-        url: /tt
+        type: cms-page
         code: ''
-        reference: null
-        cmsPage: null
-        replace: null
+        reference: kontakty
         viewBag:
             isHidden: '0'
             cssClass: ''

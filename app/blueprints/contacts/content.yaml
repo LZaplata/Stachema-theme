@@ -1,0 +1,24 @@
+uuid: 10eee40c-af64-41ef-80aa-0ea75c1f838e
+handle: Contacts\Content
+type: single
+name: Obsah
+
+navigation:
+    icon: icon-file-o
+    parent: Contacts\Category
+    order: 30
+    label: Obsah
+
+fields:
+    north:
+        label: Region sever
+        type: richeditor
+        size: huge
+    south:
+        label: Region jih
+        type: richeditor
+        size: huge
+    moravia:
+        label: Region morava
+        type: richeditor
+        size: huge

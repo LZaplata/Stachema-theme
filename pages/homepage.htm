@@ -69,43 +69,8 @@ postPage = "aktualita"
         <div class="row row-cols-1 g-4 row-cols-sm-2 row-cols-md-3 g-lg-5 row-cols-xl-4">
             {% for category in contacts_categories.where("homepage", true).get() %}
                 <div class="col">
-                    <div class="p-4 rounded-3 {{ loop.first ? 'bg-gray' }}">
-                        <h3 class="fs-15 ls-n03 mb-2">
-                           {{ category.name }}
-                        </h3>
-
-                        <p class="fs-13 ls-n02 opacity-55 mb-2">
-                            {{ category.street }} {{ category.street_no }} <br>
-                            {{ category.zip }} {{ category.city }}
-                        </p>
-
-                        {% if category.map_link %}
-                            <p class="fs-13 ls-n02 mb-0">
-                                <a href="{{ category.map_link }}" target="_blank" class="text-decoration-underline-w-hover">
-                                    Ukázat na mapě
-                                </a>
-                            </p>
-                        {% endif %}
-
-                        {% if category.phone %}
-                            <p class="fs-13 ls-n02 mt-3 mb-0 d-flex align-items-center">
-                                <span class="mi-phone mi-16 bg-blue-darker"></span>
-
-                                <a href="tel:{{ category.phone }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
-                                    {{ category.phone }}
-                                </a>
-                            </p>
-                        {% endif %}
-
-                        {% if category.email %}
-                            <p class="fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
-                                <span class="mi-paper-plane mi-16 bg-blue-darker"></span>
-
-                                <a href="tel:{{ category.email }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
-                                    {{ category.email }}
-                                </a>
-                            </p>
-                        {% endif %}
+                    <div class="p-4 rounded-3 {{ loop.first ? "bg-gray" }}">
+                        {% partial "contact" contact=category %}
                     </div>
                 </div>
             {% endfor %}
