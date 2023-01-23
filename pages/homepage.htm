@@ -31,11 +31,17 @@ postPage = "aktualita"
         <div class="swiper-wrapper">
             {% for slide in slides %}
                 <div class="swiper-slide">
-                    <picture>
-                        <source media="(min-width:768px)" srcset="{{ slide.image_lg.thumb(1920, 550, {"mode": "crop"}) }}">
+                    {% if slide.link %}
+                        <a href="{{ slide.link }}">
+                    {% endif %}
+                            <picture>
+                                <source media="(min-width:768px)" srcset="{{ slide.image_lg.thumb(1920, 550, {"mode": "crop"}) }}">
 
-                        <img src="{{ slide.image_sm.thumb(640, 640, {"mode": "crop"}) }}" alt="{{ slide.image_sm.description }}" class="img-fluid">
-                    </picture>
+                                <img src="{{ slide.image_sm.thumb(640, 640, {"mode": "crop"}) }}" alt="{{ slide.image_sm.description }}" class="img-fluid">
+                            </picture>
+                    {% if slide.link %}
+                        </a>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
