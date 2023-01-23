@@ -25,8 +25,8 @@
                 </div>
 
                 <div class="search d-none d-sm-flex w-100 mx-5">
-                    <form action="{{ 'search'|page }}" method="get" class="position-relative w-100">
-                        <input name="q" type="text" placeholder="Napište, co hledáte…" autocomplete="off" class="form-control w-100">
+                    <form action="{{ 'vyhledavani'|page }}" method="get" class="position-relative w-100">
+                        <input name="q" type="text" placeholder="Napište, co hledáte…" autocomplete="off" class="form-control w-100" value="{{ this.request.input.q ?? null }}">
 
                         <button type="submit" class="btn btn-blue-dark position-absolute end-0 me-2 d-inline-flex align-items-center px-3">
                             <img src="{{ 'assets/images/icons/magnifying-glass.svg'|theme }}" alt="magnifying glass">

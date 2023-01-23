@@ -1,0 +1,38 @@
+title = "Vyhledávání"
+layout = "default"
+url = "/vyhledavani"
+
+[products]
+page = "produkt"
+categoryPage = "kategorie"
+==
+{% set items = {
+    "vyhledavani": {
+        "title": "Vyhledávání",
+        "active": true,
+    }
+} %}
+
+{% partial "breadcrumb" items=items %}
+
+<div class="container-fluid pb-5" id="search">
+    <div class="container-lg py-xl-4">
+        <h1 class="mb-4 mb-xl-5">
+            Vyhledávání
+        </h1>
+
+        <p class="ls-n02">
+            <span class="opacity-55">
+                Vyhledávání výsledků výrazu
+            </span>
+
+            <span class="fw-bold">
+                {{ this.request.input.q }}
+            </span>
+        </p>
+
+        <div>
+            {% component "products" %}
+        </div>
+    </div>
+</div>
