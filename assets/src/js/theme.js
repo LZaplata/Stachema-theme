@@ -20,9 +20,9 @@ var sliderSwiper = new Swiper(".slider-swiper", {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
-    // autoplay: {
-    //     delay: 7000,
-    // },
+    autoplay: {
+        delay: 5000,
+    },
 });
 
 var videosSwiper = new Swiper(".videos-swiper", {
