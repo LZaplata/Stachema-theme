@@ -11,6 +11,7 @@ require:
     - rainlab.pages
     - rainlab.blog
     - lzaplata.extensions
+    - lzaplata.files
 form:
     tabs:
         fields:

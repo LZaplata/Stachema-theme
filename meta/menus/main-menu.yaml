@@ -40,9 +40,13 @@ items:
             isExternal: '0'
     -
         title: Videa
+        nesting: null
         type: cms-page
+        url: null
         code: ''
         reference: videa
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -75,13 +79,9 @@ items:
             isExternal: '0'
     -
         title: 'Ke stažení'
-        nesting: null
-        type: url
-        url: /eee
+        type: cms-page
         code: ''
-        reference: null
-        cmsPage: null
-        replace: null
+        reference: ke-stazeni
         viewBag:
             isHidden: '0'
             cssClass: ''
