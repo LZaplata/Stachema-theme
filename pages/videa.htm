@@ -1,4 +1,37 @@
-title = "Videa"
-layout = "default"
 url = "/videa"
+layout = "default"
+title = "Videa"
+
+[collection videos]
+handle = "Videos\Video"
 ==
+<?php
+function onInit() {
+    $this["activeMenuItem"] = "videa";
+}
+?>
+==
+{% set items = {
+    "videa": {
+        "title": "Videa",
+        "active": true,
+    }
+} %}
+
+{% partial "breadcrumb" items=items %}
+
+<div class="container-fluid pb-5" id="videos">
+    <div class="container-lg py-xl-4">
+        <h1 class="mb-4 mb-xl-5">
+            {{ this.page.title }}
+        </h1>
+
+        <div class="videos row row-cols-1 gy-5 gx-4 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gx-xxl-5">
+            {% for video in videos %}
+                <div class="video col">
+                    {% partial "video" video=video %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

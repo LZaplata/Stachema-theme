@@ -97,27 +97,7 @@ postPage = "aktualita"
         <div class="swiper-wrapper">
             {% for video in videos.take(8).get() %}
                 <div class="swiper-slide">
-                    <a href="{{ 'video'|page({slug: video.slug}) }}" class="text-decoration-none">
-                        {% if video.image %}
-                            <p class="img mb-0 position-relative">
-                                <img src="{{ video.image.thumb(600, 400, {"mode": "crop"}) }}" alt="{{ video.image.description }}" class="img-fluid w-100">
-
-                                <span class="overlay position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-center transition">
-                                    <img src="{{ 'assets/images/icons/play-circle.svg'|theme }}" alt="play">
-                                </span>
-                            </p>
-                        {% endif %}
-
-                        <h3 class="title mb-0 fs-15 ls-n03 transition mt-3">
-                            {{ video.title }}
-                        </h3>
-
-                        {% if video.excerpt %}
-                            <p class="mb-0 fs-13 ls-n02 text-blue-darker opacity-55 mt-2">
-                                {{ video.excerpt }}
-                            </p>
-                        {% endif %}
-                    </a>
+                    {% partial "video" video=video %}
                 </div>
             {% endfor %}
         </div>
