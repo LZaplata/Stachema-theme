@@ -1,4 +1,4 @@
-url = "/produkty/produkt/:slug"
+url = "/produkt/:slug"
 layout = "default"
 title = "Produkt"
 
@@ -19,7 +19,7 @@ function onInit() {
     },
 } %}
 
-{% for title, slug in product.categories.lists("slug", "title") %}
+{% for title, slug in product.categories.first.getAllChildrenAndSelf.intersect(product.categories).lists("slug", "title") %}
     {% set items = items|merge({
         (slug): {
             "title" : title,
