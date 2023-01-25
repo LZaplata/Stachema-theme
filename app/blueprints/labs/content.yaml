@@ -2,7 +2,7 @@ uuid: 42f09940-1325-4d32-96ba-9d497370d3bf
 handle: Labs\Content
 type: single
 name: Obsah
-draft: false
+drafts: false
 
 primaryNavigation:
     label: Laboratoře

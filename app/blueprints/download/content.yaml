@@ -2,7 +2,7 @@ uuid: 6d01a4cd-69c4-490e-8f2e-7957ed8d4568
 handle: Download\Content
 type: single
 name: Obsah
-draft: false
+drafts: false
 
 primaryNavigation:
     label: Ke stažení

@@ -7,6 +7,9 @@ handle = "Contacts\Category"
 
 [collection contacts]
 handle = "Contacts\Contact"
+
+[section content]
+handle = "Contacts\Content"
 ==
 {% set items = {
     "produkty": {
@@ -85,7 +88,9 @@ handle = "Contacts\Contact"
                     </div>
 
                     <div class="col mt-32 mt-md-0 d-flex align-items-center justify-content-end">
-                        <img src="{{ 'assets/images/stachema.png'|theme }}" alt="stachema" class="img-fluid rounded-4">
+                        {% if content.image %}
+                            <img src="{{ image.thumb(670, 370, {"mode": "crop"}) }}" alt="{{ image.description }}" class="img-fluid rounded-4">
+                        {% endif %}
                     </div>
                 </div>
             {% else %}

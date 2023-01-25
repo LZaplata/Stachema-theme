@@ -2,7 +2,7 @@ uuid: 10eee40c-af64-41ef-80aa-0ea75c1f838e
 handle: Contacts\Content
 type: single
 name: Obsah
-draft: false
+drafts: false
 
 navigation:
     icon: icon-file-o
@@ -11,6 +11,16 @@ navigation:
     label: Obsah
 
 fields:
+    image:
+        label: Obrázek sídla společnosti
+        span: left
+        type: fileupload
+        maxFiles: 1
+        mode: image
+        fileTypes: png,jpg,jpeg,webp
+        commentAbove: Obrázek, který se bude zobrazovat jako hlavní obrázek v kontaktech. Měl by mít rozměr 670x370px.
+        column: false
+        scope: false
     north:
         label: Region sever
         type: richeditor
