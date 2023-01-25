@@ -1,6 +1,6 @@
 <a href="{{ 'video'|page({slug: video.slug}) }}" class="text-decoration-none">
     {% if video.image %}
-        <p class="img mb-0 position-relative rounded-3 overflow-hidden">
+        <p class="img mb-0 position-relative bg-gray rounded-3 overflow-hidden">
             <img src="{{ video.image.thumb(600, 400, {"mode": "crop"}) }}" alt="{{ video.image.description }}" class="img-fluid w-100 rounded-3">
 
             <span class="overlay position-absolute start-0 top-0 w-100 h-100 d-flex align-items-center justify-content-center transition">

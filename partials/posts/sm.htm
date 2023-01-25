@@ -1,5 +1,5 @@
 <div class="post position-relative">
-    <p class="img mb-0 position-relative rounded-3 overflow-hidden">
+    <p class="img mb-0 position-relative bg-gray rounded-3 overflow-hidden">
         {% set image = post.featured_images.first %}
 
         <img src="{{ image.thumb(600, 400, {"mode": "crop"}) }}" alt="{{ image.description }}" class="img-fluid w-100">
