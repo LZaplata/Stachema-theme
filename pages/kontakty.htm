@@ -89,7 +89,7 @@ handle = "Contacts\Content"
 
                     <div class="col mt-32 mt-md-0 d-flex align-items-center justify-content-end">
                         {% if content.image %}
-                            <img src="{{ image.thumb(670, 370, {"mode": "crop"}) }}" alt="{{ image.description }}" class="img-fluid rounded-4">
+                            <img src="{{ content.image.thumb(670, 370, {"mode": "crop"}) }}" alt="{{ image.description }}" class="img-fluid rounded-4">
                         {% endif %}
                     </div>
                 </div>
