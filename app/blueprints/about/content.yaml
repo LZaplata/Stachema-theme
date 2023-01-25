@@ -1,13 +1,13 @@
-uuid: 42f09940-1325-4d32-96ba-9d497370d3bf
-handle: Labs\Content
+uuid: 69eb5118-922d-4434-8e96-5b1b01ddf0f7
+handle: About\Content
 type: single
 name: Obsah
 draft: false
 
 primaryNavigation:
-    label: Laboratoře
-    icon: icon-flask
-    order: 140
+    label: O nás
+    icon: icon-info-circle
+    order: 150
 
 fields:
     text:

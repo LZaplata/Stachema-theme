@@ -2,6 +2,7 @@ uuid: 381a20de-1a9c-492d-a093-49b2d656f357
 handle: Products\Content
 type: single
 name: Obsah
+draft: false
 
 primaryNavigation:
     label: Produkty

@@ -41,3 +41,7 @@ fields:
         commentAbove: Obrázek, který se bude zobrazovat na větších zařízeních. Měl by mít rozměr 1920x550px.
         column: false
         scope: false
+    link:
+        label: Odkaz
+        span: left
+        type: text

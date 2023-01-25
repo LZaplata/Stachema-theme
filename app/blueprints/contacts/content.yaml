@@ -2,6 +2,7 @@ uuid: 10eee40c-af64-41ef-80aa-0ea75c1f838e
 handle: Contacts\Content
 type: single
 name: Obsah
+draft: false
 
 navigation:
     icon: icon-file-o
