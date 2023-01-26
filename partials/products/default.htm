@@ -28,9 +28,11 @@
                     </div>
 
                     <div class="bg-white mt-3 d-flex flex-column fs-13 text-blue-darker px-3 gap-3">
+                        {% set pattern = "@(.+?):(.+)@" %}
+
                         {% if product.packages %}
                             <p class="mb-0 d-flex flex-column w-100 justify-content-between">
-                                {% set packages = preg_match("@(.+):(.+)@", product.packages) %}
+                                {% set packages = preg_match(pattern, product.packages) %}
 
                                 <span class="opacity-55">
                                     {{ packages.1 }}:
@@ -44,7 +46,7 @@
 
                         {% if product.consumption %}
                             <p class="mb-0 d-flex flex-column w-100 justify-content-between">
-                                {% set consumption = preg_match("@(.+):(.+)@", product.consumption) %}
+                                {% set consumption = preg_match(pattern, product.consumption) %}
 
                                 <span class="opacity-55">
                                     {{ consumption.1 }}:
@@ -58,7 +60,7 @@
 
                         {% if product.key_properties %}
                             <p class="mb-0 d-flex flex-column w-100 justify-content-between">
-                                {% set key_properties = preg_match("@(.+):(.+)@", product.key_properties) %}
+                                {% set key_properties = preg_match(pattern, product.key_properties) %}
 
                                 <span class="opacity-55">
                                     {{ key_properties.1 }}:
