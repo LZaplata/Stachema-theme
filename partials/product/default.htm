@@ -88,6 +88,18 @@
                                 </span>
                             </p>
                         {% endif %}
+
+                        {% if product.warning %}
+                            <p class="mb-0 mt-2 d-flex align-items-start warning">
+                                {% set warning = preg_match(pattern, product.warning) %}
+
+                                <img src="{{ 'assets/images/icons/info.svg'|theme }}" alt="info" class="me-1 of-none">
+
+                                <span class="opacity-55 ls-n02">
+                                    {{ warning.2 }}
+                                </span>
+                            </p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
