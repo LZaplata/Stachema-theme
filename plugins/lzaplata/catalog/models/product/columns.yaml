@@ -1,6 +1,6 @@
 columns:
     stachema_id:
-        label: 'lzaplata.catalog::lang.product.column.stachema'
+        label: 'lzaplata.catalog::lang.product.column.stachema_id'
         type: text
         searchable: true
         sortable: true
