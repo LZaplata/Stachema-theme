@@ -1,0 +1,11 @@
+items:
+    -
+        title: 'Nastavení cookies'
+        type: cms-page
+        code: ''
+        reference: nastaveni-cookies
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: Links
