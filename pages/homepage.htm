@@ -37,7 +37,7 @@ postPage = "aktualita"
                             <picture>
                                 <source media="(min-width:768px)" srcset="{{ slide.image_lg.thumb(1920, 550, {"mode": "crop"}) }}">
 
-                                <img src="{{ slide.image_sm.thumb(640, 640, {"mode": "crop"}) }}" alt="{{ slide.image_sm.description }}" class="img-fluid">
+                                <img src="{{ slide.image_sm.thumb(640, 640, {"mode": "crop"}) }}" alt="{{ slide.image_sm.description }}" class="img-fluid w-100">
                             </picture>
                     {% if slide.link %}
                         </a>
