@@ -1,0 +1,5 @@
+title: 'lzaplata.catalog::lang.category.reorder.title'
+modelClass: lzaplata\Catalog\Models\Category
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar

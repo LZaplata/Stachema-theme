@@ -1,0 +1,55 @@
+{% set products = __SELF__.products %}
+
+{% if products.count %}
+    <div class="products row row-cols-1 g-4 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+        {% for product in products %}
+            <div class="product col">
+                <div class="d-flex flex-column gap-3 position-relative">
+                    {% if product.image %}
+                        <p class="img mb-0">
+                            <img src="{{ product.image.thumb(600, 400, {"mode": "crop"}) }}" alt="{{ product.image.description }}" class="img-fluid w-100">
+                        </p>
+                    {% endif %}
+
+                    <p class="title mb-0">
+                        <a href="{{ product.url }}">
+                            {{ product.title }}
+                        </a>
+                    </p>
+
+                    <p class="excerpt mb-0">
+                        {{ product.excerpt }}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if products.lastPage > 1 %}
+    <ul class="pagination">
+        {% if products.currentPage > 1 %}
+            <li class="page-item prev">
+                <a href="{{ this.page.baseFileName|page({page: (products.currentPage-1)}) }}" class="page-link">
+                    &larr; Prev
+                </a>
+            </li>
+        {% endif %}
+
+        {% for page in 1..products.lastPage %}
+            <li class="page-item">
+                <a href="{{ this.page.baseFileName|page({page: page}) }}" class="page-link {{ products.currentPage == page ? 'active' : null }}">
+                    {{ page }}
+                </a>
+            </li>
+        {% endfor %}
+
+        {% if products.lastPage > products.currentPage %}
+            <li class="page-item next">
+                <a href="{{ this.page.baseFileName|page({page: (products.currentPage+1)}) }}" class="page-link">
+                    Next &rarr;
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

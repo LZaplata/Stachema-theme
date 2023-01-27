@@ -1,0 +1,23 @@
+columns:
+    title: lzaplata.catalog::lang.product.column.title
+    stachema_id: lzaplata.catalog::lang.product.column.stachema_id
+    excerpt: lzaplata.catalog::lang.product.column.excerpt
+    text: lzaplata.catalog::lang.product.column.text
+    shades: lzaplata.catalog::lang.product.column.shades
+    consumption: lzaplata.catalog::lang.product.column.consumption
+    packages: lzaplata.catalog::lang.product.column.packages
+    key_properties: lzaplata.catalog::lang.product.column.key_properties
+    warning: lzaplata.catalog::lang.product.column.warning
+    pictograms: lzaplata.catalog::lang.product.column.pictograms
+    pictograms_text: lzaplata.catalog::lang.product.column.pictograms_text
+    samples: lzaplata.catalog::lang.product.column.samples
+    usage: lzaplata.catalog::lang.product.column.usage
+    application: lzaplata.catalog::lang.product.column.application
+    processing: lzaplata.catalog::lang.product.column.processing
+    properties: lzaplata.catalog::lang.product.column.properties
+    position: lzaplata.catalog::lang.product.column.position
+    pictograms_img: lzaplata.catalog::lang.product.column.pictograms_img
+    category_1: lzaplata.catalog::lang.product.column.category_1
+    category_2: lzaplata.catalog::lang.product.column.category_2
+    category_3: lzaplata.catalog::lang.product.column.category_3
+    old_id: lzaplata.catalog::lang.product.column.old

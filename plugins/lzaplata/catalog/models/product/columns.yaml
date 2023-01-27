@@ -1,0 +1,16 @@
+columns:
+    stachema_id:
+        label: 'lzaplata.catalog::lang.product.column.stachema'
+        type: text
+        searchable: true
+        sortable: true
+    title:
+        label: 'lzaplata.catalog::lang.product.column.title'
+        type: text
+        searchable: true
+        sortable: true
+    slug:
+        label: 'lzaplata.catalog::lang.product.column.slug'
+        type: text
+        searchable: true
+        sortable: true

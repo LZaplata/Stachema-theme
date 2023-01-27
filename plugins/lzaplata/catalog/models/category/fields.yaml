@@ -1,0 +1,37 @@
+fields:
+    title:
+        label: 'lzaplata.catalog::lang.category.field.title.label'
+        span: left
+        required: 1
+        type: text
+    slug:
+        label: 'lzaplata.catalog::lang.category.field.slug.label'
+        span: right
+        required: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+    parent:
+        label: 'lzaplata.catalog::lang.category.field.parent.label'
+        nameFrom: title
+        descriptionFrom: description
+        emptyOption: 'lzaplata.catalog::lang.category.field.parent.prompt'
+        span: left
+        type: relation
+    image:
+        label: 'lzaplata.catalog::lang.category.field.image.label'
+        mode: image
+        fileTypes: 'png,jpg,jpeg,webp'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        maxFiles: '1'
+        span: right
+        type: fileupload
+    text:
+        label: 'lzaplata.catalog::lang.category.field.text.label'
+        size: giant
+        span: full
+        type: richeditor

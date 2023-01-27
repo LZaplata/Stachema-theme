@@ -1,0 +1,4 @@
+import:
+    title: lzaplata.catalog::lang.category.import.title
+    modelClass: LZaplata\Catalog\Models\CategoryImport
+    list: $/lzaplata/catalog/models/categoryimport/columns.yaml

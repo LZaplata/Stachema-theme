@@ -1,0 +1,15 @@
+name: Categories
+modelClass: lzaplata\Catalog\Models\Category
+form: $/lzaplata/catalog/models/category/fields.yaml
+defaultRedirect: lzaplata/catalog/categories
+create:
+    title: 'lzaplata.catalog::lang.category.create.title'
+    redirect: 'lzaplata/catalog/categories/update/:id'
+    redirectClose: lzaplata/catalog/categories
+    flashSave: 'lzaplata.catalog::lang.category.create.flash.save'
+update:
+    title: 'lzaplata.catalog::lang.category.update.title'
+    redirect: lzaplata/catalog/categories
+    redirectClose: lzaplata/catalog/categories
+    flashSave: 'lzaplata.catalog::lang.category.update.flash.save'
+    flashDelete: 'lzaplata.catalog::lang.category.update.flash.delete'

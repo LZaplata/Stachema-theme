@@ -1,0 +1,16 @@
+uuid: 5a6dabfd-8198-40d6-bad1-7e5bdb1a9b1f
+handle: GDPR\Content
+type: single
+name: Obsah
+drafts: false
+
+primaryNavigation:
+    label: GDPR
+    icon: icon-legal
+    order: 160
+
+fields:
+    text:
+        label: Text
+        type: richeditor
+        size: huge

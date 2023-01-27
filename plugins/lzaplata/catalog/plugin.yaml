@@ -1,0 +1,37 @@
+plugin:
+    name: 'lzaplata.catalog::lang.plugin.name'
+    description: 'lzaplata.catalog::lang.plugin.description'
+    author: 'Lukáš Záplata'
+    icon: oc-icon-shopping-cart
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'lzaplata.catalog::lang.menu.catalog.title'
+        url: lzaplata/catalog/categories
+        icon: icon-shopping-cart
+        sideMenu:
+            side-menu-categories:
+                label: 'lzaplata.catalog::lang.menu.categories.title'
+                url: lzaplata/catalog/categories
+                icon: icon-folder-open-o
+                permissions:
+                    - categories
+            side-menu-products:
+                label: 'lzaplata.catalog::lang.menu.products.title'
+                url: lzaplata/catalog/products
+                icon: icon-barcode
+                permissions:
+                    - products
+permissions:
+    categories:
+        tab: 'lzaplata.catalog::lang.plugin.name'
+        label: 'lzaplata.catalog::lang.permissions.categories.manage.title'
+    categories.import:
+        tab: 'lzaplata.catalog::lang.plugin.name'
+        label: 'lzaplata.catalog::lang.permissions.categories.import.title'
+    products:
+        tab: 'lzaplata.catalog::lang.plugin.name'
+        label: 'lzaplata.catalog::lang.permissions.products.manage.title'
+    products.import:
+        tab: 'lzaplata.catalog::lang.plugin.name'
+        label: 'lzaplata.catalog::lang.permissions.products.import.title'

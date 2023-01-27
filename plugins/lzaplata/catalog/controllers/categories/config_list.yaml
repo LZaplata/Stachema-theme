@@ -1,0 +1,13 @@
+title: Categories
+modelClass: LZaplata\Catalog\Models\Category
+list: $/lzaplata/catalog/models/category/columns.yaml
+recordUrl: 'lzaplata/catalog/categories/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+showTree: 1

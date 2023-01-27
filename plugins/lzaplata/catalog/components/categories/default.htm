@@ -1,0 +1,23 @@
+{% set categories = __SELF__.categories %}
+
+{% if categories.count %}
+    <div class="categories row row-cols-1 g-4 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+        {% for category in categories %}
+            <div class="category col">
+                <div class="d-flex flex-column gap-3 position-relative">
+                    {% if category.image %}
+                        <p class="img mb-0">
+                            <img src="{{ category.image.thumb(600, 400, {"mode": "crop"}) }}" alt="{{ category.image.description }}" class="img-fluid w-100">
+                        </p>
+                    {% endif %}
+
+                    <p class="title mb-0">
+                        <a href="{{ category.url }}">
+                            {{ category.title }}
+                        </a>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

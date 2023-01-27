@@ -1,0 +1,15 @@
+name: Products
+form: $/lzaplata/catalog/models/product/fields.yaml
+modelClass: LZaplata\Catalog\Models\Product
+defaultRedirect: lzaplata/catalog/products
+create:
+    title: 'lzaplata.catalog::lang.product.create.title'
+    redirect: 'lzaplata/catalog/products/update/:id'
+    redirectClose: lzaplata/catalog/products
+    flashSave: 'lzaplata.catalog::lang.product.create.flash.save'
+update:
+    title: 'lzaplata.catalog::lang.product.update.title'
+    redirect: lzaplata/catalog/products
+    redirectClose: lzaplata/catalog/products
+    flashSave: 'lzaplata.catalog::lang.product.update.flash.save'
+    flashDelete: 'lzaplata.catalog::lang.product.update.flash.delete'

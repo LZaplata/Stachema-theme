@@ -1,0 +1,6 @@
+scopes:
+    categories:
+        label: lzaplata.catalog::lang.filter.categories.label
+        modelClass: LZaplata\Catalog\Models\Category
+        nameFrom: title
+        scope: FilterCategories

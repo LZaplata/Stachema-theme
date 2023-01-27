@@ -1,0 +1,5 @@
+columns:
+    title: lzaplata.catalog::lang.category.column.title
+    stachema_id: lzaplata.catalog::lang.category.column.stachema_id
+    parent_1: lzaplata.catalog::lang.category.column.parent_1
+    parent_2: lzaplata.catalog::lang.category.column.parent_2

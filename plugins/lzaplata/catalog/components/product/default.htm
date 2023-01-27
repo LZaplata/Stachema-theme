@@ -1,0 +1,33 @@
+{% set product = __SELF__.product %}
+
+<div class="product">
+    <div class="row row-cols-1 row-cols-xl-2">
+        <div class="col">
+            {% if product.image %}
+                <p class="img mb-0">
+                    <img src="{{ product.image.thumb(600, 400, {"mode": "crop"}) }}" alt="{{ product.image.description }}" class="img-fluid w-100">
+                </p>
+            {% endif %}
+        </div>
+
+        <div class="col">
+            <h1>
+                {{ product.title }}
+            </h1>
+
+            {% if product.excerpt %}
+                <div class="excerpt">
+                    {{ product.excerpt }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-xl-2 mt-5">
+        <div class="col">
+            {% if product.text %}
+                {{ product.text|raw }}
+            {% endif %}
+        </div>
+    </div>
+</div>
