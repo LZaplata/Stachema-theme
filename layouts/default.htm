@@ -14,6 +14,8 @@ code = "main-menu"
 code = "branches-menu"
 
 [seo]
+
+[cookiesBar cookiesbar]
 ==
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -31,6 +33,8 @@ code = "branches-menu"
             'assets/css/lg-thumbnail.css',
             'assets/css/swiper-bundle.css',
         ]|theme }}" />
+
+        {% styles %}
     </head>
 
     <body>
@@ -43,6 +47,8 @@ code = "branches-menu"
         {% partial "footer" %}
         {% partial "offcanvas/default" %}
         {% partial "offcanvas/search" %}
+
+        {% component "cookiesbar" %}
 
         <script src="{{ [
             'assets/js/jquery.min.js',

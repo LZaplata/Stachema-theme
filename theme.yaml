@@ -12,6 +12,7 @@ require:
     - rainlab.blog
     - lzaplata.extensions
     - lzaplata.files
+    - janvince.smallgdpr
 form:
     tabs:
         fields:
