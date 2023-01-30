@@ -96,7 +96,7 @@
             </li>
         {% endif %}
 
-        {% if posts.currentPage <= 3 %}
+        {% if products.currentPage <= 3 %}
             {% set start_page = 1 %}
             {% set end_page = products.lastPage > 5 ? 5 : products.lastPage %}
         {% elseif products.currentPage > 3 and products.currentPage + 4 < products.lastPage %}
