@@ -1,0 +1,32 @@
+title = "Stránka nenalezena"
+layout = "default"
+url = "/404"
+==
+{% set items = {
+    "404": {
+        "title": "Stránka nenalezena",
+        "active": true,
+    }
+} %}
+
+{% partial "breadcrumb" items=items %}
+
+<div class="container-fluid pb-5" id="labs">
+    <div class="container-lg py-xl-4">
+        <h1 class="mb-4 mb-xl-5 col-xl-10 offset-xl-1">
+            Stránka nenalezena
+        </h1>
+
+        <div class="post-content">
+            Omlouváme se, ale vámi hledaná stránka nebyla nalezena.
+
+            <p class="mb-0 mt-5">
+                <a href="{{ 'homepage'|page }}" class="btn btn-gray text-decoration-none d-inline-flex align-items-center">
+                    Úvodní stránka
+
+                    <span class="mi-arrow-right mi-16 bg-blue-dark ms-2 transition"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
