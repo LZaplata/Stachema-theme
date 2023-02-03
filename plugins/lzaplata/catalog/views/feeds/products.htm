@@ -1,0 +1,93 @@
+<SHOP>
+    {% for product in products %}
+        {% set image = ["products/", product.stachema_id, ".png"]|join %}
+        {% set categories = product.categories.first.getAllChildrenAndSelf.intersect(product.categories).lists("title") %}
+        {% set pattern = "@(.+?):(.+)@" %}
+
+        <SHOPITEM>
+            <PRODUCTNAME>
+                {{ product.title }}
+            </PRODUCTNAME>
+
+            <DESCRIPTION_SHORT>
+                {{ product.excerpt }}
+            </DESCRIPTION_SHORT>
+
+            <DESCRIPTION>
+                {{ product.text }}
+            </DESCRIPTION>
+
+            <URL>
+                {{ product.url }}
+            </URL>
+
+            {% if file_exists(image) %}
+                <IMGURL>
+                    {{ image|media }}
+                </IMGURL>
+            {% endif %}
+
+            {% for file in product.files %}
+                <FILEURL>
+                    {{ file.file|media }}
+                </FILEURL>
+            {% endfor %}
+
+            <CATEGORYTEXT>
+                {{ categories|join(" | ") }}
+            </CATEGORYTEXT>
+
+            {% if product.shades %}
+                {% set shades = preg_match(pattern, product.shades) %}
+
+                <SHADES>
+                    {{ shades.2 }}
+                </SHADES>
+            {% endif %}
+
+            {% if product.consumption %}
+                {% set consumption = preg_match(pattern, product.consumption) %}
+
+                <CONSUMPTION>
+                    {{ consumption.2 }}
+                </CONSUMPTION>
+            {% endif %}
+
+            {% if product.packages %}
+                {% set packages = preg_match(pattern, product.packages) %}
+
+                <PACKAGES>
+                    {{ packages.2 }}
+                </PACKAGES>
+            {% endif %}
+
+            {% if product.warning %}
+                {% set warning = preg_match(pattern, product.warning) %}
+
+                <WARNING>
+                    {{ warning.2 }}
+                </WARNING>
+            {% endif %}
+
+            <KEY_PROPERTIES>
+                {{ product.key_properties }}
+            </KEY_PROPERTIES>
+
+            <USAGE>
+                {{ product.usage }}
+            </USAGE>
+
+            <APPLICATION>
+                {{ product.application }}
+            </APPLICATION>
+
+            <PROCESSING>
+                {{ product.processing }}
+            </PROCESSING>
+
+            <PROPERTIES>
+                {{ product.properties }}
+            </PROPERTIES>
+        </SHOPITEM>
+    {% endfor %}
+</SHOP>

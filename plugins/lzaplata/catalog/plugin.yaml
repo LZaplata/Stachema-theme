@@ -35,3 +35,6 @@ permissions:
     products.import:
         tab: 'lzaplata.catalog::lang.plugin.name'
         label: 'lzaplata.catalog::lang.permissions.products.import.title'
+    settings:
+        tab: 'lzaplata.catalog::lang.plugin.name'
+        label: 'lzaplata.catalog::lang.permissions.settings.manage.title'

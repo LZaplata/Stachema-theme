@@ -198,10 +198,30 @@
                 'title' => 'Import produktů',
             ],
         ],
+        'settings' => [
+            'manage' => [
+                'title' => 'Správa nastavení',
+            ],
+        ],
     ],
     'filter' => [
         'categories' => [
             'label' => 'Kategorie',
+        ],
+    ],
+    'settings' => [
+        'label' => 'Katalog',
+        'description' => 'Správa nastavení produktů a kategorií',
+        'category' => 'LZaplata',
+        'field' => [
+            'product_page' => [
+                'label' => 'Stránka produktu',
+            ],
+        ],
+        'tab' => [
+            'feeds' => [
+                'label' => 'Feedy',
+            ],
         ],
     ],
 ];

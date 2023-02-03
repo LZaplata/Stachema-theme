@@ -7,6 +7,7 @@ use LZaplata\Catalog\Components\Product;
 use LZaplata\Catalog\Components\Products;
 use LZaplata\Catalog\Console\DeleteResizedImages;
 use LZaplata\Catalog\Console\ImportFiles;
+use LZaplata\Catalog\Models\Settings;
 use Media\Widgets\MediaManager;
 use System\Classes\PluginBase;
 
@@ -24,6 +25,16 @@ class Plugin extends PluginBase
 
     public function registerSettings()
     {
+        return [
+            "settings" => [
+                "label"         => "lzaplata.catalog::lang.settings.label",
+                "description"   => "lzaplata.catalog::lang.settings.description",
+                "category"      => "lzaplata.catalog::lang.settings.category",
+                "icon"          => "icon-shopping-cart",
+                "class"         => Settings::class,
+                "permissions"   => ["settings"],
+            ],
+        ];
     }
 
     /**

@@ -1,0 +1,7 @@
+tabs:
+    fields:
+        product_page:
+            label: lzaplata.catalog::lang.settings.field.product_page.label
+            type: dropdown
+            span: left
+            tab: lzaplata.catalog::lang.settings.tab.feeds.label
