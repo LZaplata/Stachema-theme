@@ -89,10 +89,12 @@
 {% endif %}
 
 {% if products.lastPage > 1 %}
+    {% set q = this.request.input.q ? ["?q=", this.request.input.q]|join : null %}
+
     <ul class="pagination mt-5 justify-content-center gap-2 mb-0">
         {% if products.currentPage > 1 %}
             <li class="page-item prev d-inline-flex align-items-center">
-                <a href="{{ this.page.baseFileName|page({page: (products.currentPage-1)}) }}" class="page-page-link mi-caret-left mi-16 bg-blue-dark bg-blue-hover transition"></a>
+                <a href="{{ this.page.baseFileName|page({page: (products.currentPage-1)}) }}{{ q }}" class="page-page-link mi-caret-left mi-16 bg-blue-dark bg-blue-hover transition"></a>
             </li>
         {% endif %}
 
@@ -109,7 +111,7 @@
 
         {% for page in start_page..end_page %}
             <li class="page-item">
-                <a href="{{ this.page.baseFileName|page({page: page}) }}" class="page-link {{ products.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({page: page}) }}{{ q }}" class="page-link {{ products.currentPage == page ? 'active' : null }}">
                     {{ page }}
                 </a>
             </li>
@@ -117,7 +119,7 @@
 
         {% if products.lastPage > products.currentPage %}
             <li class="page-item next d-inline-flex align-items-center">
-                <a href="{{ this.page.baseFileName|page({page: (products.currentPage+1)}) }}" class="page-link mi-caret-right mi-16 bg-blue-dark bg-blue-hover transition"></a>
+                <a href="{{ this.page.baseFileName|page({page: (products.currentPage+1)}) }}{{ q }}" class="page-link mi-caret-right mi-16 bg-blue-dark bg-blue-hover transition"></a>
             </li>
         {% endif %}
     </ul>
