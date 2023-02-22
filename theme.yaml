@@ -31,3 +31,13 @@ form:
                 span: left
                 type: text
                 tab: Sociální sítě
+            facebook:
+                label: Facebook
+                span: right
+                type: text
+                tab: Sociální sítě
+            instagram:
+                label: Instagram
+                span: left
+                type: text
+                tab: Sociální sítě

@@ -34,11 +34,19 @@
 
         <div class="container-fluid py-32">
             <div class="container-lg">
-                {% if this.theme.youtube %}
-                    <div class="d-flex align-items-center justify-content-center">
-                        <a href="{{ this.theme.youtube }}" target="_blank" class="mi-youtube mi-32 bg-blue-darker opacity-55"></a>
-                    </div>
-                {% endif %}
+                <div class="d-flex align-items-center justify-content-center gap-2">
+                    {% if this.theme.youtube %}
+                        <a href="{{ this.theme.youtube }}" target="_blank" class="mi-youtube mi-32 bg-tertiary opacity-55"></a>
+                    {% endif %}
+
+                    {% if this.theme.facebook %}
+                        <a href="{{ this.theme.facebook }}" target="_blank" class="mi-facebook mi-32 bg-tertiary opacity-55"></a>
+                    {% endif %}
+
+                    {% if this.theme.instagram %}
+                        <a href="{{ this.theme.instagram }}" target="_blank" class="mi-instagram mi-32 bg-tertiary opacity-55"></a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
