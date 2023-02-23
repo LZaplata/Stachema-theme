@@ -108,26 +108,26 @@
         --bs-btn-font-weight: var(--bs-font-weight-medium)
 
     &.btn-gray
-        --bs-btn-color: var(--bs-blue-dark)
+        --bs-btn-color: var(--bs-secondary)
         --bs-btn-bg: var(--bs-gray)
         --bs-btn-border-color: var(--bs-gray)
-        --bs-btn-hover-color: var(--bs-blue-dark)
+        --bs-btn-hover-color: var(--bs-secondary)
         --bs-btn-hover-bg: var(--bs-gray-dark)
         --bs-btn-hover-border-color: var(--bs-gray-dark)
-        --bs-btn-active-color: var(--bs-blue-dark)
+        --bs-btn-active-color: var(--bs-secondary)
         --bs-btn-active-bg: var(--bs-gray-dark)
         --bs-btn-active-border-color: var(--bs-gray-dark)
 
-    &.btn-blue-dark
-        --bs-btn-bg: var(--bs-blue-dark)
-        --bs-btn-border-color: var(--bs-blue-dark)
-        --bs-btn-hover-bg: var(--bs-blue)
-        --bs-btn-hover-border-color: var(--bs-blue)
-        --bs-btn-active-bg: var(--bs-blue)
-        --bs-btn-active-border-color: var(--bs-blue)
+    &.btn-secondary
+        --bs-btn-bg: var(--bs-secondary)
+        --bs-btn-border-color: var(--bs-secondary)
+        --bs-btn-hover-bg: var(--bs-primary)
+        --bs-btn-hover-border-color: var(--bs-primary)
+        --bs-btn-active-bg: var(--bs-primary)
+        --bs-btn-active-border-color: var(--bs-primary)
 
-    &.btn-outline-blue-dark
-        --bs-btn-border-color: rgba(var(--bs-blue-dark-rgb), .35)
+    &.btn-outline-secondary
+        --bs-btn-border-color: rgba(var(--bs-secondary-rgb), .35)
 
         &:hover
             & > span
@@ -182,11 +182,11 @@ header
 
                     &:hover
                         &:after
-                            background: var(--bs-blue)
+                            background: var(--bs-primary)
 
                     &.active
                         &:after
-                            background: var(--bs-blue-darker)
+                            background: var(--bs-tertiary)
 
     .middle
         .mi-logo
@@ -250,7 +250,7 @@ header
             background: rgba(var(--bs-white-rgb), 1) !important
 
             span
-                background-color: var(--bs-blue-dark)
+                background-color: var(--bs-secondary)
 
         &:after
             content: none
@@ -311,7 +311,7 @@ header
 
         .cluster
             div
-                background-color: var(--bs-blue-dark)
+                background-color: var(--bs-secondary)
                 border: solid 4px rgba(var(--bs-white-rgb), 0.35)
 
                 span
@@ -354,7 +354,7 @@ header
                         opacity: 1
 
                 .title
-                    color: var(--bs-blue)
+                    color: var(--bs-primary)
                     text-decoration-color: inherit !important
 
 .posts
@@ -369,7 +369,7 @@ header
 
         .more
             & > span
-                background-color: rgba(var(--bs-blue-dark-rgb), .1) !important
+                background-color: rgba(var(--bs-secondary-rgb), .1) !important
                 width: 14px
                 height: 14px
 
@@ -380,7 +380,7 @@ header
                     opacity: 1
 
             .title
-                color: var(--bs-blue)
+                color: var(--bs-primary)
                 text-decoration-color: inherit !important
 
             .excerpt
@@ -399,7 +399,7 @@ header
     p
         letter-spacing: -.2px
         line-height: map-get($line-heights, 24)
-        color: rgba(var(--bs-blue-darker-rgb), .55)
+        color: map-get($theme-colors, "tertiary-55")
 
         &:last-child
             margin-bottom: 0
@@ -408,7 +408,7 @@ header
         padding-left: 15px
 
         li
-            color: rgba(var(--bs-blue-darker-rgb), .76)
+            color: rgba(var(--bs-tertiary-rgb), .76)
             line-height: map-get($line-heights, 24)
 
     *
@@ -425,14 +425,14 @@ header
         @extend .text-decoration-underline-w-hover
 
         strong
-            color: var(--bs-blue)
+            color: var(--bs-primary)
 
         &:hover
             strong
-                color: var(--bs-blue-darker)
+                color: var(--bs-tertiary)
 
     strong
-        color: rgba(var(--bs-blue-darker-rgb), 1)
+        color: rgba(var(--bs-tertiary-rgb), 1)
 
 footer
     #footer
@@ -453,7 +453,7 @@ footer
         .category
             a
                 &:hover
-                    border-color: var(--bs-blue-dark) !important
+                    border-color: var(--bs-secondary) !important
 
 #products
     .text
@@ -490,7 +490,7 @@ footer
                     padding-right: map-get($spacers, 3)
 
                     .title
-                        color: var(--bs-blue) !important
+                        color: var(--bs-primary) !important
                         text-decoration-color: inherit !important
 
                 .bg-white
@@ -512,7 +512,7 @@ footer
 
             &:hover
                 .title
-                    color: var(--bs-blue) !important
+                    color: var(--bs-primary) !important
                     text-decoration-color: inherit !important
 
 #contacts
@@ -520,7 +520,7 @@ footer
         .region
             a
                 &:hover
-                    border-color: var(--bs-blue-dark) !important
+                    border-color: var(--bs-secondary) !important
 
     .category
         .contact

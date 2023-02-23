@@ -91,7 +91,7 @@ items:
         nesting: null
         type: cms-page
         url: null
-        code: ''
+        code: kontakty
         reference: kontakty
         cmsPage: null
         replace: null

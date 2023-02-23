@@ -32,17 +32,17 @@
                 var y = "{{ place.lat }}";
                 var coords = SMap.Coords.fromWGS84(x, y);
                 var marker = new SMap.Marker(coords, false, {
-                    "url": "{{ ['assets/images/icons/map-point-', place.drug_store ? 'violet' : (place.building_store ? 'red' : (place.company_store ? 'blue' : 'blue-darker')), '.svg']|join|theme }}",
+                    "url": "{{ ['assets/images/icons/map-point-', place.drug_store ? 'violet' : (place.building_store ? 'red' : (place.company_store ? 'primary' : 'tertiary')), '.svg']|join|theme }}",
                 });
 
                 var card = new SMap.Card();
                 var header = `
-                    <p class="ff-inter fs-15 fw-semibold text-blue mb-0">
+                    <p class="ff-inter fs-15 fw-semibold text-primary mb-0">
                         {{ place.title }}
                     </p>
                 `;
                 var body = `
-                    <p class="ff-inter fs-13 fw-regular ls-n02 text-blue-darker opacity-55 mb-0 mt-2">
+                    <p class="ff-inter fs-13 fw-regular ls-n02 text-tertiary-55 mb-0 mt-2">
                         {{ place.street }} <br>
                         {{ place.zip }} {{ place.city }}
                     </p>
@@ -51,7 +51,7 @@
                 {% if place.link %}
                     var body = body + `
                         <p class="ff-inter fs-13 fw-regular ls-n02 mb-0 mt-2">
-                            <a href="" target="_blank" class="text-blue text-blue-dark-hover transition text-decoration-underline-w-hover">
+                            <a href="" target="_blank" class="text-primary text-secondary-hover transition text-decoration-underline-w-hover">
                                 {{ place.link }}
                             </a>
                         </p>
@@ -61,9 +61,9 @@
                 {% if place.phone %}
                     var body = body + `
                         <p class="ff-inter fs-13 ls-n02 mt-3 mb-0 d-flex align-items-center">
-                            <span class="mi-phone mi-16 bg-blue-darker"></span>
+                            <span class="mi-phone mi-16 bg-tertiary"></span>
 
-                            <a href="tel:{{ place.phone }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+                            <a href="tel:{{ place.phone }}" target="_blank" class="text-decoration-underline-w-hover text-tertiary text-primary-hover transition ms-2">
                                 {{ place.phone }}
                             </a>
                         </p>
@@ -73,9 +73,9 @@
                 {% if place.email %}
                     var body = body + `
                         <p class="ff-inter fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
-                            <span class="mi-paper-plane mi-16 bg-blue-darker"></span>
+                            <span class="mi-paper-plane mi-16 bg-tertiary"></span>
 
-                            <a href="tel:{{ place.email }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+                            <a href="tel:{{ place.email }}" target="_blank" class="text-decoration-underline-w-hover text-tertiary text-primary-hover transition ms-2">
                                 {{ place.email }}
                             </a>
                         </p>
@@ -88,7 +88,7 @@
 
                 {% if place.company_store %}
                     var body = body + `
-                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-blue">
+                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-primary">
                             <img src="{{ 'assets/images/icons/company-store.svg'|theme }}" class="me-2">
 
                             Firemní prodejna

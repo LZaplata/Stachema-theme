@@ -9,8 +9,8 @@
         </span>
     </p>
 
-    <p class="date fs-13 opacity-55 mb-0 mt-4 d-flex align-items-center">
-        <img src="{{ 'assets/images/icons/calendar-blank.svg'|theme }}" alt="calendar" class="me-2">
+    <p class="date fs-13 mb-0 mt-4 d-flex align-items-center">
+        <img src="{{ 'assets/images/icons/calendar-blank.svg'|theme }}" alt="calendar" class="me-2 opacity-55">
 
         {{ post.published_at|date("j. n. Y") }}
     </p>
@@ -19,15 +19,15 @@
         {{ post.title }}
     </h3>
 
-    <div class="excerpt mt-3 fs-15 ls-n02 opacity-55 transition">
+    <div class="excerpt mt-3 fs-15 ls-n02 transition">
         {{ post.excerpt|raw }}
     </div>
 
-    <a href="{{ post.url }}" class="more stretched-link fw-semibold fs-14 ls-n03 text-blue-dark text-decoration-none d-flex mt-3 align-items-center">
+    <a href="{{ post.url }}" class="more stretched-link fw-semibold fs-14 ls-n03 text-secondary text-decoration-none d-flex mt-3 align-items-center">
         Číst více
 
         <span class="d-inline-flex align-items-center justify-content-center ms-2 rounded-circle">
-            <span class="mi-caret-right mi-8 bg-blue-dark"></span>
+            <span class="mi-caret-right mi-8 bg-secondary"></span>
         </span>
     </a>
 </div>

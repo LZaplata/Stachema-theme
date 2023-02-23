@@ -20,12 +20,12 @@
                 </h1>
 
                 {% if product.excerpt %}
-                    <div class="excerpt opacity-55 ls-n02">
+                    <div class="excerpt ls-n02">
                         {{ product.excerpt }}
                     </div>
                 {% endif %}
 
-                <div class="rounded-3 bg-blue-darker bg-opacity-05 p-4 mt-4">
+                <div class="rounded-3 bg-tertiary bg-opacity-05 p-4 mt-4">
                     <h2 class="ls-n02 fs-18 mb-3">
                         Parametry
                     </h2>
@@ -34,10 +34,10 @@
                         {% set pattern = "@(.+?):(.+)@" %}
 
                         {% if product.shades %}
-                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
                                 {% set shades = preg_match(pattern, product.shades) %}
 
-                                <span class="opacity-55">
+                                <span class="text-tertiary-55">
                                     {{ shades.1 }}:
                                 </span>
 
@@ -48,10 +48,10 @@
                         {% endif %}
 
                         {% if product.consumption %}
-                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
                                 {% set consumption = preg_match(pattern, product.consumption) %}
 
-                                <span class="opacity-55">
+                                <span class="text-tertiary-55">
                                     {{ consumption.1 }}:
                                 </span>
 
@@ -62,10 +62,10 @@
                         {% endif %}
 
                         {% if product.packages %}
-                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
                                 {% set packages = preg_match(pattern, product.packages) %}
 
-                                <span class="opacity-55">
+                                <span class="text-tertiary-55">
                                     {{ packages.1 }}:
                                 </span>
 
@@ -76,10 +76,10 @@
                         {% endif %}
 
                         {% if product.key_properties %}
-                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
                                 {% set key_properties = preg_match(pattern, product.key_properties) %}
 
-                                <span class="opacity-55">
+                                <span class="text-tertiary-55">
                                     {{ key_properties.1 }}:
                                 </span>
 
@@ -90,8 +90,8 @@
                         {% endif %}
 
                         {% if product.usage %}
-                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
-                                <span class="opacity-55">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                <span class="text-tertiary-55">
                                     Použití:
                                 </span>
 
@@ -102,8 +102,8 @@
                         {% endif %}
 
                         {% if product.application %}
-                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
-                                <span class="opacity-55">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                <span class="text-tertiary-55">
                                     Aplikace:
                                 </span>
 
@@ -114,8 +114,8 @@
                         {% endif %}
 
                         {% if product.processing %}
-                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
-                                <span class="opacity-55">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                <span class="text-tertiary-55">
                                     Zpracování:
                                 </span>
 
@@ -126,8 +126,8 @@
                         {% endif %}
 
                         {% if product.properties %}
-                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
-                                <span class="opacity-55">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                <span class="text-tertiary-55">
                                     Vlastnosti:
                                 </span>
 
@@ -143,7 +143,7 @@
 
                                 <img src="{{ 'assets/images/icons/info.svg'|theme }}" alt="info" class="me-1 of-none">
 
-                                <span class="opacity-55 ls-n02">
+                                <span class="text-tertiary-55 ls-n02">
                                     {{ warning.2 }}
                                 </span>
                             </p>
@@ -153,7 +153,7 @@
             </div>
         </div>
 
-        <div class="mt-32 pt-4 border-1 border-top border-blue-darker border-opacity-07 mt-xl-5 pt-xl-32">
+        <div class="mt-32 pt-4 border-1 border-top border-tertiary border-opacity-07 mt-xl-5 pt-xl-32">
             <div class="row row-cols-1 row-cols-md-2 g-xl-5 g-xxl-80">
                 <div class="col col-xl-7">
                     <h2 class="ls-n02 fs-18 mb-3">
@@ -161,7 +161,7 @@
                     </h2>
 
                     {% if product.text %}
-                        <div class="opacity-55 ls-n02 lh-24">
+                        <div class="ls-n02 lh-24">
                             {{ product.text|raw }}
                         </div>
                     {% endif %}
@@ -177,7 +177,7 @@
                             <p class="mb-0 d-flex align-items-center ls-n02">
                                 <img src="{{ 'assets/images/icons/file-pdf.svg'|theme }}" alt="pdf" class="me-1">
 
-                                <a href="{{ file.file|media }}" target="_blank" class="text-blue-dark text-blue-hover transition text-decoration-underline-w-hover">
+                                <a href="{{ file.file|media }}" target="_blank" class="text-secondary text-primary-hover transition text-decoration-underline-w-hover">
                                     {{ file.title }}
                                 </a>
                             </p>
@@ -209,12 +209,12 @@
                             {% endif %}
 
                             <div class="title-excerpt mt-n2 pt-2 position-relative">
-                                <h2 class="title mb-0 fs-17 ls-n02 text-blue-darker fw-medium mt-3 mb-0">
+                                <h2 class="title mb-0 fs-17 ls-n02 text-tertiary fw-medium mt-3 mb-0">
                                     {{ alternative_product.title }}
                                 </h2>
 
                                 {% if alternative_product.excerpt %}
-                                    <p class="excerpt mb-0 mt-1 fs-13 opacity-65 text-blue-darker">
+                                    <p class="excerpt mb-0 mt-1 fs-13 text-tertiary-55">
                                         {{ alternative_product.excerpt }}
                                     </p>
                                 {% endif %}

@@ -14,7 +14,7 @@
 
                 {% if cookiesSettingsGet('cookies_manage_content', null) %}
 
-                    <div class="content text-blue-darker opacity-55">
+                    <div class="content text-tertiary-55">
                         {{ cookiesSettingsGet('cookies_manage_content')|raw }}
                     </div>
 
@@ -31,11 +31,11 @@
 
                 <button type="button"
                         id="cookies-manage-save-modal"
-                        class="btn btn-outline-blue-dark">{{ 'janvince.smallgdpr::lang.settings.form_fields.save_settings'|trans }}</button>
+                        class="btn btn-outline-secondary">{{ 'janvince.smallgdpr::lang.settings.form_fields.save_settings'|trans }}</button>
 
                 <button type="button"
                         data-bs-dismiss="modal"
-                        class="btn btn-outline-blue-dark">{{ 'janvince.smallgdpr::lang.settings.form_fields.cancel'|trans }}</button>
+                        class="btn btn-outline-secondary">{{ 'janvince.smallgdpr::lang.settings.form_fields.cancel'|trans }}</button>
 
             </div>
 

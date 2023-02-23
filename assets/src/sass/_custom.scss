@@ -70,8 +70,8 @@ $spacers: (
 );
 
 $link-decoration:               underline;
-$link-color:                    map-get($theme-colors, "blue");
-$link-hover-color:              map-get($theme-colors, "blue-dark");
+$link-color:                    map-get($theme-colors, "primary");
+$link-hover-color:              map-get($theme-colors, "secondary");
 
 $font-family-inter:             "Inter", sans-serif;
 $font-family-roboto:            "Roboto", sans-serif;
@@ -81,7 +81,7 @@ $font-weight-base:              map-get($font-weights, "regular");
 $font-weight-bold:              map-get($font-weights, "semibold");
 
 $headings-font-family:          $font-family-inter;
-$headings-color:                map-get($theme-colors, "blue-dark");
+$headings-color:                map-get($theme-colors, "secondary");
 $headings-font-weight:          map-get($font-weights, "semibold");
 
 $h1-font-size:                  map-get($font-sizes, 56);
@@ -89,7 +89,7 @@ $h2-font-size:                  map-get($font-sizes, 32);
 $h3-font-size:                  map-get($font-sizes, 22);
 $h4-font-size:                  map-get($font-sizes, 18);
 
-$body-color:                    map-get($theme-colors, "blue-darker");
+$body-color:                    map-get($theme-colors, "tertiary-55");
 
 $btn-font-size:                 map-get($font-sizes, 13);
 $btn-border-radius:             24px;

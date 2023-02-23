@@ -3,13 +3,13 @@
 </h3>
 
 {% if contact.job %}
-    <p class="fs-13 ls-n02 opacity-55 mb-2">
+    <p class="fs-13 ls-n02 mb-2">
         {{ contact.job }}
     </p>
 {% endif %}
 
 {% if contact.street and contact.city %}
-    <p class="fs-13 ls-n02 opacity-55 mb-2">
+    <p class="fs-13 ls-n02 mb-2">
         {{ contact.street }} {{ contact.street_no }} <br>
         {{ contact.zip }} {{ contact.city }}
 
@@ -21,7 +21,7 @@
 {% endif %}
 
 {% if contact.opening_hours %}
-    <p class="fs-13 ls-n02 opacity-55 mb-2 d-flex flex-column gap-0">
+    <p class="fs-13 ls-n02 mb-2 d-flex flex-column gap-0">
         {% for opening_hour in contact.opening_hours %}
             <span>
                 <span class="me-1">
@@ -46,9 +46,9 @@
 
 {% if contact.phone %}
     <p class="fs-13 ls-n02 mt-3 mb-0 d-flex align-items-center">
-        <span class="mi-phone mi-16 bg-blue-darker"></span>
+        <span class="mi-phone mi-16 bg-tertiary"></span>
 
-        <a href="tel:{{ contact.phone }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+        <a href="tel:{{ contact.phone }}" target="_blank" class="text-decoration-underline-w-hover text-tertiary text-primary-hover transition ms-2">
             {{ contact.phone }}
         </a>
     </p>
@@ -56,9 +56,9 @@
 
 {% if contact.phone2 %}
     <p class="fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
-        <span class="mi-phone mi-16 bg-blue-darker"></span>
+        <span class="mi-phone mi-16 bg-tertiary"></span>
 
-        <a href="tel:{{ contact.phone2 }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+        <a href="tel:{{ contact.phone2 }}" target="_blank" class="text-decoration-underline-w-hover text-tertiary text-primary-hover transition ms-2">
             {{ contact.phone2 }}
         </a>
     </p>
@@ -66,9 +66,9 @@
 
 {% if contact.fax %}
     <p class="fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
-        <span class="mi-fax mi-16 bg-blue-darker"></span>
+        <span class="mi-fax mi-16 bg-tertiary"></span>
 
-        <a href="tel:{{ contact.fax }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+        <a href="tel:{{ contact.fax }}" target="_blank" class="text-decoration-underline-w-hover text-tertiary text-primary-hover transition ms-2">
             {{ contact.fax }}
         </a>
     </p>
@@ -76,9 +76,9 @@
 
 {% if contact.email %}
     <p class="fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
-        <span class="mi-paper-plane mi-16 bg-blue-darker"></span>
+        <span class="mi-paper-plane mi-16 bg-tertiary"></span>
 
-        <a href="mailto:{{ contact.email }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+        <a href="mailto:{{ contact.email }}" target="_blank" class="text-decoration-underline-w-hover text-tertiary text-primary-hover transition ms-2">
             {{ contact.email }}
         </a>
     </p>
@@ -86,9 +86,9 @@
 
 {% if contact.web %}
     <p class="fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
-        <span class="mi-link mi-16 bg-blue-darker"></span>
+        <span class="mi-link mi-16 bg-tertiary"></span>
 
-        <a href="{{ contact.web }}" target="_blank" class="text-decoration-underline-w-hover text-blue-darker text-blue-hover transition ms-2">
+        <a href="{{ contact.web }}" target="_blank" class="text-decoration-underline-w-hover text-tertiary text-primary-hover transition ms-2">
             {{ contact.web }}
         </a>
     </p>

@@ -10,7 +10,7 @@
     <ul class="pagination mt-5 justify-content-center gap-2 mb-0">
         {% if posts.currentPage > 1 %}
             <li class="page-item prev d-inline-flex align-items-center">
-                <a href="{{ this.page.baseFileName|page({page: (posts.currentPage-1)}) }}" class="page-page-link mi-caret-left mi-16 bg-blue-dark bg-blue-hover transition"></a>
+                <a href="{{ this.page.baseFileName|page({page: (posts.currentPage-1)}) }}" class="page-page-link mi-caret-left mi-16 bg-secondary bg-primary-hover transition"></a>
             </li>
         {% endif %}
 
@@ -35,7 +35,7 @@
 
         {% if posts.lastPage > posts.currentPage %}
             <li class="page-item next d-inline-flex align-items-center">
-                <a href="{{ this.page.baseFileName|page({page: (posts.currentPage+1)}) }}" class="page-link mi-caret-right mi-16 bg-blue-dark bg-blue-hover transition"></a>
+                <a href="{{ this.page.baseFileName|page({page: (posts.currentPage+1)}) }}" class="page-link mi-caret-right mi-16 bg-secondary bg-primary-hover transition"></a>
             </li>
         {% endif %}
     </ul>

@@ -16,25 +16,25 @@
                     {% endif %}
 
                     <div class="title-excerpt mt-n2 pt-2 position-relative">
-                        <h2 class="title mb-0 fs-17 ls-n02 text-blue-darker fw-medium mt-3 mb-0">
+                        <h2 class="title mb-0 fs-17 ls-n02 text-tertiary fw-medium mt-3 mb-0">
                             {{ product.title }}
                         </h2>
 
                         {% if product.excerpt %}
-                            <p class="excerpt mb-0 mt-1 fs-13 opacity-65 text-blue-darker">
+                            <p class="excerpt mb-0 mt-1 fs-13 text-tertiary-55">
                                 {{ product.excerpt }}
                             </p>
                         {% endif %}
                     </div>
 
-                    <div class="bg-white mt-3 d-flex flex-column fs-13 text-blue-darker px-3 gap-3">
+                    <div class="bg-white mt-3 d-flex flex-column fs-13 px-3 gap-3">
                         {% set pattern = "@(.+?):(.+)@" %}
 
                         {% if product.packages %}
-                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
                                 {% set packages = preg_match(pattern, product.packages) %}
 
-                                <span class="opacity-55">
+                                <span class="text-tertiary-55">
                                     {{ packages.1 }}:
                                 </span>
 
@@ -45,10 +45,10 @@
                         {% endif %}
 
                         {% if product.consumption %}
-                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
                                 {% set consumption = preg_match(pattern, product.consumption) %}
 
-                                <span class="opacity-55">
+                                <span class="text-tertiary-55">
                                     {{ consumption.1 }}:
                                 </span>
 
@@ -59,10 +59,10 @@
                         {% endif %}
 
                         {% if product.key_properties %}
-                            <p class="mb-0 d-flex flex-column w-100 justify-content-between">
+                            <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
                                 {% set key_properties = preg_match(pattern, product.key_properties) %}
 
-                                <span class="opacity-55">
+                                <span class="text-tertiary-55">
                                     {{ key_properties.1 }}:
                                 </span>
 
@@ -76,7 +76,7 @@
                             <button class="btn btn-gray w-100 d-inline-flex align-items-center justify-content-center">
                                 Další
 
-                                <span class="mi-arrow-right mi-16 bg-blue-dark ms-2 transition"></span>
+                                <span class="mi-arrow-right mi-16 bg-secondary ms-2 transition"></span>
                             </button>
                         </p>
                     </div>
@@ -94,7 +94,7 @@
     <ul class="pagination mt-5 justify-content-center gap-2 mb-0">
         {% if products.currentPage > 1 %}
             <li class="page-item prev d-inline-flex align-items-center">
-                <a href="{{ this.page.baseFileName|page({page: (products.currentPage-1)}) }}{{ q }}" class="page-page-link mi-caret-left mi-16 bg-blue-dark bg-blue-hover transition"></a>
+                <a href="{{ this.page.baseFileName|page({page: (products.currentPage-1)}) }}{{ q }}" class="page-page-link mi-caret-left mi-16 bg-secondary bg-primary-hover transition"></a>
             </li>
         {% endif %}
 
@@ -119,7 +119,7 @@
 
         {% if products.lastPage > products.currentPage %}
             <li class="page-item next d-inline-flex align-items-center">
-                <a href="{{ this.page.baseFileName|page({page: (products.currentPage+1)}) }}{{ q }}" class="page-link mi-caret-right mi-16 bg-blue-dark bg-blue-hover transition"></a>
+                <a href="{{ this.page.baseFileName|page({page: (products.currentPage+1)}) }}{{ q }}" class="page-link mi-caret-right mi-16 bg-secondary bg-primary-hover transition"></a>
             </li>
         {% endif %}
     </ul>

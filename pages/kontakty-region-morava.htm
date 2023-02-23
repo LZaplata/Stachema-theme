@@ -11,6 +11,12 @@ handle = "Contacts\Contact"
 [section content]
 handle = "Contacts\Content"
 ==
+<?php
+function onInit() {
+    $this["activeMenuItem"] = "kontakty";
+}
+?>
+==
 {% set items = {
     "kontakty": {
         "title" : "Kontakty",
@@ -37,7 +43,7 @@ handle = "Contacts\Content"
         {% endif %}
 
         {% for category in categories.where("slug", "region-morava").first.children %}
-            <div class="category {{ category.name ? 'with-name' }} mt-32 pt-32 border-top border-1 border-blue-darker border-opacity-07 mt-xl-5 pt-xl-5">
+            <div class="category {{ category.name ? 'with-name' }} mt-32 pt-32 border-top border-1 border-tertiary border-opacity-07 mt-xl-5 pt-xl-5">
                 <h2 class="h3 mb-32">
                     {{ category.title }}
                 </h2>

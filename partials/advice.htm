@@ -1,5 +1,5 @@
-<div class="bg-blue-light rounded-4 p-4 p-md-5 px-xl-80">
-    <div class="d-flex flex-column text-blue-dark py-xl-2 flex-xl-row align-items-xl-center">
+<div class="bg-primary-light rounded-4 p-4 p-md-5 px-xl-80">
+    <div class="d-flex flex-column text-secondary py-xl-2 flex-xl-row align-items-xl-center">
         <p class="mb-0 fw-semibold fs-32 ls-n05 me-xl-5 me-xxl-4">
             Potřebujete poradit?
         </p>
@@ -7,17 +7,17 @@
         <div class="d-flex flex-column flex-md-row gap-md-5 gap-xxl-4">
             {% if this.theme.phone %}
                 <p class="mb-0 mt-2 mt-xl-0">
-                    <span class="fs-20 ls-n02 text-blue-darker opacity-65 me-xxl-2">
+                    <span class="fs-20 ls-n02 text-tertiary opacity-65 me-xxl-2">
                         Zavolejte nám
                     </span>
 
                     <span class="d-flex align-items-center mt-1 d-xxl-inline-flex mt-xxl-0">
-                        <span class="mi-32 bg-blue-dark d-inline-flex align-items-center justify-content-center rounded-circle me-2">
+                        <span class="mi-32 bg-secondary d-inline-flex align-items-center justify-content-center rounded-circle me-2">
                             <span class="mi-phone-blank mi-16 bg-white"></span>
                         </span>
 
                         <span class="fw-semibold fs-20 ls-n02">
-                            <a href="tel:{{ this.theme.phone }}" class="text-blue-darker text-blue-hover transition text-decoration-none-w-hover">
+                            <a href="tel:{{ this.theme.phone }}" class="text-tertiary text-primary-hover transition text-decoration-none-w-hover">
                                 {{ this.theme.phone }}
                             </a>
                         </span>
@@ -27,17 +27,17 @@
 
             {% if this.theme.email %}
                 <p class="mb-0 mt-2 mt-xl-0">
-                    <span class="fs-20 ls-n02 text-blue-darker opacity-65 mx-xxl-2">
+                    <span class="fs-20 ls-n02 text-tertiary opacity-65 mx-xxl-2">
                         nebo napište
                     </span>
 
                     <span class="d-flex align-items-center mt-1 d-xxl-inline-flex mt-xxl-0">
-                        <span class="mi-32 bg-blue-dark d-inline-flex align-items-center justify-content-center rounded-circle me-2">
+                        <span class="mi-32 bg-secondary d-inline-flex align-items-center justify-content-center rounded-circle me-2">
                             <span class="mi-envelope-open mi-16 bg-white"></span>
                         </span>
 
                         <span class="fw-semibold fs-20 ls-n02">
-                            <a href="tel:{{ this.theme.email }}" class="text-blue-darker text-blue-hover transition text-decoration-none-w-hover">
+                            <a href="tel:{{ this.theme.email }}" class="text-tertiary text-primary transition text-decoration-none-w-hover">
                                 {{ this.theme.email }}
                             </a>
                         </span>
