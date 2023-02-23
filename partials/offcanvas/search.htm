@@ -4,13 +4,13 @@
             <div class="container-lg">
                 <div class="row row-cols-2 align-items-center">
                     <div class="col d-flex">
-                        <a href="{{ 'homepage'|page }}" class="bg-blue mi-logo"></a>
+                        <a href="{{ 'homepage'|page }}" class="bg-primary mi-logo"></a>
                     </div>
 
                     <div class="col d-flex justify-content-end">
-                        <a href="#offcanvas" data-bs-toggle="offcanvas" class="bg-blue-darker mi-hamburger"></a>
+                        <a href="#offcanvas" data-bs-toggle="offcanvas" class="bg-tertiary mi-hamburger"></a>
 
-                        <a href="#offcanvas-search" data-bs-dismiss="offcanvas" class="bg-blue-darker mi-close ms-3"></a>
+                        <a href="#offcanvas-search" data-bs-dismiss="offcanvas" class="bg-tertiary mi-close ms-3"></a>
                     </div>
                 </div>
             </div>
@@ -19,21 +19,21 @@
         <div class="container-fluid mt-4">
             <div class="container-lg">
                 <p class="">
-                    <a href="#offcanvas" data-bs-toggle="offcanvas" class="text-blue-darker opacity-55 ls-n05 fw-semibold text-decoration-none fss-14 d-inline-flex align-items-center">
-                        <span class="mi-caret-left-thin mi-16 bg-blue-darker bg-opacity-55 me-2"></span>
+                    <a href="#offcanvas" data-bs-toggle="offcanvas" class="text-tertiary-55 ls-n05 fw-semibold text-decoration-none fss-14 d-inline-flex align-items-center">
+                        <span class="mi-caret-left-thin mi-16 bg-tertiary bg-opacity-55 me-2"></span>
 
                         Zpět
                     </a>
                 </p>
 
-                <p class="fss-16 fw-semibold ls-n03 mt-4">
+                <p class="fss-16 fw-semibold ls-n03 mt-4 text-tertiary">
                     Vyhledávání
                 </p>
 
                 <form action="{{ 'vyhledavani'|page }}" method="get" class="position-relative w-100">
                     <input name="q" type="text" placeholder="Napište, co hledáte…" autocomplete="off" class="form-control w-100">
 
-                    <button type="submit" class="btn btn-blue-dark mt-3 w-100 fw-semibold">
+                    <button type="submit" class="btn btn-secondary mt-3 w-100 fw-semibold">
                         <span class="position-relative">
                             <img src="{{ 'assets/images/icons/magnifying-glass.svg'|theme }}" alt="magnifying glass" class="position-absolute top-50 start-0 translate-middle-y ms-n32">
 

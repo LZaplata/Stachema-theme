@@ -7,19 +7,24 @@
 $enable-negative-margins:       true;
 
 $theme-colors: (
-    "black":                    #000000,
-    "white":                    #ffffff,
-    "blue":                     #007db8,
-    "blue-dark":                #15428f,
-    "blue-darker":              #09285d,
-    "blue-light":               #e6f2f8,
-    "gray-light":               #f8fafc,
-    "gray":                     #eef0f4,
-    "gray-dark":                #e0dfe4,
-    "green":                    #1fbf8e,
-    "red":                      #e60948,
-    "violet":                   #a769ce,
+    "black":                #000000,
+    "white":                #ffffff,
+    "gray-light":           #f8fafc,
+    "gray":                 #eef0f4,
+    "gray-dark":            #e0dfe4,
+    "green":                #1fbf8e,
+    "red":                  #e60948,
+    "violet":               #a769ce,
+    "primary":              #007db8,
+    "primary-light":        #e6f2f8,
+    "secondary":            #15428f,
+    "tertiary":             #09285d,
+    "tertiary-55":          rgba(red(#09285d), green(#09285d), blue(#09285d), .55)
 );
+
+@if variable-exists(custom-theme-colors) {
+    $theme-colors: map-merge($theme-colors, $custom-theme-colors);
+}
 
 $font-sizes: (
     11:                         .6875rem,
@@ -106,8 +111,8 @@ $btn-padding-y-lg:              28px;
 
 $btn-close-focus-shadow:        none;
 
-$nav-link-color:                map-get($theme-colors, "blue-darker");
-$nav-link-hover-color:          map-get($theme-colors, "blue");
+$nav-link-color:                map-get($theme-colors, "tertiary");
+$nav-link-hover-color:          map-get($theme-colors, "primary");
 $nav-link-font-size:            map-get($font-sizes, 15);
 $nav-link-font-weight:          map-get($font-weights, "regular");
 $nav-link-padding-x:            0;
@@ -136,8 +141,8 @@ $input-padding-y:                   16px;
 $input-focus-border-color:          $input-border-color;
 $input-focus-box-shadow:            none;
 $input-bg:                          map-get($theme-colors, "gray");
-$input-color:                       map-get($theme-colors, "blue-darker");
-$input-placeholder-color:           transparentize($input-color, .65);
+$input-color:                       map-get($theme-colors, "tertiary");
+$input-placeholder-color:           transparentize(map-get($theme-colors, "black"), .65);
 $input-line-height:                 1;
 
 $box-shadow-sm:                     0 2px 8px 0 rgba(5, 23, 55, 0.25);

@@ -2,7 +2,7 @@
     {% if not item.viewBag.isHidden %}
         <li role="presentation" class="nav-item {{ item.viewBag.cssClass }}">
             {% if item.url %}
-                <a href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }} class="nav-link fs-13 text-blue-darker opacity-55 text-blue-hover opacity-100-hover transition {{ item.isActive ? 'active text-blue-dark' : '' }} {{ item.isChildActive ? 'active text-blue-dark' : '' }}">
+                <a href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }} class="nav-link fs-13 text-tertiary-55 text-primary-hover transition {{ item.isActive ? 'active text-secondary' : '' }} {{ item.isChildActive ? 'active text-secondary' : '' }}">
                     {{ item.title }}
                 </a>
             {% else %}
