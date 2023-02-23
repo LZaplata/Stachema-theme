@@ -3,6 +3,7 @@ handle: Products\Content
 type: single
 name: Obsah
 drafts: false
+multisite: true
 
 primaryNavigation:
     label: Produkty
