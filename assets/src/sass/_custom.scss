@@ -119,7 +119,7 @@ $nav-link-padding-x:            0;
 $nav-link-padding-y:            0;
 
 $offcanvas-bg-color:            map-get($theme-colors, "white");
-$offcanvas-color:               map-get($theme-colors, "blue-darker");
+$offcanvas-color:               map-get($theme-colors, "tertiary");
 
 //$form-label-font-size:          map-get($font-sizes, 13);
 //$form-label-color:              map-get($theme-colors, "black-light");
@@ -153,10 +153,10 @@ $breadcrumb-padding-y:              map-get($spacers, 3);
 $breadcrumb-item-padding-x:         0;
 $breadcrumb-divider:                "";
 
-$pagination-color:                  map-get($theme-colors, "blue-dark");
-$pagination-hover-color:            map-get($theme-colors, "blue");
+$pagination-color:                  map-get($theme-colors, "secondary");
+$pagination-hover-color:            map-get($theme-colors, "primary");
 $pagination-hover-bg:               transparent;
-$pagination-active-color:           map-get($theme-colors, "blue");
+$pagination-active-color:           map-get($theme-colors, "primary");
 $pagination-active-bg:              transparent;
 $pagination-padding-x:              map-get($spacers, 2);
 $pagination-padding-y:              0;
