@@ -10,7 +10,7 @@
     <ul>
         {% for file in files %}
             <li>
-                <a href="{{ file.file.path }}" target="_blank">
+                <a href="{{ file.file.path }}" target="_blank" class="d-inline-flex">
                     {{ file.name }}
                 </a>
 
@@ -18,7 +18,9 @@
                     - {{ file.description }}
                 {% endif %}
 
-                 ({{ file.file.file_size|filesize }}, {{ types[file.file.content_type] }})
+                <span class="text-tertiary-55">
+                    ({{ file.file.file_size|filesize }}, {{ types[file.file.content_type] }})
+                </span>
             </li>
         {% endfor %}
     </ul>
