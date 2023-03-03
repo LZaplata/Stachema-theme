@@ -164,6 +164,17 @@ $pagination-border-color:           transparent;
 $pagination-focus-box-shadow:       none;
 $pagination-hover-border-color:     transparent;
 
+$accordion-button-color:                map-get($theme-colors, "tertiary-55");
+$accordion-button-icon:                 url("../images/icons/plus.svg");
+$accordion-button-active-icon:          url("../images/icons/minus.svg");
+$accordion-button-padding-x:            0;
+$accordion-button-padding-y:            map-get($spacers, 3);
+$accordion-button-active-bg:            transparent;
+$accordion-button-active-color:         map-get($theme-colors, "primary");
+$accordion-button-focus-border-color:   transparent;
+$accordion-button-focus-box-shadow:     none;
+$accordion-border-width:                0;
+
 // 3. Include remainder of required Bootstrap stylesheets
 @import "~bootstrap/scss/variables";
 
@@ -345,6 +356,7 @@ $utilities:
 @import "~bootstrap/scss/breadcrumb";
 @import "~bootstrap/scss/pagination";
 @import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/accordion";
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "~bootstrap/scss/utilities/api";
