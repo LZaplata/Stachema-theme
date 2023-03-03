@@ -3,6 +3,7 @@ handle: About\Content
 type: single
 name: Obsah
 drafts: false
+multisite: sync
 
 primaryNavigation:
     label: O nás
