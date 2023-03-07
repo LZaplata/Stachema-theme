@@ -5,6 +5,7 @@ name: Kontakty
 drafts: false
 showImport: false
 showExport: false
+multisite: sync
 
 structure:
     maxDepth: 1
@@ -60,7 +61,7 @@ fields:
         label: Město
         type: text
         span: right
-        column: false    
+        column: false
         trigger:
             action: show
             field: personal
