@@ -5,7 +5,6 @@ name: Kategorie
 drafts: false
 showImport: false
 showExport: false
-multisite: true
 
 structure:
     maxDepth: 2
