@@ -31,12 +31,12 @@ class Product extends Model
         "categories"    => "required",
         "stachema_id"   => "required",
         "files.*.title" => "required",
-        "files.*.file"  => "required",
+//        "files.*.file"  => "required",
     ];
 
     public $customMessages = [
         "files.*.title.required"    => "Dokumenty - Název pole je povinné.",
-        "files.*.file.required"     => "Dokumenty - Soubor pole je povinné.",
+//        "files.*.file.required"     => "Dokumenty - Soubor pole je povinné.",
     ];
 
     public $belongsToMany = [
