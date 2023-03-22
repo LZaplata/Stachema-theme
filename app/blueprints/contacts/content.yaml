@@ -3,6 +3,7 @@ handle: Contacts\Content
 type: single
 name: Obsah
 drafts: false
+multisite: true
 
 navigation:
     icon: icon-file-o
