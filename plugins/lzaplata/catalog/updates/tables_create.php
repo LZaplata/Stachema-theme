@@ -11,6 +11,8 @@ class TablesCreate extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
+            $table->integer('site_id')->nullable()->index();
+            $table->integer('site_root_id')->nullable()->index();
             $table->string('title', 255);
             $table->string('slug', 255);
             $table->string('stachema_id', 10)->nullable();
@@ -28,6 +30,8 @@ class TablesCreate extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
+            $table->integer('site_id')->nullable()->index();
+            $table->integer('site_root_id')->nullable()->index();
             $table->string('title', 255);
             $table->string('slug', 255);
             $table->string('stachema_id', 10)->nullable();

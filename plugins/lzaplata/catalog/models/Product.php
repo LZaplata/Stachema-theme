@@ -4,6 +4,7 @@ use Cms\Classes\Controller;
 use Model;
 use October\Rain\Database\Builder;
 use October\Rain\Database\Scopes\NestedTreeScope;
+use October\Rain\Database\Traits\Multisite;
 
 /**
  * Model
@@ -14,8 +15,33 @@ class Product extends Model
 
     use \October\Rain\Database\Traits\SoftDelete;
 
+    use Multisite;
+
     protected $dates = ['deleted_at'];
 
+    protected $propagatable = [
+        "title",
+        "slug",
+        "stachema_id",
+        "excerpt",
+        "text",
+        "shades",
+        "consumption",
+        "packages",
+        "key_properties",
+        "warning",
+        "pictograms",
+        "pictograms_text",
+        "samples",
+        "usage",
+        "application",
+        "processing",
+        "properties",
+        "position",
+        "pictograms_img",
+        "files",
+        "old_id",
+    ];
 
     /**
      * @var string The database table used by the model.
@@ -27,8 +53,8 @@ class Product extends Model
      */
     public $rules = [
         "title"         => "required",
-        "slug"          => ["required", "regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i", "unique:lzaplata_catalog_products,slug,NULL,id,deleted_at,NULL"],
-        "categories"    => "required",
+        "slug"          => ["required", "regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i"/*, "unique:lzaplata_catalog_products,slug,NULL,id,deleted_at,NULL"*/],
+//        "categories"    => "required",
         "stachema_id"   => "required",
         "files.*.title" => "required",
 //        "files.*.file"  => "required",
@@ -36,7 +62,7 @@ class Product extends Model
 
     public $customMessages = [
         "files.*.title.required"    => "Dokumenty - Název pole je povinné.",
-//        "files.*.file.required"     => "Dokumenty - Soubor pole je povinné.",
+        "files.*.file.required"     => "Dokumenty - Soubor pole je povinné.",
     ];
 
     public $belongsToMany = [

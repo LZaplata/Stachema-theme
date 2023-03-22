@@ -2,6 +2,7 @@
 
 use Cms\Classes\Controller;
 use Model;
+use October\Rain\Database\Traits\Multisite;
 use October\Rain\Database\Traits\NestedTree;
 use System\Models\File;
 
@@ -16,8 +17,11 @@ class Category extends Model
 
     use NestedTree;
 
+    use Multisite;
+
     protected $dates = ['deleted_at'];
 
+    protected $propagatable = [];
 
     /**
      * @var string The database table used by the model.
@@ -29,7 +33,7 @@ class Category extends Model
      */
     public $rules = [
         "title" => "required",
-        "slug" => ["required", "regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i", "unique:lzaplata_catalog_categories,slug,NULL,id,deleted_at,NULL"]
+        "slug" => ["required", "regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i"/*, "unique:lzaplata_catalog_categories,slug,NULL,id,deleted_at,NULL"*/]
     ];
 
     /**

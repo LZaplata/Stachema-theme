@@ -65,6 +65,7 @@ class ProductImport extends ImportModel
                     }
 
                     $product->forceSave();
+                    $product->savePropagate();
 
                     // sync categories
 
