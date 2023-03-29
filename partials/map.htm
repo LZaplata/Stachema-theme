@@ -51,7 +51,7 @@
                 {% if place.link %}
                     var body = body + `
                         <p class="ff-inter fs-13 fw-regular ls-n02 mb-0 mt-2">
-                            <a href="" target="_blank" class="text-primary text-secondary-hover transition text-decoration-underline-w-hover">
+                            <a href="https://{{ place.link }}" target="_blank" class="text-primary text-secondary-hover transition text-decoration-underline-w-hover">
                                 {{ place.link }}
                             </a>
                         </p>
@@ -165,7 +165,7 @@
             var suggest = new SMap.Suggest(input);
 
             suggest.addListener("suggest", function (suggestData) {
-                initMap(suggestData.data.longitude, suggestData.data.latitude, 11);
+                initMap(suggestData.data.longitude, suggestData.data.latitude, 13);
             });
         }
     </script>
