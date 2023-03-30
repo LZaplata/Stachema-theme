@@ -1,5 +1,5 @@
-uuid: contacts_categories
-handle: Contacts\Category
+uuid: contacts_categories_lignofix
+handle: Contacts\CategoryLignofix
 type: structure
 name: Kategorie
 drafts: false
@@ -11,16 +11,11 @@ structure:
     maxDepth: 2
     treeExpanded: false
 
-primaryNavigation:
-    label: Kontakty
-    icon: icon-address-book-o
-    order: 150
-
 navigation:
     icon: icon-sitemap
     parent: Contacts\Category
-    order: 10
-    label: Kategorie
+    order: 30
+    label: Kategorie Lignofix
 
 fields:
     name:

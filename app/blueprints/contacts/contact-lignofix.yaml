@@ -1,5 +1,5 @@
-uuid: contacts_contacts
-handle: Contacts\Contact
+uuid: contacts_contacts_lignofix
+handle: Contacts\ContactLignofix
 type: structure
 name: Kontakty
 drafts: false
@@ -13,8 +13,8 @@ structure:
 navigation:
     icon: icon-phone
     parent: Contacts\Category
-    order: 20
-    label: Kontakty
+    order: 40
+    label: Kontakty Lignofix
 
 fields:
     personal:
@@ -88,5 +88,5 @@ fields:
     category:
         label: Kategorie
         type: entries
-        source: Contacts\Category
+        source: Contacts\CategoryLignofix
         span: left
