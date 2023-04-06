@@ -118,6 +118,9 @@ $nav-link-font-weight:          map-get($font-weights, "regular");
 $nav-link-padding-x:            0;
 $nav-link-padding-y:            0;
 
+$nav-tabs-border-color:             map-get($theme-colors, "gray-dark");
+$nav-tabs-link-hover-border-color:  transparent;
+
 $offcanvas-bg-color:            map-get($theme-colors, "white");
 $offcanvas-color:               map-get($theme-colors, "tertiary");
 
@@ -357,6 +360,7 @@ $utilities:
 @import "~bootstrap/scss/pagination";
 @import "~bootstrap/scss/modal";
 @import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/tables";
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "~bootstrap/scss/utilities/api";
