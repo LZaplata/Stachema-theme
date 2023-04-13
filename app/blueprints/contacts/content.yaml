@@ -8,7 +8,7 @@ multisite: true
 navigation:
     icon: icon-file-o
     parent: Contacts\Category
-    order: 50
+    order: 60
     label: Obsah
 
 fields:
