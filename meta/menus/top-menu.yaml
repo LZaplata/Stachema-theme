@@ -38,4 +38,13 @@ items:
             isHidden: '0'
             cssClass: ''
             isExternal: '1'
+    -
+        title: 'Stachema SK'
+        type: url
+        url: 'https://www.stachema.sk/'
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '1'
 name: 'Top menu'

@@ -40,9 +40,13 @@ items:
             isExternal: '0'
     -
         title: Videa
+        nesting: null
         type: cms-page
+        url: null
         code: videa
         reference: videa
+        cmsPage: null
+        replace: null
         viewBag:
             isHidden: '0'
             cssClass: ''
