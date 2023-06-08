@@ -1,37 +1,38 @@
 <div class="bg-primary-light rounded-4 p-4 p-md-5 px-xl-80">
-    <div class="d-flex flex-column text-secondary py-xl-2 flex-xl-row align-items-xl-center">
-        <p class="mb-0 fw-semibold fs-32 ls-n05 me-xl-5 me-xxl-4">
+    <div class="d-flex flex-column text-secondary py-lg-2 flex-lg-row align-items-lg-center">
+        <p class="mb-0 fw-semibold fs-32 ls-n05 me-lg-5">
             Potřebujete poradit?
         </p>
 
-        <div class="d-flex flex-column flex-md-row gap-md-5 gap-xxl-4">
-            {% if this.theme.phone %}
-                <p class="mb-0 mt-2 mt-xl-0">
-                    <span class="fs-20 ls-n02 text-tertiary opacity-65 me-xxl-2">
-                        Zavolejte nám
-                    </span>
+        <div class="d-flex flex-column flex-md-row gap-md-5 gap-xxl-4 ms-xl-5">
+{#            {% if this.theme.phone %}#}
+{#                <p class="mb-0 mt-2 mt-xl-0">#}
+{#                    <span class="fs-20 ls-n02 text-tertiary opacity-65 me-xxl-2">#}
+{#                        Zavolejte nám#}
+{#                    </span>#}
 
-                    <span class="d-flex align-items-center mt-1 d-xxl-inline-flex mt-xxl-0">
-                        <span class="mi-32 bg-secondary d-inline-flex align-items-center justify-content-center rounded-circle me-2">
-                            <span class="mi-phone-blank mi-16 bg-white"></span>
-                        </span>
+{#                    <span class="d-flex align-items-center mt-1 d-xxl-inline-flex mt-xxl-0">#}
+{#                        <span class="mi-32 bg-secondary d-inline-flex align-items-center justify-content-center rounded-circle me-2">#}
+{#                            <span class="mi-phone-blank mi-16 bg-white"></span>#}
+{#                        </span>#}
 
-                        <span class="fw-semibold fs-20 ls-n02">
-                            <a href="tel:{{ this.theme.phone }}" class="text-tertiary text-primary-hover transition text-decoration-none-w-hover">
-                                {{ this.theme.phone }}
-                            </a>
-                        </span>
-                    </span>
-                </p>
-            {% endif %}
+{#                        <span class="fw-semibold fs-20 ls-n02">#}
+{#                            <a href="tel:{{ this.theme.phone }}" class="text-tertiary text-primary-hover transition text-decoration-none-w-hover">#}
+{#                                {{ this.theme.phone }}#}
+{#                            </a>#}
+{#                        </span>#}
+{#                    </span>#}
+{#                </p>#}
+{#            {% endif %}#}
 
             {% if this.theme.email %}
-                <p class="mb-0 mt-2 mt-xl-0">
-                    <span class="fs-20 ls-n02 text-tertiary opacity-65 mx-xxl-2">
-                        nebo napište
+                <p class="mb-0 mt-2 mt-lg-0">
+                    <span class="fs-20 ls-n02 text-tertiary opacity-65 me-sm-2 me-md-3">
+{#                        nebo napište#}
+                        Napište nám
                     </span>
 
-                    <span class="d-flex align-items-center mt-1 d-xxl-inline-flex mt-xxl-0">
+                    <span class="d-flex align-items-center mt-1 d-sm-inline-flex mt-lg-0">
                         <span class="mi-32 bg-secondary d-inline-flex align-items-center justify-content-center rounded-circle me-2">
                             <span class="mi-envelope-open mi-16 bg-white"></span>
                         </span>
