@@ -63,6 +63,9 @@
             'excerpt' => [
                 'label' => 'Popis',
             ],
+            'text' => [
+                'label' => 'Text',
+            ],
             'stachema' => [
                 'label' => 'Interní ID',
             ],

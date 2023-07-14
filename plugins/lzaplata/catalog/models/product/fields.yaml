@@ -26,6 +26,10 @@ fields:
         required: 1
     excerpt:
         label: 'lzaplata.catalog::lang.product.field.excerpt.label'
+        type: textarea
+        required: 0
+    text:
+        label: 'lzaplata.catalog::lang.product.field.text.label'
         type: richeditor
         required: 0
         size: huge
