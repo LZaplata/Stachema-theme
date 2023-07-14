@@ -60,6 +60,9 @@
             'categories' => [
                 'label' => 'Kategorie',
             ],
+            'excerpt' => [
+                'label' => 'Popis',
+            ],
             'stachema' => [
                 'label' => 'Interní ID',
             ],
