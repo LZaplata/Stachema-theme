@@ -60,12 +60,6 @@
             'categories' => [
                 'label' => 'Kategorie',
             ],
-            'excerpt' => [
-                'label' => 'Popis',
-            ],
-            'text' => [
-                'label' => 'Text',
-            ],
             'stachema' => [
                 'label' => 'Interní ID',
             ],
@@ -83,6 +77,9 @@
                         'label' => 'Pořadí',
                     ],
                 ],
+            ],
+            'visibility' => [
+                'label' => 'Zobrazit na webu',
             ],
         ],
         'column' => [
@@ -109,6 +106,7 @@
             'category_2' => 'Kategorie 2. výskyt',
             'category_3' => 'Kategorie 3. výskyt',
             'old' => 'ID starého webu',
+            'visibility' => 'Zobrazit na webu',
         ],
         'update' => [
             'title' => 'Upravit produkt',

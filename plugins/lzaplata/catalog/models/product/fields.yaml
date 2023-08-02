@@ -1,4 +1,8 @@
 fields:
+    visibility:
+        label: 'lzaplata.catalog::lang.product.field.visibility.label'
+        span: auto
+        type: switch
     stachema_id:
         label: 'lzaplata.catalog::lang.product.field.stachema.label'
         span: left
@@ -24,15 +28,6 @@ fields:
         span: left
         type: relation
         required: 1
-    excerpt:
-        label: 'lzaplata.catalog::lang.product.field.excerpt.label'
-        type: textarea
-        required: 0
-    text:
-        label: 'lzaplata.catalog::lang.product.field.text.label'
-        type: richeditor
-        required: 0
-        size: huge
     files:
         label: 'lzaplata.catalog::lang.product.field.files.label'
         prompt: 'lzaplata.catalog::lang.product.field.files.prompt'

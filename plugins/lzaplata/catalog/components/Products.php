@@ -85,7 +85,8 @@ class Products extends ComponentBase
      */
     public function products(): LengthAwarePaginator
     {
-        $products = Product::orderBy("position", "asc");
+        $products = Product::orderBy("position", "asc")
+            ->where("visibility", 1);
 
         if ($this->property("category")) {
             $products->whereRelation("categories", "slug", $this->property("category"));

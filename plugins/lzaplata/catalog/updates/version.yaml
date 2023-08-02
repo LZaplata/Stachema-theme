@@ -1,3 +1,6 @@
-1.0.0:
+v1.0.0:
     - 'Initialize plugin and create tables'
     - tables_create.php
+v1.0.1:
+    - 'Add visibility column to products table'
+    - add_visibility_column_to_products_table.php
