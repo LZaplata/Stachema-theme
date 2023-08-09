@@ -102,7 +102,9 @@ class Products extends ComponentBase
             }
         }
 
-        $products = $products->paginate(24, $this->param("page"));
+        $products = $products
+            ->where("visibility", 1)
+            ->paginate(24, $this->param("page"));
 
         $products->each(function ($product) {
             $product->setUrl($this->property("page"), $this->controller);
