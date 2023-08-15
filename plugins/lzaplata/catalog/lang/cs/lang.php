@@ -81,6 +81,24 @@
             'visibility' => [
                 'label' => 'Zobrazit na webu',
             ],
+            'consumption' => [
+                'label' => 'Spotřeba',
+            ],
+            'packages' => [
+                'label' => 'Balení',
+            ],
+            'usage' => [
+                'label' => 'Použití',
+            ],
+            'application' => [
+                'label' => 'Aplikace',
+            ],
+            'processing' => [
+                'label' => 'Zpracování',
+            ],
+            'properties' => [
+                'label' => 'Vlastnosti',
+            ],
         ],
         'column' => [
             'title' => 'Název',
@@ -123,6 +141,17 @@
         ],
         'import' => [
             'title' => 'Import produktů',
+        ],
+        'tab' => [
+            'info' => [
+                'label' => 'Info',
+            ],
+            'parameters' => [
+                'label' => 'Parametry',
+            ],
+            'download' => [
+                'label' => 'Ke stažení',
+            ],
         ],
     ],
     'menu' => [

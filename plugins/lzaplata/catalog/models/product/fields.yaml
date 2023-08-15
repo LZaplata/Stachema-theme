@@ -1,56 +1,93 @@
-fields:
-    visibility:
-        label: 'lzaplata.catalog::lang.product.field.visibility.label'
-        span: auto
-        type: switch
-    stachema_id:
-        label: 'lzaplata.catalog::lang.product.field.stachema.label'
-        span: left
-        required: 1
-        type: text
-    title:
-        label: 'lzaplata.catalog::lang.product.field.title.label'
-        span: left
-        required: 1
-        type: text
-    slug:
-        label: 'lzaplata.catalog::lang.product.field.slug.label'
-        span: right
-        required: 1
-        preset:
-            field: title
-            type: slug
-        type: text
-    categories:
-        label: 'lzaplata.catalog::lang.product.field.categories.label'
-        nameFrom: title
-        descriptionFrom: description
-        span: left
-        type: relation
-        required: 1
-    files:
-        label: 'lzaplata.catalog::lang.product.field.files.label'
-        prompt: 'lzaplata.catalog::lang.product.field.files.prompt'
-        style: accordion
-        span: full
-        type: repeater
-        form:
-            fields:
-                title:
-                    label: 'lzaplata.catalog::lang.product.field.files.field.title.label'
-                    span: left
-                    required: 1
-                    type: text
-                file:
-                    label: 'lzaplata.catalog::lang.product.field.files.field.file.label'
-                    mode: file
-                    span: right
-                    required: 1
-                    type: mediafinder
-                position:
-                    label: 'lzaplata.catalog::lang.product.field.files.field.position.label'
-                    span: left
-                    step: 10
-                    min: 0
-                    default: 0
-                    type: number
+tabs:
+    fields:
+        visibility:
+            label: 'lzaplata.catalog::lang.product.field.visibility.label'
+            span: auto
+            type: switch
+            tab: 'lzaplata.catalog::lang.product.tab.info.label'
+        stachema_id:
+            label: 'lzaplata.catalog::lang.product.field.stachema.label'
+            span: left
+            required: 1
+            type: text
+            tab: 'lzaplata.catalog::lang.product.tab.info.label'
+        title:
+            label: 'lzaplata.catalog::lang.product.field.title.label'
+            span: left
+            required: 1
+            type: text
+            tab: 'lzaplata.catalog::lang.product.tab.info.label'
+        slug:
+            label: 'lzaplata.catalog::lang.product.field.slug.label'
+            span: right
+            required: 1
+            preset:
+                field: title
+                type: slug
+            type: text
+            tab: 'lzaplata.catalog::lang.product.tab.info.label'
+        categories:
+            label: 'lzaplata.catalog::lang.product.field.categories.label'
+            nameFrom: title
+            descriptionFrom: description
+            span: left
+            type: relation
+            required: 1
+            tab: 'lzaplata.catalog::lang.product.tab.info.label'
+        consumption:
+            label: 'lzaplata.catalog::lang.product.field.consumption.label'
+            span: left
+            type: text
+            tab: 'lzaplata.catalog::lang.product.tab.parameters.label'
+        packages:
+            label: 'lzaplata.catalog::lang.product.field.packages.label'
+            span: right
+            type: text
+            tab: 'lzaplata.catalog::lang.product.tab.parameters.label'
+        usage:
+            label: 'lzaplata.catalog::lang.product.field.usage.label'
+            span: left
+            type: text
+            tab: 'lzaplata.catalog::lang.product.tab.parameters.label'
+        application:
+            label: 'lzaplata.catalog::lang.product.field.application.label'
+            span: right
+            type: text
+            tab: 'lzaplata.catalog::lang.product.tab.parameters.label'
+        processing:
+            label: 'lzaplata.catalog::lang.product.field.processing.label'
+            span: left
+            type: text
+            tab: 'lzaplata.catalog::lang.product.tab.parameters.label'
+        properties:
+            label: 'lzaplata.catalog::lang.product.field.properties.label'
+            span: right
+            type: text
+            tab: 'lzaplata.catalog::lang.product.tab.parameters.label'
+        files:
+            label: 'lzaplata.catalog::lang.product.field.files.label'
+            prompt: 'lzaplata.catalog::lang.product.field.files.prompt'
+            style: accordion
+            span: full
+            type: repeater
+            tab: 'lzaplata.catalog::lang.product.tab.download.label'
+            form:
+                fields:
+                    title:
+                        label: 'lzaplata.catalog::lang.product.field.files.field.title.label'
+                        span: left
+                        required: 1
+                        type: text
+                    file:
+                        label: 'lzaplata.catalog::lang.product.field.files.field.file.label'
+                        mode: file
+                        span: right
+                        required: 1
+                        type: mediafinder
+                    position:
+                        label: 'lzaplata.catalog::lang.product.field.files.field.position.label'
+                        span: left
+                        step: 10
+                        min: 0
+                        default: 0
+                        type: number
