@@ -51,16 +51,20 @@ class Product extends ComponentBase
      */
     public function alternativeProducts(): ?Collection
     {
-        $products = Category::whereRelation("products", "id", $this->product->id)
+        $category = Category::whereRelation("products", "id", $this->product->id)
             ->where("stachema_id", "!=", null)
-            ->first()
-            ->products
-            ->where("id", "!=", $this->product->id);
+            ->first();
 
-        $products->each(function ($product) {
-            $product->setUrl($this->page->id, $this->controller);
-        });
+        if ($category) {
+            $products = $category
+                ->products
+                ->where("id", "!=", $this->product->id);
 
-        return $products;
+            $products->each(function ($product) {
+                $product->setUrl($this->page->id, $this->controller);
+            });
+        }
+
+        return $products ?? null;
     }
 }
