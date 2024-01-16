@@ -96,9 +96,11 @@ class Products extends ComponentBase
                     $products->whereRelation("categories", "slug", $category->slug);
                 }
             } elseif (Input::get("q")) {
-                $products->where("title", "like", "%" . Input::get("q") . "%")
-                    ->orWhere("excerpt", "like", "%" . Input::get("q") . "%")
-                    ->orWhere("text", "like", "%" . Input::get("q") . "%");
+                $products->where(function ($q) {
+                    $q->where("title", "like", "%" . Input::get("q") . "%")
+                        ->orWhere("excerpt", "like", "%" . Input::get("q") . "%")
+                        ->orWhere("text", "like", "%" . Input::get("q") . "%");
+                });
             }
         }
 
