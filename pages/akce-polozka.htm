@@ -1,0 +1,41 @@
+url = "/akce/:slug"
+layout = "default"
+title = "Položka akce"
+
+[section item]
+handle = "Campaigns\Item"
+identifier = "slug"
+value = "{{ :slug }}"
+==
+{% set items = {
+    "akce": {
+        "title" : "Akce",
+        "url"   : "akce"|page,
+    },
+    "polozka": {
+        "title" : item.title,
+        "active": true,
+    }
+} %}
+
+{% partial "breadcrumb" items=items %}
+
+<div class="container-fluid pb-5" id="campaign">
+    <div class="container-lg py-xl-4">
+        <h1 class="mb-4 mb-xl-5 col-xl-10 offset-xl-1">
+            {{ item.title }}
+        </h1>
+
+{#        {% if first_image %}#}
+{#            <p class="img mb4 mb-xl-5">#}
+{#                <img src="{{ first_image.thumb(1278, 640, {"mode": "crop"}) }}" alt="{{ first_image.description }}" class="img-fluid w-100 rounded-4">#}
+{#            </p>#}
+{#        {% endif %}#}
+
+{#        {% if post.content %}#}
+{#            <div class="post-content">#}
+{#                {{ post.content|raw }}#}
+{#            </div>#}
+{#        {% endif %}#}
+    </div>
+</div>

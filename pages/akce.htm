@@ -1,0 +1,65 @@
+url = "/akce"
+layout = "default"
+title = "Akce"
+
+[collection campaigns]
+handle = "Campaigns\Campaign"
+recordsPerPage = 1
+pageNumber = 1
+sortColumn = "published_at_date"
+sortDirection = "desc"
+==
+{% set items = {
+    "akce": {
+        "title": "Akce",
+        "active": true,
+    }
+} %}
+
+{% partial "breadcrumb" items=items %}
+
+<div class="container-fluid pb-5" id="campaign">
+    <div class="container-lg py-xl-4">
+        {% for campaign in campaigns %}
+            <h1 class="mb-4 mb-xl-5">
+                {{ campaign.title }}
+            </h1>
+
+            {% if campaign.items.count == 2 %}
+                {% set row_cols = "row-cols-sm-2" %}
+            {% elseif campaign.items.count == 3 %}
+                {% set row_cols = "row-cols-sm-2 row-cols-md-3" %}
+            {% elseif campaign.items.count >= 4 %}
+                {% set row_cols = "row-cols-sm-2 row-cols-md-3 row-cols-xl-4" %}
+            {% endif %}
+
+            <div class="items row row-cols-1 gy-5 gx-4 {{ row_cols }} gx-xxl-5">
+                {% for item in campaign.items %}
+                    <div class="item col">
+                        <a href="{{ 'akce-polozka'|page({slug: item.slug}) }}" class="d-flex flex-column rounded-4 p-4 text-decoration-none">
+                            <h2 class="title h4 text-white fw-regular text-center">
+                                {{ item.title }}
+                            </h2>
+
+                            <p class="img mt-2 text-center">
+                                <img src="{{ item.image.path }}" alt="" class="img-fluid">
+                            </p>
+
+                            <p class="detail mb-0 text-center">
+                                <button class="btn btn-primary text-uppercase fs-15">
+                                    detail nabídky
+                                </button>
+                            </p>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if campaign.due_date %}
+                <p class="mt-5 mb-0 fs-20 text-primary text-center">
+                    Nabídka platí do {{ campaign.due_date|date("j. n. Y") }}
+                </p>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

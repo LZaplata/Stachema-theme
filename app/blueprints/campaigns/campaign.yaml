@@ -1,0 +1,41 @@
+uuid: lzaplata_campaigns_campaingn
+handle: Campaigns\Campaign
+type: stream
+name: Kampaň
+drafts: false
+showImport: false
+showExport: false
+
+primaryNavigation:
+    label: Kampaně
+    icon: icon-volume-down
+    order: 200
+
+navigation:
+    label: Kampaně
+    icon: icon-list-ul
+    parent: Campaigns\Campaign
+    order: 10
+
+fields:
+    items:
+        label: Položky kampaně
+        type: entries
+        source: Campaigns\Item
+        span: left
+        displayMode: taglist
+        mode: relation
+        column: false
+        scope: false
+
+    text:
+        label: Text
+        type: richeditor
+        column: false
+        scope: false
+
+    due_date:
+        label: Platnost nabídky
+        type: datepicker
+        mode: date
+        span: left

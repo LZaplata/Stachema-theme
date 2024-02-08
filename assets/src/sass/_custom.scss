@@ -19,7 +19,10 @@ $theme-colors: (
     "primary-light":        #e6f2f8,
     "secondary":            #15428f,
     "tertiary":             #09285d,
-    "tertiary-55":          rgba(red(#09285d), green(#09285d), blue(#09285d), .55)
+    "tertiary-55":          rgba(red(#09285d), green(#09285d), blue(#09285d), .55),
+    "radial-dark":          #001B48,
+    "radial-light":         #00438D,
+    "yellow":               #ffec00,
 );
 
 @if variable-exists(custom-theme-colors) {

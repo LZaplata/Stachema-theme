@@ -623,3 +623,18 @@ footer
             .modal-footer
                 padding: 0
                 border-top: none
+
+#campaign
+    .items
+        .item
+            a
+                background: radial-gradient(50% 50% at 50% 50%, map-get($theme-colors, "radial-light") 0%, map-get($theme-colors, "radial-dark") 100%)
+
+                .btn-primary
+                    transition: $transition-base
+
+                &:hover
+                    .btn-primary
+                        background-color: map-get($theme-colors, "yellow")
+                        color: map-get($theme-colors, "radial-dark")
+                        border-color: map-get($theme-colors, "yellow")

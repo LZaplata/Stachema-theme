@@ -1,0 +1,23 @@
+uuid: lzaplata_campaigns_item
+handle: Campaigns\Item
+type: stream
+name: Položka kampaně
+drafts: false
+showImport: false
+showExport: false
+
+navigation:
+    label: Položky kampaní
+    icon: icon-id-card-o
+    parent: Campaigns\Campaign
+    order: 20
+
+fields:
+    image:
+        label: Obrázek
+        type: fileupload
+        maxFiles: 1
+        fileTypes: png,jpg,jpeg,webp
+        column: false
+        scope: false
+        span: left
