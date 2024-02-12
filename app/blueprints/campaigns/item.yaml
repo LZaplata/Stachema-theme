@@ -21,3 +21,29 @@ fields:
         column: false
         scope: false
         span: left
+
+    categories:
+        label: Kategorie
+        type: repeater
+        span: left
+        column: false
+        scope: false
+        itemsExpanded: false
+        form:
+            fields:
+                category:
+                    type: categorypicker
+                    nameFrom: title
+
+    products:
+        label: Produkty
+        type: repeater
+        span: right
+        column: false
+        scope: false
+        itemsExpanded: false
+        form:
+            fields:
+                product:
+                    type: productpicker
+                    nameFrom: title
