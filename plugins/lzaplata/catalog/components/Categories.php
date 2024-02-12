@@ -84,7 +84,13 @@ class Categories extends ComponentBase
             }
         }
 
-        $categories = Category::where("parent_id", $parent)->get();
+
+
+        if ($this->property("ids")) {
+            $categories = Category::whereIn("id", $this->property("ids"))->get();
+        } else {
+            $categories = Category::where("parent_id", $parent)->get();
+        }
 
         $categories->each(function ($category) {
             $category->setUrl($this->property("page"), $this->controller);

@@ -99,6 +99,12 @@
             'properties' => [
                 'label' => 'Vlastnosti',
             ],
+            'excerpt' => [
+                'label' => 'Perex',
+            ],
+            'text' => [
+                'label' => 'Text',
+            ],
         ],
         'column' => [
             'title' => 'Název',
@@ -151,6 +157,9 @@
             ],
             'download' => [
                 'label' => 'Ke stažení',
+            ],
+            'text' => [
+                'label' => 'Perex a text',
             ],
         ],
     ],

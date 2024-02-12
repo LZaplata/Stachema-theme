@@ -36,16 +36,16 @@ sortDirection = "desc"
             <div class="items row row-cols-1 gy-5 gx-4 {{ row_cols }} gx-xxl-5">
                 {% for item in campaign.items %}
                     <div class="item col">
-                        <a href="{{ 'akce-polozka'|page({slug: item.slug}) }}" class="d-flex flex-column rounded-4 p-4 text-decoration-none">
-                            <h2 class="title h4 text-white fw-regular text-center">
+                        <a href="{{ 'akce-polozka'|page({slug: item.slug}) }}" class="d-flex flex-column rounded-4 text-decoration-none position-relative">
+                            <h2 class="title h4 text-white fw-regular position-absolute top-0 pt-4 px-4 mb-0 w-100 text-center">
                                 {{ item.title }}
                             </h2>
 
-                            <p class="img mt-2 text-center">
+                            <p class="img text-center my-0">
                                 <img src="{{ item.image.path }}" alt="" class="img-fluid">
                             </p>
 
-                            <p class="detail mb-0 text-center">
+                            <p class="detail text-center position-absolute bottom-0 pb-4 w-100 mb-0">
                                 <button class="btn btn-primary text-uppercase fs-15">
                                     detail nabídky
                                 </button>
@@ -61,5 +61,19 @@ sortDirection = "desc"
                 </p>
             {% endif %}
         {% endfor %}
+    </div>
+</div>
+
+<div>
+    <h2 class="text-center mb-4 mb-xl-5">
+        Prodejní místa
+    </h2>
+
+    {% partial "map-events" %}
+</div>
+
+<div class="container-fluid my-5 py-xl-4">
+    <div class="container">
+        {% partial "advice" %}
     </div>
 </div>

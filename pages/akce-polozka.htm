@@ -6,6 +6,13 @@ title = "Položka akce"
 handle = "Campaigns\Item"
 identifier = "slug"
 value = "{{ :slug }}"
+
+[products]
+page = "produkt"
+categoryPage = "kategorie"
+
+[categories subcategories]
+page = "kategorie"
 ==
 {% set items = {
     "akce": {
@@ -18,6 +25,18 @@ value = "{{ :slug }}"
     }
 } %}
 
+{% set categoryIds = [] %}
+
+{% for category in item.categories %}
+    {% set categoryIds = categoryIds|merge([category.category_id]) %}
+{% endfor %}
+
+{% set productIds = [] %}
+
+{% for product in item.products %}
+    {% set productIds = productIds|merge([product.product_id]) %}
+{% endfor %}
+
 {% partial "breadcrumb" items=items %}
 
 <div class="container-fluid pb-5" id="campaign">
@@ -25,6 +44,18 @@ value = "{{ :slug }}"
         <h1 class="mb-4 mb-xl-5 col-xl-10 offset-xl-1">
             {{ item.title }}
         </h1>
+
+        <div class="border-1 border-top border-tertiary border-opacity-07 mt-32 pt-32" id="subcategories">
+            <h2 class="fs-20 ls-n02 mb-4">
+                Kategorie
+            </h2>
+
+            {% component "subcategories" ids=categoryIds %}
+        </div>
+
+        <div class="mt-5 pt-xl-3">
+            {% component "products" ids=productIds %}
+        </div>
 
 {#        {% if first_image %}#}
 {#            <p class="img mb4 mb-xl-5">#}

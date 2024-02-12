@@ -7,6 +7,8 @@ use LZaplata\Catalog\Components\Product;
 use LZaplata\Catalog\Components\Products;
 use LZaplata\Catalog\Console\DeleteResizedImages;
 use LZaplata\Catalog\Console\ImportFiles;
+use LZaplata\Catalog\ContentFields\CategoryPicker;
+use LZaplata\Catalog\ContentFields\ProductPicker;
 use LZaplata\Catalog\Models\Settings;
 use Media\Widgets\MediaManager;
 use System\Classes\PluginBase;
@@ -63,6 +65,17 @@ class Plugin extends PluginBase
     {
         $this->registerConsoleCommand("catalog.importfiles", ImportFiles::class);
         $this->registerConsoleCommand("catalog.deleteresizesimages", DeleteResizedImages::class);
+    }
+
+    /**
+     * @return string[]
+     */
+    public function registerContentFields(): array
+    {
+        return [
+            CategoryPicker::class => "categorypicker",
+            ProductPicker::class => "productpicker",
+        ];
     }
 
     /**

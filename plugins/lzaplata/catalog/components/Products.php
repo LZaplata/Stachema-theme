@@ -90,6 +90,8 @@ class Products extends ComponentBase
 
         if ($this->property("category")) {
             $products->whereRelation("categories", "slug", $this->property("category"));
+        } elseif ($this->property("ids")) {
+            $products->whereIn("id", $this->property("ids"));
         } else {
             if ($this->page->id == $this->property("categoryPage") && $this->param("slug")) {
                 if ($category = Category::where("slug", $this->param("slug"))->first()) {

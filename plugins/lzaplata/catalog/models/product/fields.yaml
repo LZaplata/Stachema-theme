@@ -34,6 +34,16 @@ tabs:
             type: relation
             required: 1
             tab: 'lzaplata.catalog::lang.product.tab.info.label'
+        excerpt:
+            label: 'lzaplata.catalog::lang.product.field.excerpt.label'
+            span: full
+            type: textarea
+            tab: 'lzaplata.catalog::lang.product.tab.text.label'
+        text:
+            label: 'lzaplata.catalog::lang.product.field.text.label'
+            span: full
+            type: textarea
+            tab: 'lzaplata.catalog::lang.product.tab.text.label'
         consumption:
             label: 'lzaplata.catalog::lang.product.field.consumption.label'
             span: left

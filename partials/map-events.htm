@@ -1,0 +1,52 @@
+<div class="position-relative" id="map-wrapper">
+    <div id="map"></div>
+
+    <div class="position-absolute start-50 translate-middle-x top-0 p-32 w-100 w-sm-75 w-md-50 px-md-0 w-xl-25 " id="map-input-wrapper">
+        <input type="text" class="form-control w-100 bg-white shadow-lg" placeholder="Napište město, nebo PSČ" id="map-input">
+    </div>
+</div>
+
+{% put scripts %}
+    <script type="text/javascript" src="https://api.mapy.cz/loader.js"></script>
+    <script type="text/javascript">Loader.load(null, {suggest: true});</script>
+
+    <script>
+        initMap();
+
+        function initMap(lng = 15.3386383, lat = 49.7437572, zoom = 8) {
+            var center = SMap.Coords.fromWGS84(lng, lat);
+            var map = new SMap(JAK.gel("map"), center, zoom);
+
+            map.addDefaultLayer(SMap.DEF_BASE).enable();
+            map.addDefaultControls();
+
+            var layer = new SMap.Layer.Marker();
+            var clusterer = new SMap.Marker.Clusterer(map);
+
+            layer.setClusterer(clusterer);
+
+            var markers = [];
+
+            layer.addMarker(markers);
+            map.addLayer(layer).enable();
+
+            var mouseControl = null;
+            var controls = map.getControls();
+
+            for (var i = 0; i < controls.length; i++) {
+                if (controls[i] instanceof SMap.Control.Mouse) {
+                    mouseControl = controls[i];
+                }
+            }
+
+            mouseControl.configure(SMap.MOUSE_PAN | SMap.MOUSE_ZOOM);
+
+            var input = document.getElementById("map-input");
+            var suggest = new SMap.Suggest(input);
+
+            suggest.addListener("suggest", function (suggestData) {
+                initMap(suggestData.data.longitude, suggestData.data.latitude, 13);
+            });
+        }
+    </script>
+{% endput %}
