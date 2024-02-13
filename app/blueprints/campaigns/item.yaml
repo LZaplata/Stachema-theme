@@ -47,3 +47,15 @@ fields:
                 product:
                     type: productpicker
                     nameFrom: title
+
+    merchandise_places:
+        label: Prodejní místa
+        type: repeater
+        span: left
+        form:
+            fields:
+                place:
+                    type: entries
+                    source: Merchandise\Place
+                    displayMode: recordfinder
+                    maxItems: 1

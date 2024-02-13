@@ -20,6 +20,8 @@ sortDirection = "desc"
 
 <div class="container-fluid pb-5" id="campaign">
     <div class="container-lg py-xl-4">
+        {% set merchandise_places = [] %}
+
         {% for campaign in campaigns %}
             <h1 class="mb-4 mb-xl-5">
                 {{ campaign.title }}
@@ -52,6 +54,12 @@ sortDirection = "desc"
                             </p>
                         </a>
                     </div>
+
+                    {% set places = item.merchandise_places.lists("place") %}
+
+                    {% if places|length > 0 %}
+                        {% set merchandise_places = merchandise_places|merge(places) %}
+                    {% endif %}
                 {% endfor %}
             </div>
 
@@ -69,7 +77,7 @@ sortDirection = "desc"
         Prodejní místa
     </h2>
 
-    {% partial "map-events" %}
+    {% partial "map-events" merchandise_places=merchandise_places %}
 </div>
 
 <div class="container-fluid my-5 py-xl-4">

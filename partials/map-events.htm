@@ -27,6 +27,126 @@
 
             var markers = [];
 
+            {% for place in merchandise_places %}
+                var x = "{{ place.lng }}";
+                var y = "{{ place.lat }}";
+                var coords = SMap.Coords.fromWGS84(x, y);
+                var marker = new SMap.Marker(coords, false, {
+                    "url": "{{ ['assets/images/icons/map-point-', place.drug_store ? 'violet' : (place.building_store ? 'red' : (place.company_store ? 'primary' : 'tertiary')), '.svg']|join|theme }}",
+                });
+
+                var card = new SMap.Card();
+                var header = `
+                    <p class="ff-inter fs-15 fw-semibold text-primary mb-0">
+                        {{ place.title }}
+                    </p>
+                `;
+                var body = `
+                    <p class="ff-inter fs-13 fw-regular ls-n02 text-tertiary-55 mb-0 mt-2">
+                        {{ place.street }} <br>
+                        {{ place.zip }} {{ place.city }}
+                    </p>
+                `;
+
+                {% if place.link %}
+                    var body = body + `
+                        <p class="ff-inter fs-13 fw-regular ls-n02 mb-0 mt-2">
+                            <a href="https://{{ place.link }}" target="_blank" class="text-primary text-secondary-hover transition text-decoration-underline-w-hover">
+                                {{ place.link }}
+                            </a>
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.phone %}
+                    var body = body + `
+                        <p class="ff-inter fs-13 ls-n02 mt-3 mb-0 d-flex align-items-center">
+                            <span class="mi-phone mi-16 bg-tertiary"></span>
+
+                            <a href="tel:{{ place.phone }}" target="_blank" class="text-decoration-underline-w-hover text-tertiary text-primary-hover transition ms-2">
+                                {{ place.phone }}
+                            </a>
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.email %}
+                    var body = body + `
+                        <p class="ff-inter fs-13 ls-n02 mt-1 mb-0 d-flex align-items-center">
+                            <span class="mi-paper-plane mi-16 bg-tertiary"></span>
+
+                            <a href="tel:{{ place.email }}" target="_blank" class="text-decoration-underline-w-hover text-tertiary text-primary-hover transition ms-2">
+                                {{ place.email }}
+                            </a>
+                        </p>
+                    `;
+                {% endif %}
+
+                var body = body + `
+                    <div class="d-flex gap-1 mt-3">
+                `;
+
+                {% if place.company_store %}
+                    var body = body + `
+                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-primary">
+                            <img src="{{ 'assets/images/icons/company-store.svg'|theme }}" class="me-2">
+
+                            Firemní prodejna
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.gentleman_store %}
+                    var body = body + `
+                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-black">
+                            <img src="{{ 'assets/images/icons/gentleman-store.svg'|theme }}" class="me-2">
+
+                            Prodejna Gentleman
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.tinting_center %}
+                    var body = body + `
+                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-green">
+                            <img src="{{ 'assets/images/icons/tinting-center.svg'|theme }}" class="me-2">
+
+                            Tónovací centrum
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.drug_store %}
+                    var body = body + `
+                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-violet">
+                            <img src="{{ 'assets/images/icons/drug-store.svg'|theme }}" class="me-2">
+
+                            Barvy-laky-drogerie
+                        </p>
+                    `;
+                {% endif %}
+
+                {% if place.building_store %}
+                    var body = body + `
+                        <p class="ff-inter fs-11 ls-n03 mb-0 d-flex align-items-center fw-medium text-red">
+                            <img src="{{ 'assets/images/icons/building-store.svg'|theme }}" class="me-2">
+
+                            Stavebniny
+                        </p>
+                    `;
+                {% endif %}
+
+                var body = body + `
+                    </div>
+                `;
+
+                card.getHeader().innerHTML = header;
+                card.getBody().innerHTML = body;
+
+                marker.decorate(SMap.Marker.Feature.Card, card);
+                markers.push(marker);
+            {% endfor %}
+
             layer.addMarker(markers);
             map.addLayer(layer).enable();
 

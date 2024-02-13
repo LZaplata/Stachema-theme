@@ -1,0 +1,91 @@
+uuid: f95425a1-ec84-4728-aa14-a2d94fb83843
+handle: Merchandise\Place
+type: stream
+name: Prodejny
+showImport: false
+showExport: false
+
+primaryNavigation:
+    label: Prodejní místa
+    icon: icon-shopping-basket
+    order: 160
+
+navigation:
+    icon: icon-map-marker
+    parent: Merchandise\Place
+    order: 10
+    label: Prodejny
+
+fields:
+    street:
+        label: Ulice
+        type: text
+        span: left
+    zip:
+        label: PSČ
+        type: text
+        span: left
+    city:
+        label: Město
+        type: text
+        span: right
+        column:
+            searchable: true
+    phone:
+        label: Telefon
+        type: text
+        span: left
+    email:
+        label: E-mail
+        type: text
+        span: right
+    ico:
+        label: IČO
+        type: text
+        span: left
+        column:
+            searchable: true
+    link:
+        label: Webové stránky
+        type: text
+        span: right
+    company_store:
+        label: Firemní prodejna
+        type: checkbox
+        span: left
+        column: false
+        scope: false
+    gentleman_store:
+        label: Prodejna Gentleman
+        type: checkbox
+        span: left
+        column: false
+        scope: false
+    tinting_center:
+        label: Tónovací centrum
+        type: checkbox
+        span: left
+        column: false
+        scope: false
+    drug_store:
+        label: Barvy-laky-drogerie
+        type: checkbox
+        span: left
+        column: false
+        scope: false
+    building_store:
+        label: Stavebniny
+        type: checkbox
+        span: left
+        column: false
+        scope: false
+    lat:
+        label: GPS šířka
+        type: text
+        span: left
+        column: false
+    lng:
+        label: GPS délka
+        type: text
+        span: right
+        column: false
