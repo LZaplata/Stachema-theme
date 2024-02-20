@@ -1,0 +1,6 @@
+plugin:
+    name: Import
+    description: Import
+    author: 'Lukáš Záplata'
+    icon: oc-icon-download
+    homepage: ''

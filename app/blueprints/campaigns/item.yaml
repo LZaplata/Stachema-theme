@@ -59,3 +59,11 @@ fields:
                     source: Merchandise\Place
                     displayMode: recordfinder
                     maxItems: 1
+
+    merchandise_places_file:
+        label: Import prodejních míst
+        type: fileupload
+        span: right
+        mode: file
+        fileTypes: csv
+        maxFiles: 1
