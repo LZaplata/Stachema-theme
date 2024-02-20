@@ -52,6 +52,8 @@ fields:
         label: Prodejní místa
         type: repeater
         span: left
+        column: false
+        scope: false
         form:
             fields:
                 place:
@@ -67,3 +69,5 @@ fields:
         mode: file
         fileTypes: csv
         maxFiles: 1
+        column: false
+        scope: false
