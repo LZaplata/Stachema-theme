@@ -58,7 +58,9 @@ sortDirection = "desc"
                     {% set places = item.merchandise_places.lists("place") %}
 
                     {% if places|length > 0 %}
-                        {% set merchandise_places = merchandise_places|merge(places) %}
+                        {% if input("item")[item.id] or input("item")|length == 0 %}
+                            {% set merchandise_places = merchandise_places|merge(places) %}
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
             </div>
@@ -72,13 +74,47 @@ sortDirection = "desc"
     </div>
 </div>
 
-<div>
-    <h2 class="text-center mb-4 mb-xl-5">
-        Prodejní místa
-    </h2>
+<div class="container-fluid mb-5" id="prodejni-mista">
+    <div class="container-lg">
+        <h2 class="text-center mb-4 mb-xl-5">
+            Prodejní místa
+        </h2>
 
-    {% partial "map-events" merchandise_places=merchandise_places %}
+        <form method="get" action="#prodejni-mista">
+            {% for campaign in campaigns %}
+                {% if campaign.items.count == 2 %}
+                    {% set row_cols = "row-cols-sm-2" %}
+                {% elseif campaign.items.count == 3 %}
+                    {% set row_cols = "row-cols-sm-2 row-cols-md-3" %}
+                {% elseif campaign.items.count >= 4 %}
+                    {% set row_cols = "row-cols-sm-2 row-cols-md-3 row-cols-xl-4" %}
+                {% endif %}
+
+                <div class="row row-cols-1 gy-2 gx-4 {{ row_cols }} gx-xxl-5">
+                    {% for item in campaign.items %}
+                        <div class="col">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="{{ item.slug }}" name="item[{{ item.id }}]" {% if input("item")[item.id] or input("item")|length == 0 %}checked{% endif %}>
+
+                                <label class="form-check-label" for="{{ item.slug }}">
+                                    {{ item.title }}
+                                </label>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <div class="mt-4 text-center">
+                <button type="submit" class="btn btn-secondary">
+                    Filtrovat
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
+
+{% partial "map-events" merchandise_places=merchandise_places %}
 
 <div class="container-fluid my-5 py-xl-4">
     <div class="container">

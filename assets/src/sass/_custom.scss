@@ -137,7 +137,10 @@ $offcanvas-color:               map-get($theme-colors, "tertiary");
 //$form-feedback-icon-valid:      url("../images/icons/check-circle.svg");
 //$form-feedback-margin-top:      .5rem;
 $form-check-input-focus-box-shadow: none;
-$form-switch-focus-color:           none;
+$form-check-input-focus-border:     rgba(map-get($theme-colors, "black"), .25);
+$form-check-input-checked-bg-color: map-get($theme-colors, "primary");
+
+$form-switch-focus-bg-image:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-check-input-focus-border}'/></svg>");
 
 $input-font-size:                   map-get($font-sizes, 13);
 $input-border-color:                transparent;
