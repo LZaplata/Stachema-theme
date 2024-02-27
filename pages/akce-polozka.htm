@@ -45,6 +45,12 @@ page = "kategorie"
             {{ item.title }}
         </h1>
 
+        {% if item.banner %}
+            <p class="img mb4 mb-xl-5">
+                <img src="{{ item.banner.thumb(1278, 640, {"mode": "crop"}) }}" alt="{{ item.banner.description }}" class="img-fluid w-100 rounded-4">
+            </p>
+        {% endif %}
+
         <div class="border-1 border-top border-tertiary border-opacity-07 mt-32 pt-32" id="subcategories">
             <h2 class="fs-20 ls-n02 mb-4">
                 Kategorie
