@@ -13,6 +13,10 @@ navigation:
     order: 20
 
 fields:
+    link:
+        label: Odkaz
+        span: left
+
     image:
         label: Obrázek
         type: fileupload
