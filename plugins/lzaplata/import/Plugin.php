@@ -26,7 +26,7 @@ class Plugin extends PluginBase
                         while (($place = fgetcsv($handle, 100)) !== false) {
                             if ($row > 1) {
                                 $model->merchandise_places()->create([
-                                    "place_id" => $place[0],
+                                    "place" => $place[0],
                                 ]);
                             }
 
