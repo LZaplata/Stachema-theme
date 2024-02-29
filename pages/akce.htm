@@ -38,7 +38,7 @@ sortDirection = "desc"
             <div class="items row row-cols-1 gy-5 gx-4 {{ row_cols }} gx-xxl-5">
                 {% for item in campaign.items %}
                     <div class="item col">
-                        <a href="{{ 'akce-polozka'|page({slug: item.slug}) }}" class="d-flex flex-column rounded-4 py-4 text-decoration-none h-100">
+                        <a href="{% if item.link %}{{ item.link }}{% else %}{{ 'akce-polozka'|page({slug: item.slug}) }}{% endif %}" class="d-flex flex-column rounded-4 py-4 text-decoration-none h-100">
                             <h2 class="title h4 text-white fw-regular text-center px-4">
                                 {{ item.title }}
                             </h2>
