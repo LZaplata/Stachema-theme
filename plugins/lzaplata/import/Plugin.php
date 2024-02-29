@@ -25,9 +25,15 @@ class Plugin extends PluginBase
 
                         while (($place = fgetcsv($handle, 100)) !== false) {
                             if ($row > 1) {
-                                $model->merchandise_places()->create([
-                                    "place" => $place[0],
-                                ]);
+                                $merchandisePlace = EntryRecord::inSection("Merchandise\Place")
+                                    ->where("id", $place[0])
+                                    ->first();
+
+                                if ($merchandisePlace) {
+                                    $model->merchandise_places()->create([
+                                        "place" => $place[0],
+                                    ]);
+                                }
                             }
 
                             $row++;
