@@ -27,6 +27,10 @@ sortDirection = "desc"
                 {{ campaign.title }}
             </h1>
 
+            <div class="post-content mb-4 mb-xl-5 mx-0">
+                {{ campaign.text|raw }}
+            </div>
+
             {% if campaign.items.count == 2 %}
                 {% set row_cols = "row-cols-sm-2" %}
             {% elseif campaign.items.count == 3 %}
