@@ -74,6 +74,11 @@ tabs:
             span: right
             type: text
             tab: 'lzaplata.catalog::lang.product.tab.parameters.label'
+        shades:
+            label: 'lzaplata.catalog::lang.product.field.shades.label'
+            span: left
+            type: text
+            tab: 'lzaplata.catalog::lang.product.tab.parameters.label'
         files:
             label: 'lzaplata.catalog::lang.product.field.files.label'
             prompt: 'lzaplata.catalog::lang.product.field.files.prompt'

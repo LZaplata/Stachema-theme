@@ -105,6 +105,9 @@
             'text' => [
                 'label' => 'Text',
             ],
+            'shades' => [
+                'label' => 'Odstíny',
+            ],
         ],
         'column' => [
             'title' => 'Název',
