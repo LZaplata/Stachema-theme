@@ -16,6 +16,7 @@ fields:
     link:
         label: Odkaz
         span: left
+        tab: Náhled
 
     image:
         label: Obrázek
@@ -25,6 +26,7 @@ fields:
         column: false
         scope: false
         span: left
+        tab: Náhled
 
     label:
         label: Žlutý pruh
@@ -34,6 +36,7 @@ fields:
         column: false
         scope: false
         span: right
+        tab: Náhled
 
     banner:
         label: Banner
@@ -43,6 +46,39 @@ fields:
         column: false
         scope: false
         span: left
+        tab: Detail
+
+    excerpt:
+        label: Perex
+        type: textarea
+        span: right
+        column: false
+        scope: false
+        tab: Detail
+
+    action_text:
+        label: Akční nabídka
+        type: richeditor
+        column: false
+        scope: false
+        tab: Detail
+
+    product:
+        label: Parametry
+        commentAbove: Vyberte produkt od kterého se mají brát parametry do šedého boxu
+        span: left
+        type: productpicker
+        nameFrom: title
+        tab: Detail
+        column: false
+        scope: false
+
+    text:
+        label: Popis
+        type: richeditor
+        column: false
+        scope: false
+        tab: Detail
 
     categories:
         label: Kategorie
@@ -51,6 +87,7 @@ fields:
         column: false
         scope: false
         itemsExpanded: false
+        tab: Detail
         form:
             fields:
                 category:
@@ -64,6 +101,7 @@ fields:
         column: false
         scope: false
         itemsExpanded: false
+        tab: Detail
         form:
             fields:
                 product:
@@ -76,6 +114,7 @@ fields:
         span: left
         column: false
         scope: false
+        tab: Detail
         form:
             fields:
                 place:
@@ -93,3 +132,4 @@ fields:
         maxFiles: 1
         column: false
         scope: false
+        tab: Detail

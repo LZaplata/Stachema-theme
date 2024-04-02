@@ -37,42 +37,220 @@ page = "kategorie"
     {% set productIds = productIds|merge([product.product_id]) %}
 {% endfor %}
 
+{% set product = item.product %}
+
 {% partial "breadcrumb" items=items %}
 
-<div class="container-fluid pb-5" id="campaign">
-    <div class="container-lg py-xl-4">
-        <h1 class="mb-4 mb-xl-5 col-xl-10 offset-xl-1">
-            {{ item.title }}
-        </h1>
+<div class="container-fluid pb-5 px-0" id="product">
+    <div class="pt-xl-4">
+        <div class="product">
+            <div class="container-lg">
+                <div class="row row-cols-1 mt-2 row-cols-md-2 mt-xl-0 g-xl-5 g-xxl-80">
+                    <div class="col col-xl-7 mt-xl-0">
+                        {% if item.banner %}
+                            <p class="img mb-0 border-1 border border-gray rounded-3">
+                                <img src="{{ item.banner.thumb(600, 400, {"mode": "crop"}) }}" alt="{{ item.banner.description }}" class="img-fluid w-100 rounded-4">
+                            </p>
+                        {% endif %}
 
-        {% if item.banner %}
-            <p class="img mb4 mb-xl-5">
-                <img src="{{ item.banner.thumb(1278, 640, {"mode": "crop"}) }}" alt="{{ item.banner.description }}" class="img-fluid w-100 rounded-4">
-            </p>
-        {% endif %}
+                        {% if item.action_text %}
+                            <div class="mt-4">
+                                <h2 class="ls-n02 fs-18 mb-3">
+                                    Akční nabídka
+                                </h2>
 
-        <div class="border-1 border-top border-tertiary border-opacity-07 mt-32 pt-32" id="subcategories">
-            <h2 class="fs-20 ls-n02 mb-4">
-                Kategorie
-            </h2>
+                                <div class="ls-n02 lh-24">
+                                    {{ item.action_text|raw }}
+                                </div>
+                            </div>
+                        {% endif %}
 
-            {% component "subcategories" ids=categoryIds %}
+                        <p class="mb-0 mt-4">
+                            <a href="" class="btn btn-secondary">
+                                Kde zakoupit
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="col mt-4 mt-md-0 col-xl-5">
+                        <h1 class="mb-3">
+                            {{ item.title }}
+                        </h1>
+
+                        {% if item.excerpt %}
+                            <div class="excerpt ls-n02">
+                                {{ item.excerpt }}
+                            </div>
+                        {% endif %}
+
+                        <div class="rounded-3 bg-tertiary bg-opacity-05 p-4 mt-4">
+                            <h2 class="ls-n02 fs-18 mb-3">
+                                Parametry
+                            </h2>
+
+                            <div class="d-flex flex-column gap-3 ls-n02">
+                                {% set pattern = "@(.+?):(.+)@" %}
+
+                                {% if product.shades %}
+                                    <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                        {% set shades = preg_match(pattern, product.shades) %}
+
+                                        <span class="text-tertiary-55">
+                                            {{ shades.1 }}:
+                                        </span>
+
+                                        <span class="fw-semibold mt-1">
+                                            {{ shades.2 }}
+                                        </span>
+                                    </p>
+                                {% endif %}
+
+                                {% if product.consumption %}
+                                    <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                        {% set consumption = preg_match(pattern, product.consumption) %}
+
+                                        <span class="text-tertiary-55">
+                                            {{ consumption.1 }}:
+                                        </span>
+
+                                        <span class="fw-semibold mt-1">
+                                            {{ consumption.2 }}
+                                        </span>
+                                    </p>
+                                {% endif %}
+
+                                {% if product.packages %}
+                                    <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                        {% set packages = preg_match(pattern, product.packages) %}
+
+                                        <span class="text-tertiary-55">
+                                            {{ packages.1 }}:
+                                        </span>
+
+                                        <span class="fw-semibold mt-1">
+                                            {{ packages.2 }}
+                                        </span>
+                                    </p>
+                                {% endif %}
+
+                                {% if product.key_properties %}
+                                    <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                        {% set key_properties = preg_match(pattern, product.key_properties) %}
+
+                                        <span class="text-tertiary-55">
+                                            {{ key_properties.1 }}:
+                                        </span>
+
+                                        <span class="fw-semibold mt-1">
+                                            {{ key_properties.2 }}
+                                        </span>
+                                    </p>
+                                {% endif %}
+
+                                {% if product.usage %}
+                                    <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                        <span class="text-tertiary-55">
+                                            Použití:
+                                        </span>
+
+                                        <span class="fw-semibold mt-1">
+                                            {{ product.usage }}
+                                        </span>
+                                    </p>
+                                {% endif %}
+
+                                {% if product.application %}
+                                    <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                        <span class="text-tertiary-55">
+                                            Aplikace:
+                                        </span>
+
+                                        <span class="fw-semibold mt-1">
+                                            {{ product.application }}
+                                        </span>
+                                    </p>
+                                {% endif %}
+
+                                {% if product.processing %}
+                                    <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                        <span class="text-tertiary-55">
+                                            Zpracování:
+                                        </span>
+
+                                        <span class="fw-semibold mt-1">
+                                            {{ product.processing }}
+                                        </span>
+                                    </p>
+                                {% endif %}
+
+                                {% if product.properties %}
+                                    <p class="mb-0 d-flex flex-column w-100 justify-content-between text-tertiary">
+                                        <span class="text-tertiary-55">
+                                            Vlastnosti:
+                                        </span>
+
+                                        <span class="fw-semibold mt-1">
+                                            {{ product.properties }}
+                                        </span>
+                                    </p>
+                                {% endif %}
+
+                                {% if product.warning %}
+                                    <p class="mb-0 mt-2 d-flex align-items-start warning">
+                                        {% set warning = preg_match(pattern, product.warning) %}
+
+                                        <img src="{{ 'assets/images/icons/info.svg'|theme }}" alt="info" class="me-1 of-none">
+
+                                        <span class="text-tertiary-55 ls-n02">
+                                            {{ warning.2 }}
+                                        </span>
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-32 pt-4 border-1 border-top border-tertiary border-opacity-07 mt-xl-5 pt-xl-32">
+                    <div class="row row-cols-1 row-cols-md-2 g-xl-5 g-xxl-80">
+                        <div class="col col-xl-7">
+                            <h2 class="ls-n02 fs-18 mb-3">
+                                Popis
+                            </h2>
+
+                            {% if item.text %}
+                                <div class="ls-n02 lh-24">
+                                    {{ item.text|raw }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col mt-4 mt-md-0 col-xl-5 mt-xl-5 mt-xxl-80">
+                            <h2 class="ls-n02 fs-18 mb-3">
+                                Dokumenty ke stažení
+                            </h2>
+
+                            <div class="ls-n02 lh-24">
+                                Dokumenty ke stažení najdete na <a href="{{ 'produkt'|page({slug: product.slug}) }}">stránce produktu</a>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-32 pt-xl-32 mt-xl-5 border-1 border-top border-tertiary border-opacity-07">
+                    <div id="subcategories">
+                        <h2 class="fs-20 ls-n02 mb-4">
+                            Kategorie
+                        </h2>
+
+                        {% component "subcategories" ids=categoryIds %}
+                    </div>
+
+                    <div class="mt-5 pt-xl-3">
+                        {% component "products" ids=productIds %}
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="mt-5 pt-xl-3">
-            {% component "products" ids=productIds %}
-        </div>
-
-{#        {% if first_image %}#}
-{#            <p class="img mb4 mb-xl-5">#}
-{#                <img src="{{ first_image.thumb(1278, 640, {"mode": "crop"}) }}" alt="{{ first_image.description }}" class="img-fluid w-100 rounded-4">#}
-{#            </p>#}
-{#        {% endif %}#}
-
-{#        {% if post.content %}#}
-{#            <div class="post-content">#}
-{#                {{ post.content|raw }}#}
-{#            </div>#}
-{#        {% endif %}#}
     </div>
 </div>
