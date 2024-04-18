@@ -58,7 +58,8 @@ class Product extends ComponentBase
         if ($category) {
             $products = $category
                 ->products
-                ->where("id", "!=", $this->product->id);
+                ->where("id", "!=", $this->product->id)
+                ->where("visibility", "=", true);
 
             $products->each(function ($product) {
                 $product->setUrl($this->page->id, $this->controller);
