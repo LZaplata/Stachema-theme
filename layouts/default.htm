@@ -39,28 +39,32 @@ code = "branches-menu"
 
         {% styles %}
 
-        {% if sgCookies.analytics %}
-            <!-- Google Tag Manager -->
-            <script>
-                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','GTM-MPVB426');
-            </script>
-            <!-- End Google Tag Manager -->
-        {% endif %}
+        <!-- Google Tag Manager -->
+        <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MPVB426');
+
+            gtag("consent", "default", {
+                functionality_storage: "granted",
+                analytics_storage: {{ sgCookies.analytics ? "granted" : "denied" }},                // analytické cookies
+                ad_storage: {{ sgCookies.marketing ? "granted" : "denied" }},                       // marketingové cookies
+                ad_user_data: {{ sgCookies.marketing_activities ? "granted" : "denied" }},          // marketingové aktivity
+                ad_personalization: {{ sgCookies.personalization ? "granted" : "denied" }},         // personalizovaná reklama
+            });
+        </script>
+        <!-- End Google Tag Manager -->
     </head>
 
     <body>
-        {% if sgCookies.analytics %}
-            <!-- Google Tag Manager (noscript) -->
-            <noscript>
-                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPVB426"
-                        height="0" width="0" style="display:none;visibility:hidden"></iframe>
-            </noscript>
-            <!-- End Google Tag Manager (noscript) -->
-        {% endif %}
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPVB426"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
 
         {% partial "header" %}
 
