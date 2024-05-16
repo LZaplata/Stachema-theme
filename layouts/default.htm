@@ -41,15 +41,23 @@ code = "branches-menu"
 
         <script>
             window.dataLayer = window.dataLayer || [];
-            function gtag() { window.dataLayer.push(arguments); }
+            function gtag() {dataLayer.push(arguments);}
 
-            gtag("consent", "update", {
+            gtag("consent", "default", {
                 functionality_storage: "granted",
-                analytics_storage: {{ sgCookies.analytics ? "granted" : "denied" }},                // analytické cookies
-                ad_storage: {{ sgCookies.marketing ? "granted" : "denied" }},                       // marketingové cookies
-                ad_user_data: {{ sgCookies.marketing_activities ? "granted" : "denied" }},          // marketingové aktivity
-                ad_personalization: {{ sgCookies.personalization ? "granted" : "denied" }},         // personalizovaná reklama
+                analytics_storage: "denied",                                                        // analytické cookies
+                ad_storage: "denied",                                                               // marketingové cookies
+                ad_user_data: "denied",                                                             // marketingové aktivity
+                // ad_personalization: "denied",                                                       // personalizovaná reklama
             });
+
+            {#gtag("consent", "update", {#}
+            {#    functionality_storage: "granted",#}
+            {#    analytics_storage: {{ sgCookies.analytics ? "granted" : "denied" }},                // analytické cookies#}
+            {#    ad_storage: {{ sgCookies.marketing ? "granted" : "denied" }},                       // marketingové cookies#}
+            {#    ad_user_data: {{ sgCookies.marketing_activities ? "granted" : "denied" }},          // marketingové aktivity#}
+            {#    ad_personalization: {{ sgCookies.personalization ? "granted" : "denied" }},         // personalizovaná reklama#}
+            {#});#}
         </script>
 
         <!-- Google Tag Manager -->
