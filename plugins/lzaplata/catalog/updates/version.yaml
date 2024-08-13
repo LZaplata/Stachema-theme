@@ -4,3 +4,5 @@ v1.0.0:
 v1.0.1:
     - 'Add visibility column to products table'
     - add_visibility_column_to_products_table.php
+v1.0.2:
+    - 'Redirect to homepage in product component if product not found'

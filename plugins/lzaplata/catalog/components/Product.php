@@ -1,6 +1,8 @@
 <?php namespace LZaplata\Catalog\Components;
 
 use Cms\Classes\ComponentBase;
+use Cms\Facades\Cms;
+use Illuminate\Http\RedirectResponse;
 use LZaplata\Catalog\Models\Category;
 use LZaplata\Catalog\Models\Product as ProductModel;
 use October\Rain\Database\Collection;
@@ -39,11 +41,25 @@ class Product extends ComponentBase
     }
 
     /**
+     * @return RedirectResponse|null
+     */
+    public function onRun(): ?RedirectResponse
+    {
+        if (!$this->product()) {
+            return Cms::redirect("homepage");
+        }
+
+        return null;
+    }
+
+    /**
      * @return ProductModel|null
      */
     public function product(): ?ProductModel
     {
-        return $this->product = ProductModel::where("slug", $this->param("slug"))->first();
+        return $this->product = ProductModel::where("slug", $this->param("slug"))
+            ->where("visibility", true)
+            ->first();
     }
 
     /**
@@ -51,19 +67,21 @@ class Product extends ComponentBase
      */
     public function alternativeProducts(): ?Collection
     {
-        $category = Category::whereRelation("products", "id", $this->product->id)
-            ->where("stachema_id", "!=", null)
-            ->first();
+        if ($this->product) {
+            $category = Category::whereRelation("products", "id", $this->product->id)
+                ->where("stachema_id", "!=", null)
+                ->first();
 
-        if ($category) {
-            $products = $category
-                ->products
-                ->where("id", "!=", $this->product->id)
-                ->where("visibility", "=", true);
+            if ($category) {
+                $products = $category
+                    ->products
+                    ->where("id", "!=", $this->product->id)
+                    ->where("visibility", "=", true);
 
-            $products->each(function ($product) {
-                $product->setUrl($this->page->id, $this->controller);
-            });
+                $products->each(function ($product) {
+                    $product->setUrl($this->page->id, $this->controller);
+                });
+            }
         }
 
         return $products ?? null;
