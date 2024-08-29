@@ -6,3 +6,5 @@ v1.0.1:
     - add_visibility_column_to_products_table.php
 v1.0.2:
     - 'Redirect to homepage in product component if product not found'
+v1.0.3:
+    - 'Product warning edit option'

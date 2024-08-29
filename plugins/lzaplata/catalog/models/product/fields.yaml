@@ -79,6 +79,11 @@ tabs:
             span: left
             type: text
             tab: 'lzaplata.catalog::lang.product.tab.parameters.label'
+        warning:
+            label: 'lzaplata.catalog::lang.product.field.warning.label'
+            span: left
+            type: text
+            tab: 'lzaplata.catalog::lang.product.tab.parameters.label'
         files:
             label: 'lzaplata.catalog::lang.product.field.files.label'
             prompt: 'lzaplata.catalog::lang.product.field.files.prompt'

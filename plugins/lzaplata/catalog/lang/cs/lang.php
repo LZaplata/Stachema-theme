@@ -108,6 +108,9 @@
             'shades' => [
                 'label' => 'Odstíny',
             ],
+            'warning' => [
+                'label' => 'Varování',
+            ],
         ],
         'column' => [
             'title' => 'Název',
