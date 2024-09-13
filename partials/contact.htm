@@ -20,6 +20,22 @@
     </p>
 {% endif %}
 
+{% if contact.ico or contact.dic %}
+    <p class="fs-13 ls-n02 mb-2">
+        {% if contact.ico %}
+            IČO: {{ contact.ico }}
+        {% endif %}
+
+        {% if contact.dic %}
+            {% if contact.ico %}
+                <br>
+            {% endif %}
+
+            DIČ: {{ contact.dic }}
+        {% endif %}
+    </p>
+{% endif %}
+
 {% if contact.opening_hours %}
     <p class="fs-13 ls-n02 mb-2 d-flex flex-column gap-0">
         {% for opening_hour in contact.opening_hours %}

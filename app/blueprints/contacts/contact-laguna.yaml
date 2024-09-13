@@ -1,0 +1,92 @@
+uuid: contacts_contacts_laguna
+handle: Contacts\ContactLaguna
+type: structure
+name: Kontakty
+drafts: false
+showImport: false
+showExport: false
+multisite: false
+
+structure:
+    maxDepth: 1
+
+navigation:
+    icon: icon-phone
+    parent: Contacts\Category
+    order: 50
+    label: Kontakty Laguna
+
+fields:
+    personal:
+        label: Personální kontakt
+        type: switch
+        default: true
+        column: false
+    job:
+        label: Pozice
+        type: text
+        span: left
+        trigger:
+            action: show
+            field: personal
+            condition: checked
+    street:
+        label: Ulice
+        type: text
+        span: left
+        column: false
+        trigger:
+            action: show
+            field: personal
+            condition: unchecked
+    street_no:
+        label: Číslo poštovné
+        type: text
+        span: right
+        column: false
+        trigger:
+            action: show
+            field: personal
+            condition: unchecked
+    zip:
+        label: PSČ
+        type: text
+        span: left
+        column: false
+        trigger:
+            action: show
+            field: personal
+            condition: unchecked
+    city:
+        label: Město
+        type: text
+        span: right
+        column: false
+        trigger:
+            action: show
+            field: personal
+            condition: unchecked
+    phone:
+        label: Telefon
+        type: text
+        span: left
+    phone2:
+        label: Telefon 2
+        type: text
+        span: right
+        column: false
+    fax:
+        label: Fax
+        type: text
+        span: left
+        column: false
+    email:
+        label: E-mail
+        type: text
+        span: right
+        validation: email
+    category:
+        label: Kategorie
+        type: entries
+        source: Contacts\CategoryLaguna
+        span: left

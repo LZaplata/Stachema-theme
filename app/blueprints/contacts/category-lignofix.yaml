@@ -1,0 +1,97 @@
+uuid: contacts_categories_lignofix
+handle: Contacts\CategoryLignofix
+type: structure
+name: Kategorie
+drafts: false
+showImport: false
+showExport: false
+multisite: false
+
+structure:
+    maxDepth: 2
+    treeExpanded: false
+
+navigation:
+    icon: icon-sitemap
+    parent: Contacts\Category
+    order: 30
+    label: Kategorie Lignofix
+
+fields:
+    name:
+        label: Název
+        type: text
+        span: left
+    street:
+        label: Ulice
+        type: text
+        span: left
+        column: false
+    street_no:
+        label: Číslo poštovné
+        type: text
+        span: right
+        column: false
+    zip:
+        label: PSČ
+        type: text
+        span: left
+        column: false
+    city:
+        label: Město
+        type: text
+        span: right
+        column: false
+    po_box:
+        label: P. O. BOX
+        type: text
+        span: left
+        column: false
+    map_link:
+        label: Odkaz na mapu
+        type: text
+        span: left
+        column: false
+    phone:
+        label: Telefon
+        type: text
+        span: left
+        column: false
+    phone2:
+        label: Telefon 2
+        type: text
+        span: right
+        column: false
+    fax:
+        label: Fax
+        type: text
+        span: left
+        column: false
+    email:
+        label: E-mail
+        type: text
+        span: left
+        validation: email
+        column: false
+    web:
+        label: Webové stránky
+        type: text
+        span: right
+    opening_hours:
+        label: Otevírací doba
+        type: repeater
+        form:
+            fields:
+                day:
+                    label: Den
+                    type: text
+                    span: left
+                time:
+                    label: Čas
+                    type: text
+                    span: right
+    homepage:
+        label: Zobrazit na homepage
+        type: switch
+        span: left
+        default: false
